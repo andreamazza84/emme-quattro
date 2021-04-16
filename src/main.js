@@ -6,7 +6,6 @@ import VueAxios from 'vue-axios'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-//import "@/app.scss" 
 
 //Axios
 Vue.use(VueAxios, axios);

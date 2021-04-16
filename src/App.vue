@@ -27,8 +27,8 @@ export default {}
 </script>
 
 <style lang="scss">
-@import "~@/scss/commons/variables.scss";
-@import "~@/scss/commons/common.scss";
-@import "~@/scss/commons/general.scss";
+  @import "~@/scss/commons/variables.scss";
+  @import "~@/scss/commons/common.scss";
+  @import "~@/scss/commons/general.scss";
 </style>
 
