@@ -37,30 +37,5 @@ export default {
             prodotti: store.prodotti,
         }
     },
-    mounted() {
-    }
 }
 </script>
-<style lang="scss">
-.cards{
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    .card{
-        display: flex;
-        flex-direction: column;
-        align-items: space-around;
-        justify-content: center;
-        width: calc(100% / 6);
-        min-height: 300px;
-        padding: 20px;
-        border: 1px solid #aaa;
-        list-style: none;
-            img{
-                width: 100%;
-                height: 100%;
-        }
-    }
-}
-
-</style>

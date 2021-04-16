@@ -1,17 +1,4 @@
-*{
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-
-/*Commons*/
-
-/*/Commons*/
-
-/*Variables*/
-
 /*Colors*/
-
 $darkcolor: #222;
 $lightcolor: #f7f7f7;
 
@@ -23,14 +10,3 @@ $normal: 16px;
 $text: 14px;
 $small: 11px;
 
-/*/Variables*/
-
-.container{
-  width: 80%;
-  height: 100%;
-  max-width: 1170px;
-  margin: auto;
-}
-section{
-  padding: 40px 0;
-}

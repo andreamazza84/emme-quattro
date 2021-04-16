@@ -19,84 +19,16 @@
     </div>
   </div>
 </template>
+
 <script>
 import axios from 'axios'
 import VueAxios from 'vue-axios'
-//import app from  '@/scss/app.scss'
-
-export default {
-
-}
+export default {}
 </script>
+
 <style lang="scss">
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
-
-/*Variables*/
-
-/*Colors*/
-
-$darkcolor: #222;
-$lightcolor: #f7f7f7;
-
-/*Font sizes*/
-$xxlarge: 45px;
-$xlarge: 36px;
-$large: 24px;
-$normal: 16px;
-$text: 14px;
-$small: 11px;
-
-/*/Variables*/
-
-.container{
-  width: 80%;
-  height: 100%;
-  max-width: 1170px;
-  margin: auto;
-}
-section{
-  padding: 40px 0;
-}
-
-#app {
-  font-family: 'Poppins', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  background-color: #f7f7f7;
-}
-
-#nav {
-  position: fixed;
-  width: 100%;
-  height: 100px;
-  background-color: $darkcolor;
-  .container{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    a {
-      font-weight: bold;
-      color: #2c3e50;
-
-      &.router-link-exact-active {
-        color: #42b983;
-      }
-    }
-  }
-}
-
-#main{
-  padding-top: 100px;
-  min-height: 100vh;
-}
-
-#footer{
-  min-height: 300px;
-  width: 100%;
-  background-color: $darkcolor;
-}
+@import "~@/scss/commons/variables.scss";
+@import "~@/scss/commons/common.scss";
+@import "~@/scss/commons/general.scss";
 </style>
 
