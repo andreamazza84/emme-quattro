@@ -34,7 +34,7 @@ export default {
     
     data(){
         return{
-            prodotti: store.prodotti,
+            prodotti: Object.freeze(store.prodotti),
         }
     },
 }

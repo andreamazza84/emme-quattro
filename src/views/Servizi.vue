@@ -34,7 +34,7 @@ export default {
     
     data(){
         return{
-            servizi: store.servizi,
+            servizi: Object.freeze(store.servizi),
         }
     },
 }

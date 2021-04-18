@@ -28,5 +28,5 @@ axios
   })
 
 let store = {prodotti, servizi};  
-
+//console.log(store);
 export default store;
