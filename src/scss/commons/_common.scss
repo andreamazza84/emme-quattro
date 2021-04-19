@@ -3,16 +3,52 @@
   margin: 0;
   box-sizing: border-box;
 }
+
+#app {
+  font-family: 'Poppins', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  background-color: #f7f7f7;
+}
+
 .container{
   width: 80%;
   height: 100%;
-  max-width: 1170px;
+  max-width: $maxScreen;
   margin: auto;
 }
+
 section{
   padding: 40px 0;
 }
 
+li{
+  list-style: none;
+}
+
+a{
+  text-decoration: none;
+  color: inherit;
+}
+
+input, button{
+  font-size: $text;
+  font-family: 'Poppins', sans-serif;
+}
+
+@mixin btn {
+  width: max-content;
+  height: auto;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: $normal;
+  border: 1px solid $borderlightcolor;
+  cursor: pointer;
+}
+
+/*Cards*/
 .cards{
     display: flex;
     justify-content: flex-start;
