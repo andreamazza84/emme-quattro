@@ -10,7 +10,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 //Axios
 Vue.use(VueAxios, axios);
-Vue.axios.defaults.baseURL = 'http://localhost:8880/wp-json';
+//Vue.axios.defaults.baseURL = 'http://localhost:8880/wp-json';
 
 //FontAwesome
 library.add(faUserSecret)

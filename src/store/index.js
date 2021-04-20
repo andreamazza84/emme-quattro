@@ -20,7 +20,7 @@ export default new Vuex.Store({
     login({ commit }, credentials){
       return new Promise(async (resolve, reject) => {
         try {
-          const { data }  = await axios.post(`https://localhost:8880/wp-json/jwt-auth/v1/token`, credentials)
+          const { data }  = await axios.post(`http://localhost:8880/wp-json/jwt-auth/v1/token`, credentials)
           commit('SET_USER', data)
           resolve(data)
         }catch(e){
@@ -30,7 +30,7 @@ export default new Vuex.Store({
     },
     validate({ state }) {
       return axios({
-        url: `https://localhost:8880/wp-json/jwt-auth/v1/token/validate`, 
+        url: `http://localhost:8880/wp-json/jwt-auth/v1/token/validate`, 
         method: 'post',
         headers: {
           'Authorization': `Bearer ${state.user.token}`
