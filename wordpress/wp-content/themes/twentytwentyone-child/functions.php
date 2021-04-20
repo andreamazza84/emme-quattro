@@ -18,7 +18,7 @@
         );
     }
 
-//The action callback accepts an WP_User object of our newly registered user in which we can remove_role
+// The action callback accepts an WP_User object of our newly registered user in which we can remove_role
 // subscriber and add_role author. Now once the plugin is installed we are able to send a POST request to 
 // the endpoint http://example.com/wp-json/wp/v2/users/register with the required POST body of username, 
 // email and password. Upon successful registration we should see a response from our server
@@ -28,4 +28,15 @@
     {
         $user->remove_role('subscriber');
         $user->add_role('author');
+    }
+
+// We will be hooking into jwt_auth_token_before_dispatch filter so we can add the user’s role to our token
+// response. This will be helpful if we want to do permission checks on certain routes in our front-end application 
+// to make sure user’s have the correct roles to access those routes.
+
+    add_filter('jwt_auth_token_before_dispatch', 'add_user_role_response', 10, 2);
+    function add_user_role_response($data, $user)
+    {
+        $data['roles'] = $user->roles;
+        return $data;
     }
