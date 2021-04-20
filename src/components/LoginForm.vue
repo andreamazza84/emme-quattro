@@ -39,6 +39,15 @@ export default {
   },
   methods: {
     async login() {
+      try{
+        const result = await this.$store.dispatch('login', this.form)
+        const { redirect = false } = this.$route.query
+        const path = redirect ? decodeURI(redirect) : '/'
+        this.$router.push({ path })
+      }catch(e){
+        console.log("Error:")
+        console.log(e)
+      }
     }
   }
 }

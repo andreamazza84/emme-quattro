@@ -28,13 +28,13 @@
     </div> 
 </template>
 <script>
-import store from "@/store.js";
+import apigetdata from "@/store.js";
 
 export default {
     
     data(){
         return{
-            servizi: Object.freeze(store.servizi),
+            servizi: Object.freeze(apigetdata.servizi),
         }
     },
 }

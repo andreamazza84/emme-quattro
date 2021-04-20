@@ -27,6 +27,6 @@ axios
     console.log(error);
   })
 
-let store = {prodotti, servizi};  
+let apigetdata = {prodotti, servizi};  
 //console.log(store);
-export default store;
+export default apigetdata;

@@ -9,6 +9,8 @@
         <router-link to="/news">News</router-link>
         <router-link to="/contatti">Contatti</router-link>
         <router-link to="/area-clienti">Area Clienti</router-link>
+        <router-link to="/login">Login</router-link>
+        <router-link to="/protected">Protected</router-link>
       </div>
     </div>
     

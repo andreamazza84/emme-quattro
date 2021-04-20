@@ -3,6 +3,7 @@ import App from './App.vue'
 import router from './router'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+import Vuex from 'vuex'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
@@ -19,5 +20,6 @@ Vue.config.productionTip = false
 
 new Vue({
   router,
-  render: h => h(App)
+  store,
+  render: h => h(App),
 }).$mount('#app')
