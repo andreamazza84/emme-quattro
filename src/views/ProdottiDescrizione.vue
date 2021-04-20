@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import store from "@/store.js"
+import apigetdata from "@/apicall.js"
 export default {
   props: {
     slug: {
@@ -22,7 +22,7 @@ export default {
   },
   data(){
     return {
-      prodotti: store.prodotti,
+      prodotti: apigetdata.prodotti,
     }
   },
   computed: {

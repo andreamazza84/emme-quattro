@@ -26,13 +26,11 @@
   import axios from 'axios'
   import VueAxios from 'vue-axios'
   export default {
-  //props: ["store"], 
-  //Prodotti
   data(){
     return {
-      prodotti: [],
-      servizi: [],
-      store: {},
+      //prodotti: [],
+      //servizi: [],
+      //store: {},
     }
   },
   methods: {

@@ -28,7 +28,7 @@
     </div> 
 </template>
 <script>
-import apigetdata from "@/store.js";
+import apigetdata from "@/apicall.js";
 
 export default {
     
