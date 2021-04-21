@@ -12,7 +12,12 @@ export default {
   },
   methods:{
     logout: function(){
-      this.$store.dispatch('logout');
+      if(this.$store.state.user != null){
+        this.$store.dispatch('logout');
+        //redirect 
+        this.$router.push('/');
+        alert('Logout successfully');
+      }
     }
   },
 }
