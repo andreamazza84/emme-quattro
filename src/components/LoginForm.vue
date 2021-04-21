@@ -39,9 +39,7 @@ export default {
       try{
         const result = await this.$store.dispatch('login', this.form);
         const { redirect = false } = this.$route.query;
-        //console.log("this.$route.query", this.$route.query);
         const path = redirect ? decodeURI(redirect) : '/';
-        //console.log("redirect", decodeURI(redirect));
         this.$router.push({ path });
       }
       catch(error){

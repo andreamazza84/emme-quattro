@@ -42,6 +42,20 @@ export default new Vuex.Store({
     logout({ commit }){
       commit('DELETE_USER', 'null');
     },
+    //Registration
+    register(credentials){
+      return new Promise(async (resolve, reject) =>{
+        try{
+          const { data } = await axios.post(`http://localhost:8880/wp-json/wp/v2/users/register`, credentials)
+          resolve(data)
+          console.log(data);
+        }
+        catch(error){
+          reject(error);
+          //console.log("Error ", error);
+        }
+      });
+    },
   },
   modules: {
   }

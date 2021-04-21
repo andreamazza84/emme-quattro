@@ -3,32 +3,27 @@
     <div id="area-clienti">
         <div class="container">
             <h2>Area clienti</h2> 
-            <form class="registration" action="#" method="POST">
+            <form @submit.prevent="register()" class="registration" method="POST">
             <p>Registrarsi consente di visualizzare tutte le informazioni riguardanti i prodotti, come le <em>schede di sicurezza</em>, i <em>codice prodotti</em>, ecc.</p>
-                <!-- Nome -->
+                <!-- Username -->
                 <div class="field name">
-                    <label for="name">Nome</label>
-                    <input type="text" name="name" id="" required>
-                </div>
-                <!-- Cognome -->
-                <div class="field lastname">
-                    <label for="lastname">Cognome</label>
-                    <input type="text" name="lastname" id="" required>
+                    <label for="name">Username</label>
+                    <input v-model="form.username" type="text" name="name" id="name" required>
                 </div>
                 <!-- Email -->
                 <div class="field email">
                     <label for="email">Email</label>
-                    <input type="email" name="email" id="" required>
+                    <input v-model="form.email" type="email" name="email" id="email" required>
                 </div>
                 <div class="field password">
                     <!-- Password -->
                     <label for="password">Password</label>        
-                    <input type="password" name="password" id="" required>
+                    <input v-model="form.password" type="password" name="password" id="password" required>
                 </div>
                 <div class="field password">
                     <!-- Confirm password -->
-                    <label for="password">Conferma password</label>        
-                    <input type="password" name="password" id="" required>
+                    <label for="confirm-password">Conferma password</label>        
+                    <input type="password" name="password" id="confirm-password" required>
                 </div>
                 <div class="field submit">
                     <button type="submit" class="btn">Invia</button>
@@ -38,6 +33,38 @@
     </div>
 
 </template>
+
+<script>
+
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+
+export default {
+    data(){
+        return{
+            form: {
+                username: '',
+                email: '',
+                password: '',
+            }
+        }
+    },
+    methods:{
+        async register(){
+            try{
+                const result = await this.$store.dispatch('register', this.form);
+                const { redirect = false } = this.$route.query;
+                const path = redirect ? decodeURI(redirect) : '/';
+                this.$router.push({ path });
+            }
+            catch(error){
+                console.log("Error ", error);
+            }
+        }
+    }
+}
+
+</script>
 
 <style lang="scss">
 .container{
@@ -73,15 +100,3 @@
 }
 
 </style>
-
-<script>
-
-import axios from 'axios'
-import VueAxios from 'vue-axios'
-
-export default {
-    
-}
-
-</script>
-
