@@ -1,6 +1,19 @@
 <template>
   <div class="protected">
-    <h1>This is a protected page page</h1>
+    <h1>This is a protected page</h1>
     <p>Only logged in users are going to be able to see this page</p>
+    <button @click="logout()">Logout</button>
   </div>
 </template>
+<script>
+export default {
+  data(){
+    return{}
+  },
+  methods:{
+    logout: function(){
+      this.$store.dispatch('logout');
+    }
+  },
+}
+</script>

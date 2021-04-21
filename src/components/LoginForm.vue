@@ -22,7 +22,6 @@
         </a>
       </div>
     </form>
-
   </div>
 </template>
 <script>

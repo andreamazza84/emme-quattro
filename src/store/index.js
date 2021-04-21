@@ -17,10 +17,11 @@ export default new Vuex.Store({
     }
   },
   actions: {
+    //Login
     login({ commit }, credentials){
       return new Promise(async (resolve, reject) => {
         try {
-          const { data }  = await axios.post(`http://localhost:8880/wp-json/jwt-auth/v1/token`, credentials)
+          const { data } = await axios.post(`http://localhost:8880/wp-json/jwt-auth/v1/token`, credentials)
           commit('SET_USER', data)
           resolve(data)
         }catch(e){
@@ -36,7 +37,11 @@ export default new Vuex.Store({
           'Authorization': `Bearer ${state.user.token}`
         }
       })
-    }
+    },
+    //Logout
+    logout({ commit }){
+      commit('DELETE_USER', 'null');
+    },
   },
   modules: {
   }
