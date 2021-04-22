@@ -12,7 +12,6 @@
 </template>
 
 <script>
-import apigetdata from "@/apicall.js"
 export default {
   props: {
     slug: {
@@ -22,7 +21,7 @@ export default {
   },
   data(){
     return {
-      servizi: apigetdata.servizi,
+      servizi: this.$store.state.servizi,
     }
   },
   computed: {
@@ -36,7 +35,7 @@ export default {
 
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 #about{
   .box{
     display: flex;

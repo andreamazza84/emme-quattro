@@ -1,9 +1,17 @@
 import Vue from 'vue'
 import App from './App.vue'
+
+// Vue-Router
 import router from './router'
+
+// Vuex
+import store from '@/store'
+
+// Axios
 import axios from 'axios'
 import VueAxios from 'vue-axios'
-import store from '@/store'
+
+//Font Awesome
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
@@ -34,14 +42,13 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 //Axios
 Vue.use(VueAxios, axios);
-//Vue.axios.defaults.baseURL = 'http://localhost:8880/wp-json';
+
+// *!* Cambiare in fase di deploy 
+Vue.axios.defaults.baseURL = 'http://localhost:8880/wp-json';
 
 //FontAwesome
 library.add(faUserSecret)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
-
-//Custom Components
-//Vue.component('ErrorMessage', ErrorMessage);
 
 Vue.config.productionTip = false
 

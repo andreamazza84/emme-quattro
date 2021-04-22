@@ -28,13 +28,10 @@
     </div> 
 </template>
 <script>
-import apigetdata from "@/apicall.js";
-
 export default {
-    
     data(){
         return{
-            prodotti: Object.freeze(apigetdata.prodotti),
+            prodotti: this.$store.state.prodotti,
         }
     },
 }

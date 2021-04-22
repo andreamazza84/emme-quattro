@@ -59,8 +59,10 @@ export default {
             try{
                 const result = await this.$store.dispatch('register', this.form);
                 const { redirect = false } = this.$route.query;
-                const path = redirect ? decodeURI(redirect) : '/';
+                const path = redirect ? decodeURI(redirect) : '/login';
                 this.$router.push({ path });
+                alert('Registrazione avvenuta con successo');
+
             }
             catch(error){
                 console.log("Error ", error);
@@ -71,8 +73,7 @@ export default {
 }
 
 </script>
-
-<style lang="scss">
+<style lang="scss" scoped>
 .container{
     .registration{
         max-width: 768px;

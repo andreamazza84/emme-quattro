@@ -3,11 +3,14 @@ import Vuex from 'vuex'
 import axios from 'axios'
 
 Vue.use(Vuex)
+// Vue.axios.defaults.baseURL = 'http://localhost:8880/wp-json'; (vedi main.js)
 
 export default new Vuex.Store({
   state: {
     user: null,
-    register: null
+    register: null,
+    prodotti: null,
+    servizi: null,
   },
   mutations: {
     SET_USER(state, user) {
@@ -18,6 +21,12 @@ export default new Vuex.Store({
     },
     REGISTER_USER(state, register) {
       state.register = register;
+    },
+    SET_PRODOTTI(state, prodotti){
+      state.prodotti = prodotti;
+    },
+    SET_SERVIZI(state, servizi){
+      state.servizi = servizi;
     }
   },
   actions: {
@@ -25,8 +34,7 @@ export default new Vuex.Store({
     login({ commit }, credentials){
       return new Promise(async (resolve, reject) => {
         try {
-          console.log(credentials);
-          const { data } = await axios.post(`http://localhost:8880/wp-json/jwt-auth/v1/token`, credentials);
+          const { data } = await axios.post(`/jwt-auth/v1/token`, credentials);
           commit('SET_USER', data);
           resolve(data);
         }catch(e){
@@ -36,7 +44,7 @@ export default new Vuex.Store({
     },
     validate({ state }) {
       return axios({
-        url: `http://localhost:8880/wp-json/jwt-auth/v1/token/validate`, 
+        url: `/jwt-auth/v1/token/validate`, 
         method: 'post',
         headers: {
           'Authorization': `Bearer ${state.user.token}`
@@ -51,16 +59,29 @@ export default new Vuex.Store({
     register({ commit }, credentials){
       return new Promise(async (resolve, reject) =>{
         try{
-          const { data } = await axios.post(`http://localhost:8880/wp-json/wp/v2/users/register`, credentials);
+          const { data } = await axios.post(`/wp/v2/users/register`, credentials);
           commit('REGISTER_USER', data);
           resolve(data);
-          console.log(data);
         }
         catch(error){
           reject(error);
         }
       });
     },
+    retrieveData({ commit }, item){
+      return new Promise(async (resolve, reject) =>{
+        try{
+          const { data } = await axios.get(`/wp/v2/${item}`);
+          if(item === "prodotti"){ return commit('SET_PRODOTTI', data); }
+          if(item === "servizi"){ return commit ('SET_SERVIZI', data); }
+
+          resolve(data);
+        }
+        catch(error){
+          reject(error);
+        }
+      }); 
+    }
   },
   modules: {
   }

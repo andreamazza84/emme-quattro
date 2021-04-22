@@ -16,7 +16,7 @@ export default {
         this.$store.dispatch('logout');
         //redirect 
         this.$router.push('/');
-        alert('Logout successfully');
+        alert('Il logout è avvenuto correttamente');
       }
     }
   },
