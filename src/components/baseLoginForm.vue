@@ -20,18 +20,28 @@
         <a class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="#">
           Forgot Password?
         </a>
+        <baseErrorMessage :text="error.message"/>
       </div>
     </form>
+    
   </div>
 </template>
 <script>
+import baseErrorMessage from '@/components/baseErrorMessage.vue'
+
 export default {
+  components: {
+    baseErrorMessage
+  },
   data(){
     return {
       form: {
         username: '',
         password: ''
-      }
+      },
+      error:{
+        message: ''
+      },
     }
   },
   methods: {
@@ -45,6 +55,8 @@ export default {
       catch(error){
         console.log("Error:");
         console.log(error);
+        console.log(error.response.data.message);
+        this.error.message = error.response.data.message;
       }
     }
   },

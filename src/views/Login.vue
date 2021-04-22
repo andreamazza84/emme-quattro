@@ -8,7 +8,7 @@
       </div>
       <div class="flex -mx-4">
         <div class="w-full">
-          <LoginForm />
+          <baseLoginForm />
         </div>
       </div>
     </div>
@@ -16,10 +16,10 @@
 </template>
 
 <script>
-import LoginForm from '@/components/LoginForm'
+import baseLoginForm from '@/components/baseLoginForm'
 export default {
   components: {
-    LoginForm
+    baseLoginForm
   } 
 }
 </script>

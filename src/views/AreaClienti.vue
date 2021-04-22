@@ -28,6 +28,7 @@
                 <div class="field submit">
                     <button type="submit" class="btn">Invia</button>
                 </div>
+                <baseErrorMessage :text="error.message"/>
             </form>
         </div>
     </div>
@@ -35,18 +36,22 @@
 </template>
 
 <script>
-
-import axios from 'axios'
-import VueAxios from 'vue-axios'
+import baseErrorMessage from '@/components/baseErrorMessage.vue'
 
 export default {
+    components:{
+        baseErrorMessage
+    },
     data(){
         return{
             form: {
                 username: '',
                 email: '',
                 password: '',
-            }
+            },
+            error:{
+                message: ''
+            },
         }
     },
     methods:{
@@ -59,6 +64,7 @@ export default {
             }
             catch(error){
                 console.log("Error ", error);
+                this.error.message = error.response.data.message;
             }
         }
     }

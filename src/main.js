@@ -8,6 +8,30 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
+// Global Registration
+// ****** //
+// import upperFirst from 'loadsh/upperfirst'
+// import camelCase from 'loadsh/camelCase'
+
+// // Require in a case component context
+// const requireComponent = require. context(
+//   '.', false, /base-[\w-]+\.vue$/
+// );
+
+// requireComponent.keys().forEach(fileName =>{
+//   // Get component config
+//   const componentConfig = requireComponent(fileName);
+// });
+
+// //Get Pascalcase name of component 
+// const componentName = upperFirst(
+//   camelCase(fileName.replace(/^\. \//, '').replace(/\. \w+$/, ''))
+// );
+
+// //Register component globally
+// Vue.component(componentName, componentConfig.default || componentConfig);
+// ****** // 
+
 //Axios
 Vue.use(VueAxios, axios);
 //Vue.axios.defaults.baseURL = 'http://localhost:8880/wp-json';
@@ -15,6 +39,9 @@ Vue.use(VueAxios, axios);
 //FontAwesome
 library.add(faUserSecret)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
+
+//Custom Components
+//Vue.component('ErrorMessage', ErrorMessage);
 
 Vue.config.productionTip = false
 

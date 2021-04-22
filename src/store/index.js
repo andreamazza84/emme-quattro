@@ -57,7 +57,6 @@ export default new Vuex.Store({
           console.log(data);
         }
         catch(error){
-          //console.log("Error ", error);
           reject(error);
         }
       });
