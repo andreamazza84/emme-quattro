@@ -6,14 +6,18 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    user: null
+    user: null,
+    register: null
   },
   mutations: {
     SET_USER(state, user) {
-      state.user = user
+      state.user = user;
     },
     DELETE_USER(state) {
-      state.user = null
+      state.user = null;
+    },
+    REGISTER_USER(state, register) {
+      state.register = register;
     }
   },
   actions: {
@@ -21,11 +25,12 @@ export default new Vuex.Store({
     login({ commit }, credentials){
       return new Promise(async (resolve, reject) => {
         try {
-          const { data } = await axios.post(`http://localhost:8880/wp-json/jwt-auth/v1/token`, credentials)
-          commit('SET_USER', data)
-          resolve(data)
+          console.log(credentials);
+          const { data } = await axios.post(`http://localhost:8880/wp-json/jwt-auth/v1/token`, credentials);
+          commit('SET_USER', data);
+          resolve(data);
         }catch(e){
-          reject(e)
+          reject(e);
         }
       })
     },
@@ -43,16 +48,17 @@ export default new Vuex.Store({
       commit('DELETE_USER', 'null');
     },
     //Registration
-    register(credentials){
+    register({ commit }, credentials){
       return new Promise(async (resolve, reject) =>{
         try{
-          const { data } = await axios.post(`http://localhost:8880/wp-json/wp/v2/users/register`, credentials)
-          resolve(data)
+          const { data } = await axios.post(`http://localhost:8880/wp-json/wp/v2/users/register`, credentials);
+          commit('REGISTER_USER', data);
+          resolve(data);
           console.log(data);
         }
         catch(error){
-          reject(error);
           //console.log("Error ", error);
+          reject(error);
         }
       });
     },
