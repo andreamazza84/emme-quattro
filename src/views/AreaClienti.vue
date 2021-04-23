@@ -1,35 +1,42 @@
 <template>
-
+    
     <div id="area-clienti">
         <div class="container">
-            <h2>Area clienti</h2> 
-            <form @submit.prevent="register()" class="registration" method="POST">
-            <p>Registrarsi consente di visualizzare tutte le informazioni riguardanti i prodotti, come le <em>schede di sicurezza</em>, i <em>codice prodotti</em>, ecc.</p>
-                <!-- Username -->
-                <div class="field name">
-                    <label for="name">Username</label>
-                    <input v-model="form.username" type="text" name="name" id="name" required>
-                </div>
-                <!-- Email -->
-                <div class="field email">
-                    <label for="email">Email</label>
-                    <input v-model="form.email" type="email" name="email" id="email" required>
-                </div>
-                <div class="field password">
-                    <!-- Password -->
-                    <label for="password">Password</label>        
-                    <input v-model="form.password" type="password" name="password" id="password" required>
-                </div>
-                <div class="field password">
-                    <!-- Confirm password -->
-                    <label for="confirm-password">Conferma password</label>        
-                    <input type="password" name="password" id="confirm-password" required>
-                </div>
-                <div class="field submit">
-                    <button type="submit" class="btn">Invia</button>
-                </div>
-                <baseErrorMessage :text="error.message"/>
-            </form>
+          <div class="row">
+            <div class="col-lg-6">
+              <h2>Registrati</h2> 
+              <form @submit.prevent="register()" class="registration" method="POST">
+              <p>Registrarsi consente di visualizzare tutte le informazioni riguardanti i prodotti, come le <em>schede di sicurezza</em>, i <em>codice prodotti</em>, ecc.</p>
+                  <!-- Username -->
+                  <div class="field name">
+                      <label for="name">Username</label>
+                      <input v-model="form.username" type="text" name="name" id="name" required>
+                  </div>
+                  <!-- Email -->
+                  <div class="field email">
+                      <label for="email">Email</label>
+                      <input v-model="form.email" type="email" name="email" id="email" required>
+                  </div>
+                  <div class="field password">
+                      <!-- Password -->
+                      <label for="password">Password</label>        
+                      <input v-model="form.password" type="password" name="password" id="password" required>
+                  </div>
+                  <div class="field password">
+                      <!-- Confirm password -->
+                      <label for="confirm-password">Conferma password</label>        
+                      <input type="password" name="password" id="confirm-password" required>
+                  </div>
+                  <div class="field submit">
+                      <button type="submit" class="btn">Invia</button>
+                  </div>
+                  <baseErrorMessage :text="error.message"/>
+              </form>
+            </div>
+            <div class="col-lg-6">
+              <baseLoginForm />
+            </div>
+          </div>
         </div>
     </div>
 
@@ -37,9 +44,11 @@
 
 <script>
 import baseErrorMessage from '@/components/baseErrorMessage.vue'
+import baseLoginForm from '@/components/baseLoginForm'
 
 export default {
     components:{
+        baseLoginForm,
         baseErrorMessage
     },
     data(){

@@ -1,0 +1,74 @@
+.debug [class*="col-"] {
+  height: 200px;
+  background-color: pink;
+  border: 1px solid red;
+}
+.debug [class*="col-"] > .row > [class*="col-"] {
+  height: 100%;
+}
+.debug [class*="col-"] > .row {
+  padding: 5px;
+  height: 100%;
+}
+/* .debug [class*="col-"] {
+  padding: 5px;
+  min-height: 190px;
+  max-height: 200px;
+  background-color: pink;
+  border: 1px solid red;
+} */
+
+.row {
+  width: 100%;
+}
+.row::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+[class*="col-"] {
+  float: left;
+}
+
+/* columns large screen*/
+@for $i from 1 through 12 {
+    .col-lg-#{$i} {
+        width: calc((100%/12) * #{$i});
+    }
+}
+
+/* offset large screen */
+@for $i from 1 through 12 {
+    .col-offset-lg-#{$i} {
+        margin-left: calc((100%/12) * #{$i});
+    }
+}
+
+/* Medium screen media - md */
+@media all and (min-width: 769px) and (max-width: 1200px) {
+    @for $i from 1 through 12 {
+        .col-md-#{$i} {
+            width: calc((100%/12) * #{$i});
+        }
+    }
+    @for $i from 1 through 12 {
+        .col-offset-md-#{$i} {
+            margin-left: calc((100%/12) * #{$i});
+        }
+    }
+}
+
+/* Small screen media - sm */
+@media all and (max-width: 768px) {
+    @for $i from 1 through 12 {
+        .col-sm-#{$i} {
+            width: calc((100%/12) * #{$i});
+        }
+    }
+    @for $i from 1 through 12 {
+        .col-offset-sm-#{$i} {
+            margin-left: calc((100%/12) * #{$i});
+        }
+    }
+}

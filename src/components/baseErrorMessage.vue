@@ -23,8 +23,8 @@ export default {
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 2rem;
-    margin: 20x 0;
+    height: max-content;
+    margin: 20px;
     .error{
       color: red;
       background-color: pink;
