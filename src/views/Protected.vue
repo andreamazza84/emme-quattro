@@ -15,7 +15,7 @@ export default {
       if(this.$store.state.user != null){
         this.$store.dispatch('logout');
         //redirect 
-        this.$router.push('/');
+        this.$router.push('/area-clienti');
         alert('Il logout è avvenuto correttamente');
       }
     }
