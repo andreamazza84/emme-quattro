@@ -1,6 +1,7 @@
 <template>
-  <div class="form">
-    <form @submit.prevent="login()" class="login">
+  <div>
+    <baseErrorMessage :text="message.error != '' ? message.error : message.success" />
+    <form @submit.prevent="login()" class="form">
       <div class="field name">
         <label for="username">Username</label>
         <input v-model="form.username" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Username">
@@ -11,10 +12,15 @@
       </div>
       <div class="field submit">
         <button class="btn" type="submit">Entra</button>
-        <a class="field forgot" @click.prevent="reset()" href="">Password dimenticata?</a>
       </div>
-
-        <baseErrorMessage :text="message.error != '' ? message.error : message.success" />
+    </form>
+    <form @submit.prevent="reset()" class="form">
+      <div class="field forgot" @click="show()">Password dimenticata?</div>
+      <div v-if="active" class="field password">
+        <label for="reset-password">Email</label>
+        <input v-model="forgot.user_login" id="reset-password" type="email" placeholder="Inserisci qui la tua email per recuperare la password" required>
+        <button class="btn" type="submit">Recupera password</button>
+      </div>
     </form>
   </div>
     
@@ -30,18 +36,27 @@ export default {
     return {
       form: {
         username: '',
-        password: ''
+        password: '',
       },
       message:{
         error: '',
         success: '',
       },
       forgot:{
-        user_login: 'giulio@test.com',
+        user_login: '',
       },
+      active: false,
     }
   },
   methods: {
+    show: function(){
+      if(!this.active){
+        return this.active = true;
+      }
+      if(this.active){
+        return this.active = false;
+      }
+    },
     async login() {
       try{
         const result = await this.$store.dispatch('login', this.form);
@@ -74,39 +89,45 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.login{
+.form{
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
   width: 100%;
-  height: 300px;
   max-width: $maxForm;
   padding: 5%;
   margin: 5%;
+  border: 1px solid #aaa;
   .field{
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      margin: 10px 0;
-      label{
-        margin-bottom: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 10px 0;
+    label{
+      margin-bottom: 5px;
+    }
+    input{
+      width: 100%;
+      height: 2rem;
+      border-radius: 5px;
+      border: 1px solid $borderlightcolor;
+      padding: 0 10px;
+    }
+    .btn{
+      @include btn;
+      align-self: center;
+      background-color: $vue-green;
+      &:hover{
+        background-color: $vue-green-hover;
       }
-      input{
-        width: 100%;
-        height: 2rem;
-        border-radius: 5px;
-        border: 1px solid $borderlightcolor;
-        padding: 0 10px;
-      }
-      .btn{
-        @include btn;
-        align-self: center;
-        background-color: $vue-green;
-        &:hover{
-            background-color: $vue-green-hover;
-        }
-      }
+    }
+  }
+  .forgot{
+    cursor: pointer;
+    &:hover{
+      text-decoration: underline;
+    }
   }
 }
 </style>
