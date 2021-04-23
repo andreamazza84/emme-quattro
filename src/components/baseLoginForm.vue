@@ -11,10 +11,10 @@
       </div>
       <div class="field submit">
         <button class="btn" type="submit">Entra</button>
-        <a class="field forgot" href="#">Password dimenticata?</a>
+        <a class="field forgot" @click.prevent="reset()" href="">Password dimenticata?</a>
       </div>
 
-        <baseErrorMessage :text="error.message"/>
+        <baseErrorMessage :text="message.error != '' ? message.error : message.success" />
     </form>
   </div>
     
@@ -32,8 +32,12 @@ export default {
         username: '',
         password: ''
       },
-      error:{
-        message: ''
+      message:{
+        error: '',
+        success: '',
+      },
+      forgot:{
+        user_login: 'giulio@test.com',
       },
     }
   },
@@ -49,8 +53,18 @@ export default {
         console.log("Error:");
         console.log(error);
         console.log(error.response.data.message);
-        this.error.message = error.response.data.message;
+        this.message.error = error.response.data.message;
       }
+    },
+    async reset() {
+      try{
+        const result = await this.$store.dispatch('reset', this.forgot)
+        this.message.success = "Una email con ##### è stata inviata alla tua casella di posta"
+      }
+      catch(error){
+        this.message.error = error.response.data.message;
+      }
+
     }
   },
   mounted(){

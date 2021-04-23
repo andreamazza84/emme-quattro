@@ -68,6 +68,18 @@ export default new Vuex.Store({
         }
       });
     },
+    reset({ commit }, credentials){
+      return new Promise(async (resolve, reject) =>{
+        try{
+          const { data } = await axios.post(`/wp/v2/users/lost-password`, credentials);
+          resolve(data); 
+        }
+        catch(error){
+          reject(error);
+        }
+      });
+    },
+    // Recupera i prodotti e i servizi
     retrieveData({ commit }, item){
       return new Promise(async (resolve, reject) =>{
         try{
@@ -81,7 +93,7 @@ export default new Vuex.Store({
           reject(error);
         }
       }); 
-    }
+    },
   },
   modules: {
   }
