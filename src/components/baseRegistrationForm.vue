@@ -101,9 +101,9 @@ export default {
       .btn{
         @include btn;
         align-self: center;
-        background-color: $vue-green;
+        background-color: $primary;
         &:hover{
-            background-color: $vue-green-hover;
+            background-color: $primary-hover;
         }
       }
   }
