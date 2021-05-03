@@ -1,8 +1,8 @@
 <template>
 <div class="home">
-  <carousel :per-page="1">
-    <slide v-for="image in carosello" :key="image.slug">
-      <img :src="image.acf.image.url" alt="">
+  <carousel class="carousel" :per-page="1">
+    <slide class="slide" v-for="image in carosello" :key="image.slug">
+      <div class="image" :style="`background-image:url(${image.acf.image.url})`"></div>
     </slide>
   </carousel>
 </div>
