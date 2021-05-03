@@ -6,6 +6,8 @@
 @import 'commons/variables';
 @import 'commons/common.scss';
 @import 'commons/general.scss';
+@import 'commons/_12frame.scss';
+
 
 //Components
 @import 'components/navbar.scss';
@@ -19,10 +21,7 @@
 @import 'views/news.scss'; 
 @import 'views/areaclienti.scss';
 
-#main{
-  padding-top: 100px;
-  min-height: 100vh;
-}
+
 
 #footer{
   min-height: 300px;

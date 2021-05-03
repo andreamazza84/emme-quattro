@@ -8,9 +8,10 @@
     background-color: $lightcolor;
     .container{
       display: flex;
-      justify-content: space-between;
+      justify-content: space-around;
       align-items: center;
       a {
+        flex-basis: calc(100% / 7);
         font-weight: bold;
         color: $darkcolor;
         font-size: 1.5rem;
@@ -22,6 +23,7 @@
         .logo{
           width: 130px;
           height: 130px;
+          margin: auto;
           border-radius: 50%;
           background-image: url('~@/assets/logo-emme.jpg');
           background-repeat: no-repeat;
@@ -29,7 +31,6 @@
           }
       }
     }
-
   }
   .bottom{
     width: 100%;

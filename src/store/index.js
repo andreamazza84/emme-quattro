@@ -11,6 +11,7 @@ export default new Vuex.Store({
     register: null,
     prodotti: null,
     servizi: null,
+    carosello: null,
   },
   mutations: {
     SET_USER(state, user) {
@@ -27,6 +28,9 @@ export default new Vuex.Store({
     },
     SET_SERVIZI(state, servizi){
       state.servizi = servizi;
+    },
+    SET_SLIDER(state, carosello){
+      state.carosello = carosello;
     }
   },
   actions: {
@@ -86,7 +90,7 @@ export default new Vuex.Store({
           const { data } = await axios.get(`/wp/v2/${item}`);
           if(item === "prodotti"){ return commit('SET_PRODOTTI', data); }
           if(item === "servizi"){ return commit ('SET_SERVIZI', data); }
-
+          if(item === "carosello"){ return commit ('SET_SLIDER', data); }
           resolve(data);
         }
         catch(error){
@@ -94,7 +98,8 @@ export default new Vuex.Store({
         }
       }); 
     },
+
   },
-  modules: {
-  }
+
+  modules: {}
 })
