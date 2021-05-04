@@ -1,7 +1,7 @@
 <template>
-  <section id="navbar">
+  <section id="navbar" :style="`height: ${navbar.height}`">
     <div v-if="showBars" class="container">
-      <router-link to="/" class="home-page"><div class="logo"></div></router-link>
+      <router-link to="/" class="home-page"><div class="logo" :style="`width: ${logo.width}; height: ${logo.height}`"></div></router-link>
       <i class="menu-hamburger" @click="showHide()"></i>
       
       <!-- Mobile Menu -->
@@ -40,6 +40,14 @@ export default {
         width: 0,
         height: 0,
       },
+      navbar:{
+        width: 0,
+        height: '150px'
+      },
+      logo: {
+        width: '130px',
+        height: '130px'
+      }
     }
   },
   methods:{
@@ -47,16 +55,16 @@ export default {
     * @window_resize Shows menu hamburger under 992px screen width    
     */
     mediaWidth: function() {
-        this.window.width = window.innerWidth;
-        this.window.height = window.innerHeight;
         //mobile 768px
         //tablet 992px
-        //desktop 1220px
-        if(window.innerWidth > 992) {
+        //desktop 1200px
+        this.window.width = window.innerWidth;
+        this.window.height = window.innerHeight;
+        if(window.innerWidth > 1200) {
           this.showBars = false;
           this.showManu = false;
         }
-        if(window.innerWidth  <= 992){
+        if(window.innerWidth  <= 1200){
             this.showBars = true;
         }
     },
@@ -71,15 +79,27 @@ export default {
         this.showMenu = true;
       }
     },
+    navbarHeight: function(){
+      //console.log(window.scrollY);
+      let lastKnownScrollPosition = window.scrollY;
+      if(lastKnownScrollPosition != 0){
+        this.navbar.height = '100px';
+        this.logo.width = '85px';
+        this.logo.height = '85px';
+      }
+    },
   },
   created() {
     window.addEventListener('resize', this.mediaWidth);
+    window.addEventListener('scroll', this.navbarHeight);
   },
   mounted(){
     this.mediaWidth();
   },
   distroyed() {
     window.removeEventListener('resize', this.mediaWidth);
+    window.removeEventListener('scroll', this.navbarHeight);
+
   },
 }
 </script>

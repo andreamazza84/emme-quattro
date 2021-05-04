@@ -13,9 +13,9 @@
 @import 'commons/_header.scss';
 
 //Components
-@import 'components/navbar.scss';
-@import 'components/_footer.scss';
-@import 'components/_baseregistrationForm.scss';
+@import 'components/_baseNavbar.scss';
+@import 'components/_baseFooter.scss';
+@import 'components/_baseRegistrationForm.scss';
 
 //Views
 @import 'views/home.scss';

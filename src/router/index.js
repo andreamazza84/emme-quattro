@@ -87,6 +87,11 @@ const routes = [
       requiresAuth: true
     }
   },
+  {
+    path: '/privacy-policy',
+    name: 'Privacy',
+    component: () => import(/* webpackChunkName: "privacy" */ '../views/Privacy.vue')
+  }
 ]
 
 const router = new VueRouter({

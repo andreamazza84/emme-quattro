@@ -1,0 +1,34 @@
+#footer{
+  width: 100%;
+  background-color: $darkcolor;
+  
+  .footer-top{
+    padding-top: 40px;
+    min-height: 260px;
+    .logo{
+      .whole-logo{
+        width: auto;
+      }
+    }
+
+    .providers{
+      a{
+        display: block;
+        img{
+          height: 40px;
+        }
+      }
+    }
+  }
+
+  .footer-bottom{
+    background-color: $darkcolor2;
+    font-size: $small;
+    font-weight: 200;
+    padding: 15px 0;
+    .privacy-policy-link{
+      color: $secondary;
+    }
+  }
+  
+}
