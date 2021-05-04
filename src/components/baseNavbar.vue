@@ -2,26 +2,31 @@
   <section id="navbar">
     <div v-if="showBars" class="container">
       <router-link to="/" class="home-page"><div class="logo"></div></router-link>
-      <i class="menu-hamburger" @click="mediaMenu()"></i>
-      <div v-if="showMenu" class="overlay">
-        <router-link to="/">Home</router-link>
-        <router-link to="/chi-siamo" >Chi Siamo</router-link>
-        <router-link to="/prodotti" >Prodotti</router-link>
-        <router-link to="/servizi" >Servizi</router-link>
-        <router-link to="/news">News</router-link>
-        <router-link to="/contatti">Contatti</router-link>
-        <router-link to="/area-clienti">Area<br>Clienti</router-link>
+      <i class="menu-hamburger" @click="showHide()"></i>
+      
+      <!-- Mobile Menu -->
+      <div v-if="showMenu" class="mobile-menu">
+          <i class="close-menu" @click="showHide()"></i>
+          <router-link class="mobile-menu-link" to="/"><span @click="showHide()">Home</span></router-link>
+          <router-link class="mobile-menu-link" to="/chi-siamo"><span @click="showHide()">Chi Siamo</span></router-link>
+          <router-link class="mobile-menu-link" to="/prodotti"><span @click="showHide()">Prodotti</span></router-link>
+          <router-link class="mobile-menu-link" to="/servizi"><span @click="showHide()">Servizi</span></router-link>
+          <router-link class="mobile-menu-link" to="/news"><span @click="showHide()">News</span></router-link>
+          <router-link class="mobile-menu-link" to="/contatti"><span @click="showHide()">Contatti</span></router-link>
+          <router-link class="mobile-menu-link" to="/area-clienti"><span @click="showHide()">Area<br>Clienti</span></router-link>
       </div>
     </div>
-    <div v-else class="container">
-      <router-link to="/chi-siamo" >Chi Siamo</router-link>
-      <router-link to="/prodotti" >Prodotti</router-link>
-      <router-link to="/servizi" >Servizi</router-link>
-      <router-link to="/" class="home-page"><div class="logo"></div></router-link>
-      <router-link to="/news">News</router-link>
-      <router-link to="/contatti">Contatti</router-link>
-      <router-link to="/area-clienti">Area<br>Clienti</router-link>
+    <!-- Desktop Menu -->
+    <div v-else class="container desktop-menu">
+      <router-link class="desktop-menu-link" to="/chi-siamo">Chi Siamo</router-link>
+      <router-link class="desktop-menu-link" to="/prodotti">Prodotti</router-link>
+      <router-link class="desktop-menu-link" to="/servizi">Servizi</router-link>
+      <router-link class="desktop-menu-link home-page" to="/"><div class="logo"></div></router-link>
+      <router-link class="desktop-menu-link" to="/news">News</router-link>
+      <router-link class="desktop-menu-link" to="/contatti">Contatti</router-link>
+      <router-link class="desktop-menu-link" to="/area-clienti">Area<br>Clienti</router-link>
     </div>
+
   </section>
 </template>
 <script>
@@ -30,6 +35,7 @@ export default {
     return{
       showBars: false,
       showMenu: false,
+      closeMenu: false,
       window: {       // dichiarazione iniziale per la variabile window
         width: 0,
         height: 0,
@@ -43,35 +49,27 @@ export default {
     mediaWidth: function() {
         this.window.width = window.innerWidth;
         this.window.height = window.innerHeight;
-        let width = 0;
-        //tablet
+        //mobile 768px
+        //tablet 992px
+        //desktop 1220px
         if(window.innerWidth > 992) {
           this.showBars = false;
           this.showManu = false;
         }
-        // //mobile
-        // else if(window.innerWidth  <= 768){
-        //     this.show = this.size.sm; //1
-        // }
-        //desktop
         if(window.innerWidth  <= 992){
             this.showBars = true;
         }
-        //width = (100/this.show);
-        //this.cardWidth = width.toString() + '%';
-        //console.log(this.cardWidth);
     },
     /**
       @click shows the menu for mobile devices
      */
-    mediaMenu: function(){
+    showHide: function(){
       if(this.showMenu){
         this.showMenu = false;
       }
       else{
         this.showMenu = true;
       }
-      //console.log(this.showMenu);
     },
   },
   created() {
