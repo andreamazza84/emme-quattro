@@ -30,18 +30,24 @@ a{
 }
 
 input, button{
-  font-size: $text;
-  font-family: 'Poppins', sans-serif;
+  font-size: $medium;
 }
 
 @mixin btn {
   width: max-content;
   height: auto;
-  padding: 10px 15px;
-  border-radius: 5px;
-  font-size: $normal;
-  border: 1px solid $borderlightcolor;
+  font-family: 'Roboto Slab', serif;
+  font-size: $medium;
+  padding: 5px 20px;
+  border-radius: 2px;
+  color: $lightcolor;
+  background-color: $primary;
+  border: 1px solid $lightcolor;
   cursor: pointer;
+  transition: background-color 300ms;
+  &:hover{
+    background-color: $primary-hover;
+  }
 }
 
 /*Cards*/

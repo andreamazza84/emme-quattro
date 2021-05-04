@@ -7,15 +7,15 @@ $darkcolor: #000000;
 $lightcolor: #f9faf7;
 $borderlightcolor: #f9faf7;
 $darktrasparency: rgba(0,0,0,0.85);
-$lighttrasparency: rgba(0,0,0,0.3);
+$lighttrasparency: rgba(255,255,255,0.85);
 
 /*Font sizes*/
-$xxlarge: 45px;
-$xlarge: 36px;
-$large: 24px;
-$normal: 16px;
-$text: 14px;
-$small: 11px;
+$xxlarge: 4rem;
+$xlarge: 2.25rem;
+$large: 1.5rem;
+$medium: 1.2rem;
+$normal: 1rem;
+$small: 0.8rem;
 
 /*Media sizes*/
 $maxScreen: 1440px;
