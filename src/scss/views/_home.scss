@@ -1,12 +1,12 @@
 .home{
   .carousel{
-    
-    .image{
-      width: 100%;
-      height: calc(100vh - 200px);
-      background-repeat: no-repeat;
-      background-size: cover;
-  
+    .slide{
+      .image{
+        width: 100%;
+        height: calc(100vh - 200px);
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
     }
   }
 }
