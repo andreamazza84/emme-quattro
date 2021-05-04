@@ -19,6 +19,13 @@
         <div class="image" :style="`background-image:url(${image.acf.image.url})`"></div>
       </slide>
     </carousel>
+
+    <div class="overlay row">
+      <div class="col-lg-4 col-offset-lg-8 call-out">
+        
+      <router-link class="mobile-menu-link" to="/contatti"><span>Contattaci</span></router-link>
+      </div>
+    </div>
   </div>
 </div>
 </template>

@@ -1,11 +1,30 @@
 .home{
-  .carousel{
-    .slide{
-      .image{
-        width: 100%;
-        height: calc(100vh - 200px);
-        background-repeat: no-repeat;
-        background-size: cover;
+  .container{
+    position: relative;
+
+    .carousel{
+        .slide{
+          .image{
+            width: 100%;
+            height: calc(100vh - 200px);
+            background-repeat: no-repeat;
+            background-size: cover;
+          }
+        }
+    }
+    .overlay{
+      position: absolute;
+      top: 40px;
+      right: 20px;
+      bottom: 40px;
+      .call-out{
+        display: flex;
+        height: 100%;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        background-color: $lighttrasparency;
+        
       }
     }
   }

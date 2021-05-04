@@ -19,10 +19,11 @@
         width: 130px;
         height: 130px;
         margin: auto;
-        border-radius: 50%;
-        background-image: url('~@/assets/logo-emme.jpg');
+        //border-radius: 50%;
+        background-image: url($logo);
         background-repeat: no-repeat;
         background-size: cover;
+        background-position: left;
         }
     }
   }
@@ -43,7 +44,7 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0,0,0,0.85);
+    background-color: $darktrasparency;
     display: flex;
     flex-direction:  column;
     justify-content: space-around;

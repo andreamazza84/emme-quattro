@@ -6,7 +6,8 @@ $secondary-hover: #d05a11;
 $darkcolor: #000000;
 $lightcolor: #f9faf7;
 $borderlightcolor: #f9faf7;
-
+$darktrasparency: rgba(0,0,0,0.85);
+$lighttrasparency: rgba(0,0,0,0.3);
 
 /*Font sizes*/
 $xxlarge: 45px;
@@ -19,3 +20,6 @@ $small: 11px;
 /*Media sizes*/
 $maxScreen: 1440px;
 $maxForm: 768px;
+
+/*Logo*/
+$logo: '~@/assets/M4_2021.svg';

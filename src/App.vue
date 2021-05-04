@@ -12,16 +12,19 @@
     <router-view id="main"/>
     
     <div id="footer">
-    
+      <img class="whole-logo" src="@/assets/M4_2021.svg" alt="">
+      <baseLogo/>
     </div>
   </div>
 </template>
 
 <script>
-  import baseNavbar from '@/components/baseNavbar' 
+  import baseNavbar from '@/components/baseNavbar'
+  import baseLogo from '@/components/baseLogo'
   export default {
     components:{
-      baseNavbar
+      baseNavbar,
+      baseLogo
     },
     data(){
       return {}
