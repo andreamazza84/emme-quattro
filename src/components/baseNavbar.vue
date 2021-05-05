@@ -1,7 +1,9 @@
 <template>
   <section id="navbar" :style="`height: ${navbar.height}`">
     <div v-if="showBars" class="container">
-      <router-link to="/" class="home-page"><div class="logo" :style="`width: ${logo.width}; height: ${logo.height}`"></div></router-link>
+      <router-link to="/" class="home-page">
+        <div class="logo" :style="`transform: scale(${logo.scale})`"></div>
+      </router-link>
       <i class="menu-hamburger" @click="showHide()"></i>
       
       <!-- Mobile Menu -->
@@ -21,7 +23,10 @@
       <router-link class="desktop-menu-link" to="/chi-siamo">Chi Siamo</router-link>
       <router-link class="desktop-menu-link" to="/prodotti">Prodotti</router-link>
       <router-link class="desktop-menu-link" to="/servizi">Servizi</router-link>
-      <router-link class="desktop-menu-link home-page" to="/"><div class="logo"></div></router-link>
+      <router-link class="desktop-menu-link home-page" to="/">
+        <div class="logo" :style="`transform: scale(${logo.scale})`"></div>
+
+      </router-link>
       <router-link class="desktop-menu-link" to="/news">News</router-link>
       <router-link class="desktop-menu-link" to="/contatti">Contatti</router-link>
       <router-link class="desktop-menu-link" to="/area-clienti">Area<br>Clienti</router-link>
@@ -39,14 +44,17 @@ export default {
       window: {       // dichiarazione iniziale per la variabile window
         width: 0,
         height: 0,
+        scrollY: 0,
       },
       navbar:{
         width: 0,
-        height: '150px'
+        height: '150px',
+        scaleY: '100%'
       },
       logo: {
         width: '130px',
-        height: '130px'
+        height: '130px',
+        scale: '100%'
       }
     }
   },
@@ -80,12 +88,23 @@ export default {
       }
     },
     navbarHeight: function(){
-      //console.log(window.scrollY);
-      let lastKnownScrollPosition = window.scrollY;
-      if(lastKnownScrollPosition != 0){
+      this.window.scrollY = window.scrollY;
+      console.log(this.window.scrollY);
+      if(this.window.scrollY === 0){
+        //this.$emit({'scroll' : false});
+        this.navbar.height = '150px';
+        this.navbar.scaleY = '100%';
+        this.logo.width = '130px';
+        this.logo.height = '130px';
+        this.logo.scale = '100%';
+      }
+      else{
+        //this.$emit('scroll');
         this.navbar.height = '100px';
+        this.navbar.scaleY = '80%';
         this.logo.width = '85px';
         this.logo.height = '85px';
+        this.logo.scale = '70%';
       }
     },
   },

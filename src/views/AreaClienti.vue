@@ -23,14 +23,11 @@
 import baseLoginForm from '@/components/baseLoginForm'
 import baseRegistrationForm from '@/components/baseRegistrationForm'
 export default {
-    components:{
-        baseLoginForm,
-        baseRegistrationForm
-    },
-    
-    
+  components:{
+      baseLoginForm,
+      baseRegistrationForm
+  }
 }
-
 </script>
 <style lang="scss" scoped>
     

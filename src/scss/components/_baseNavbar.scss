@@ -1,6 +1,7 @@
 #navbar{
-  //height: 150px;
+  height: 150px;
   background-color: $lightcolor;
+  transition: height 300ms;
   .container{
     display: flex;
     justify-content: space-around;
@@ -10,23 +11,34 @@
       color: $darkcolor;
       font-weight: bold;
       font-size: 1.5rem;
-      &.router-link-exact-active {
+      //border-bottom: 2px solid transparent;
+      transition: color 300ms;
+      &.router-link-exact-active,
+      &:hover,
+      &:focus {
         color: $primary;
       }
-    }
-    .home-page{
-      .logo{
-        //width: 130px;
-        height: 130px;
-        margin: auto;
-        //border-radius: 50%;
-        background-image: url($logo);
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: left;
-        }
+      // &:last-child{
+      //   color: $primary;
+      // }
+      //&:hover{
+        //border-bottom: 2px solid $primary;
+      //}
+
     }
   }
+  .logo{
+    width: 130px;
+    height: 130px;
+    margin: auto;
+    background-image: url($logo);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: left;
+    transition: transform 300ms;
+    //transition: height 300ms;
+    }
+  
   .menu-hamburger::before{
     font-family: "Font Awesome 5 Free"; 
     font-size: 2rem;

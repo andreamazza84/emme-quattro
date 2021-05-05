@@ -37,11 +37,10 @@
               }
           }
       },
-    created(){
+    mounted(){
         this.retrieveData('prodotti');
         this.retrieveData('servizi');
         this.retrieveData('carosello');
-
     }, 
 }
 </script>
