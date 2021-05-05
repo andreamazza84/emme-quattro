@@ -11,20 +11,15 @@
       color: $darkcolor;
       font-weight: bold;
       font-size: $large;
-      //border-bottom: 2px solid transparent;
-      transition: color 300ms;
+      transition: all 300ms;
       &.router-link-exact-active,
       &:hover,
       &:focus {
         color: $primary;
       }
-      // &:last-child{
-      //   color: $primary;
-      // }
-      //&:hover{
-        //border-bottom: 2px solid $primary;
-      //}
-
+      .link{
+        transition: all 300ms;
+      }
     }
   }
   .logo{
@@ -39,6 +34,12 @@
     }
   
   .menu-hamburger::before{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3rem;
+    height: 3rem;
+    border: 1px solid #aaa;
     font-family: "Font Awesome 5 Free"; 
     font-size: 2rem;
     font-weight: 900; 
@@ -70,7 +71,7 @@
     }
     .close-menu{
       position: absolute;
-      right: 20px;
+      right: 40px;
       top: 20px;
     }
     .mobile-menu-link{
@@ -97,12 +98,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: display 300ms;
     .content{
       font-size: 1.2em;
       letter-spacing: 0.6em;
     }
   }
-  // .active{
-  //   display: flex;
-  // }
 }

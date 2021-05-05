@@ -1,7 +1,7 @@
 <template>
   <div>
     <section id="navbar" :style="`height: ${navbar.height}`">
-    
+
       <!-- Mobile Menu -->
       <div v-if="showBars" class="container">
         <router-link to="/" class="home-page">
@@ -11,31 +11,31 @@
         
         <div v-if="showMenu" class="mobile-menu">
             <i class="close-menu" @click="showHide()"></i>
-            <router-link class="mobile-menu-link" to="/"><span @click="showHide()">Home</span></router-link>
-            <router-link class="mobile-menu-link" to="/chi-siamo"><span @click="showHide()">Chi Siamo</span></router-link>
-            <router-link class="mobile-menu-link" to="/prodotti"><span @click="showHide()">Prodotti</span></router-link>
-            <router-link class="mobile-menu-link" to="/servizi"><span @click="showHide()">Servizi</span></router-link>
-            <router-link class="mobile-menu-link" to="/news"><span @click="showHide()">News</span></router-link>
-            <router-link class="mobile-menu-link" to="/contatti"><span @click="showHide()">Contatti</span></router-link>
-            <router-link class="mobile-menu-link" to="/area-clienti"><span @click="showHide()">Area<br>Clienti</span></router-link>
+            <router-link class="mobile-menu-link" to="/"><span class="link" @click="showHide()">Home</span></router-link>
+            <router-link class="mobile-menu-link" to="/chi-siamo"><span class="link" @click="showHide()">Chi Siamo</span></router-link>
+            <router-link class="mobile-menu-link" to="/prodotti"><span class="link" @click="showHide()">Prodotti</span></router-link>
+            <router-link class="mobile-menu-link" to="/servizi"><span class="link" @click="showHide()">Servizi</span></router-link>
+            <router-link class="mobile-menu-link" to="/news"><span class="link" @click="showHide()">News</span></router-link>
+            <router-link class="mobile-menu-link" to="/contatti"><span class="link" @click="showHide()">Contatti</span></router-link>
+            <router-link class="mobile-menu-link" to="/area-clienti"><span class="link" @click="showHide()">Area<br>Clienti</span></router-link>
         </div>
       </div>
       <!-- Desktop Menu -->
       <div v-else class="container desktop-menu">
-        <router-link class="desktop-menu-link" to="/chi-siamo"><span @click="scrollToTop()">Chi Siamo</span></router-link>
-        <router-link class="desktop-menu-link" to="/prodotti"><span @click="scrollToTop()">Prodotti</span></router-link>
-        <router-link class="desktop-menu-link" to="/servizi"><span @click="scrollToTop()">Servizi</span></router-link>
+        <router-link class="desktop-menu-link" to="/chi-siamo"><span class="link" @click="scrollToTop()" :style="`font-size: ${link.size}`">Chi Siamo</span></router-link>
+        <router-link class="desktop-menu-link" to="/prodotti"><span class="link" @click="scrollToTop()" :style="`font-size: ${link.size}`">Prodotti</span></router-link>
+        <router-link class="desktop-menu-link" to="/servizi"><span class="link" @click="scrollToTop()" :style="`font-size: ${link.size}`">Servizi</span></router-link>
         <router-link class="desktop-menu-link home-page" to="/">
           <div class="logo" :style="`transform: scale(${logo.scale})`" @click="scrollToTop()"></div>
         </router-link>
-        <router-link class="desktop-menu-link" to="/news"><span @click="scrollToTop()">News</span></router-link>
-        <router-link class="desktop-menu-link" to="/contatti"><span @click="scrollToTop()">Contatti</span></router-link>
-        <router-link class="desktop-menu-link" to="/area-clienti"><span @click="scrollToTop()">Area<br>Clienti</span></router-link>
+        <router-link class="desktop-menu-link" to="/news"><span class="link" @click="scrollToTop()" :style="`font-size: ${link.size}`">News</span></router-link>
+        <router-link class="desktop-menu-link" to="/contatti"><span class="link" @click="scrollToTop()" :style="`font-size: ${link.size}`">Contatti</span></router-link>
+        <router-link class="desktop-menu-link" to="/area-clienti"><span class="link" @click="scrollToTop()" :style="`font-size: ${link.size}`">Area<br>Clienti</span></router-link>
       </div>
     </section>
 
     <section id="jingle">
-      <div v-if="jingle.show" class="container">
+      <div class="container" v-show="jingle.show">
         <div class="content">il colore su misura</div>
       </div>
     </section>
@@ -44,9 +44,6 @@
 <script>
 import routes from '../router/index';
 export default {
-  props:{
-    title: String,
-  },
   data(){
     return{
       router: routes,
@@ -67,6 +64,9 @@ export default {
       },
       jingle:{
         show: true,
+      },
+      link:{
+        size: '1.5rem',
       },
     }
   },
@@ -106,12 +106,14 @@ export default {
         this.navbar.height = '150px';
         this.logo.scale = '100%';
         this.jingle.show = true;
+        this.link.size = '1.5rem';
       }
       else{
         //this.$emit('scroll');
-        this.navbar.height = '100px';
-        this.logo.scale = '70%';
+        this.navbar.height = '90px';
+        this.logo.scale = '65%';
         this.jingle.show = false;
+        this.link.size = '1.2rem';
       }
     },
     scrollToTop: function(){
@@ -125,12 +127,10 @@ export default {
   mounted(){
     this.mediaWidth();
     this.navbarHeight();
-    console.log(this.router);
   },
   distroyed() {
     window.removeEventListener('resize', this.mediaWidth);
     window.removeEventListener('scroll', this.navbarHeight);
-
   },
 }
 </script>

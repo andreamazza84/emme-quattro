@@ -6,7 +6,7 @@
         <div class="row">
           <div class="logo col-lg-4 col-md-12 col-sm-12">
             <router-link to="/">
-              <img class="whole-logo" src="@/assets/M4_2021.svg" alt="logo M4">
+              <img class="whole-logo" src="@/assets/M4_2021_clear.svg" alt="logo M4">
             </router-link>
           </div>
           <div class="col-lg-4 col-md-6 col-sm-12">
