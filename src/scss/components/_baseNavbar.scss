@@ -10,7 +10,7 @@
       flex-basis: calc(100% / 7);
       color: $darkcolor;
       font-weight: bold;
-      font-size: 1.5rem;
+      font-size: $large;
       //border-bottom: 2px solid transparent;
       transition: color 300ms;
       &.router-link-exact-active,
@@ -36,7 +36,6 @@
     background-size: cover;
     background-position: left;
     transition: transform 300ms;
-    //transition: height 300ms;
     }
   
   .menu-hamburger::before{
@@ -88,3 +87,22 @@
   }
 }
 
+#jingle{
+  width: 100%;
+  color: $lightcolor;
+  background-color: $darkcolor;
+  border-bottom: 2px solid $darkcolor;
+  .container{
+    height: 50px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    .content{
+      font-size: 1.2em;
+      letter-spacing: 0.6em;
+    }
+  }
+  .active{
+    display: flex;
+  }
+}

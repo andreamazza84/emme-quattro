@@ -1,47 +1,56 @@
 <template>
-  <section id="navbar" :style="`height: ${navbar.height}`">
-    <div v-if="showBars" class="container">
-      <router-link to="/" class="home-page">
-        <div class="logo" :style="`transform: scale(${logo.scale})`"></div>
-      </router-link>
-      <i class="menu-hamburger" @click="showHide()"></i>
-      
+  <div>
+    <section id="navbar" :style="`height: ${navbar.height}`">
       <!-- Mobile Menu -->
-      <div v-if="showMenu" class="mobile-menu">
-          <i class="close-menu" @click="showHide()"></i>
-          <router-link class="mobile-menu-link" to="/"><span @click="showHide()">Home</span></router-link>
-          <router-link class="mobile-menu-link" to="/chi-siamo"><span @click="showHide()">Chi Siamo</span></router-link>
-          <router-link class="mobile-menu-link" to="/prodotti"><span @click="showHide()">Prodotti</span></router-link>
-          <router-link class="mobile-menu-link" to="/servizi"><span @click="showHide()">Servizi</span></router-link>
-          <router-link class="mobile-menu-link" to="/news"><span @click="showHide()">News</span></router-link>
-          <router-link class="mobile-menu-link" to="/contatti"><span @click="showHide()">Contatti</span></router-link>
-          <router-link class="mobile-menu-link" to="/area-clienti"><span @click="showHide()">Area<br>Clienti</span></router-link>
+      <div v-if="showBars" class="container">
+        <router-link to="/" class="home-page">
+          <div class="logo" :style="`transform: scale(${logo.scale})`"></div>
+        </router-link>
+        <i class="menu-hamburger" @click="showHide()"></i>
+        
+        <div v-if="showMenu" class="mobile-menu">
+            <i class="close-menu" @click="showHide()"></i>
+            <router-link class="mobile-menu-link" to="/"><span @click="showHide()">Home</span></router-link>
+            <router-link class="mobile-menu-link" to="/chi-siamo"><span @click="showHide()">Chi Siamo</span></router-link>
+            <router-link class="mobile-menu-link" to="/prodotti"><span @click="showHide()">Prodotti</span></router-link>
+            <router-link class="mobile-menu-link" to="/servizi"><span @click="showHide()">Servizi</span></router-link>
+            <router-link class="mobile-menu-link" to="/news"><span @click="showHide()">News</span></router-link>
+            <router-link class="mobile-menu-link" to="/contatti"><span @click="showHide()">Contatti</span></router-link>
+            <router-link class="mobile-menu-link" to="/area-clienti"><span @click="showHide()">Area<br>Clienti</span></router-link>
+        </div>
       </div>
-    </div>
-    <!-- Desktop Menu -->
-    <div v-else class="container desktop-menu">
-      <router-link class="desktop-menu-link" to="/chi-siamo">Chi Siamo</router-link>
-      <router-link class="desktop-menu-link" to="/prodotti">Prodotti</router-link>
-      <router-link class="desktop-menu-link" to="/servizi">Servizi</router-link>
-      <router-link class="desktop-menu-link home-page" to="/">
-        <div class="logo" :style="`transform: scale(${logo.scale})`"></div>
+      <!-- Desktop Menu -->
+      <div v-else class="container desktop-menu">
+        <router-link class="desktop-menu-link" to="/chi-siamo"><span @click="scrollToTop()" style="font-size: $medium;">Chi Siamo</span></router-link>
+        <router-link class="desktop-menu-link" to="/prodotti"><span @click="scrollToTop()">Prodotti</span></router-link>
+        <router-link class="desktop-menu-link" to="/servizi"><span @click="scrollToTop()">Servizi</span></router-link>
+        <router-link class="desktop-menu-link home-page" to="/">
+          <div class="logo" :style="`transform: scale(${logo.scale})`" @click="scrollToTop()"></div>
+        </router-link>
+        <router-link class="desktop-menu-link" to="/news"><span @click="scrollToTop()">News</span></router-link>
+        <router-link class="desktop-menu-link" to="/contatti"><span @click="scrollToTop()">Contatti</span></router-link>
+        <router-link class="desktop-menu-link" to="/area-clienti"><span @click="scrollToTop()">Area<br>Clienti</span></router-link>
+      </div>
+    </section>
 
-      </router-link>
-      <router-link class="desktop-menu-link" to="/news">News</router-link>
-      <router-link class="desktop-menu-link" to="/contatti">Contatti</router-link>
-      <router-link class="desktop-menu-link" to="/area-clienti">Area<br>Clienti</router-link>
-    </div>
-
-  </section>
+    <section id="jingle">
+      <div class="container" :class="jingle.show?'active':''">
+        <div class="content">il colore su misura</div>
+      </div>
+    </section>
+  </div>
 </template>
 <script>
 export default {
+  props:{
+    title: String,
+  },
   data(){
     return{
       showBars: false,
       showMenu: false,
       closeMenu: false,
-      window: {       // dichiarazione iniziale per la variabile window
+      window: { 
         width: 0,
         height: 0,
         scrollY: 0,
@@ -49,13 +58,13 @@ export default {
       navbar:{
         width: 0,
         height: '150px',
-        scaleY: '100%'
       },
       logo: {
-        width: '130px',
-        height: '130px',
-        scale: '100%'
-      }
+        scale: '100%',
+      },
+      jingle:{
+        show: true,
+      },
     }
   },
   methods:{
@@ -70,7 +79,7 @@ export default {
         this.window.height = window.innerHeight;
         if(window.innerWidth > 1200) {
           this.showBars = false;
-          this.showManu = false;
+          this.showMenu = false;
         }
         if(window.innerWidth  <= 1200){
             this.showBars = true;
@@ -89,23 +98,21 @@ export default {
     },
     navbarHeight: function(){
       this.window.scrollY = window.scrollY;
-      console.log(this.window.scrollY);
+      //console.log(this.window.scrollY);
       if(this.window.scrollY === 0){
-        //this.$emit({'scroll' : false});
         this.navbar.height = '150px';
-        this.navbar.scaleY = '100%';
-        this.logo.width = '130px';
-        this.logo.height = '130px';
         this.logo.scale = '100%';
+        this.jingle.show = true;
       }
       else{
         //this.$emit('scroll');
         this.navbar.height = '100px';
-        this.navbar.scaleY = '80%';
-        this.logo.width = '85px';
-        this.logo.height = '85px';
         this.logo.scale = '70%';
+        this.jingle.show = false;
       }
+    },
+    scrollToTop: function(){
+      window.scrollTo(0,0);
     },
   },
   created() {
@@ -114,6 +121,7 @@ export default {
   },
   mounted(){
     this.mediaWidth();
+    this.navbarHeight();
   },
   distroyed() {
     window.removeEventListener('resize', this.mediaWidth);

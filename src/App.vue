@@ -2,11 +2,7 @@
   <div id="app">
     <div id="header">
       <baseNavbar/>
-      <section id="jingle">
-        <div class="container">
-          <div class="content">il colore su misura</div>
-        </div>
-      </section>
+      
     </div>
     
     <router-view id="main"/>
@@ -28,20 +24,26 @@
       return {}
     },
     methods:{
-          async retrieveData(item){
-              try{
-                  const result = await this.$store.dispatch('retrieveData', item);
-              }
-              catch(error){
-                  console.log("Error", error);
-              }
-          }
-      },
+      async retrieveData(item){
+        try{
+            const result = await this.$store.dispatch('retrieveData', item);
+        }
+        catch(error){
+            console.log("Error", error);
+        }
+      }
+    },
+    // created(){
+    //   window.addEventListener('scroll', this.scrollPosition);
+    // },
     mounted(){
         this.retrieveData('prodotti');
         this.retrieveData('servizi');
         this.retrieveData('carosello');
-    }, 
+    },
+    // destroyed(){
+    //   window.removeEventListener('scroll', this.scrollPosition);
+    // }
 }
 </script>
 
