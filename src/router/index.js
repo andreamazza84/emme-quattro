@@ -23,12 +23,18 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: Home,
+    navbar: true,
+    desktop: 4,
+    mobile: 1
   },
   {
     path: '/chi-siamo',
     name: 'About',
-    component: About
+    component: About,
+    navbar: true,
+    desktop: 1,
+    mobile: 2
   },
   {
     path: '/prodotti',
@@ -41,7 +47,10 @@ const routes = [
         props: true,
         component: ProdottiDescrizione
         //component: () => import(/* webpackChunkName: "ProdottiDescrizione" */ "../views/ProdottiDescrizione.vue"),
-    }]
+    }],
+    navbar: true,
+    desktop: 2,
+    mobile: 3
   },
   {
     path: '/servizi',
@@ -53,17 +62,26 @@ const routes = [
         name: "ServiziDescrizione",
         props: true,
         component: ServiziDescrizione
-    }]
+    }],
+    navbar: true,
+    desktop: 3,
+    mobile: 4
   },
   {
     path: '/news',
     name: 'News',
-    component: News
+    component: News,
+    navbar: true,
+    desktop: 5,
+    mobile: 5
   },
   {
     path: '/contatti',
     name: 'Contatti',
-    component: Contatti
+    component: Contatti,
+    navbar: true,
+    desktop: 6,
+    mobile: 6
   },
   {
     //LAZY LOAD
@@ -72,7 +90,10 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AreaClienti.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/AreaClienti.vue'),
+    navbar: true,
+    desktop: 7,
+    mobile: 7
   },
   {
     path: '/login',

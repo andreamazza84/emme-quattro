@@ -94,7 +94,7 @@
   border-bottom: 2px solid $darkcolor;
   .container{
     height: 50px;
-    display: none;
+    display: flex;
     justify-content: center;
     align-items: center;
     .content{
@@ -102,7 +102,7 @@
       letter-spacing: 0.6em;
     }
   }
-  .active{
-    display: flex;
-  }
+  // .active{
+  //   display: flex;
+  // }
 }

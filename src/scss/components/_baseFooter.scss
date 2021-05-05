@@ -1,8 +1,10 @@
 #footer{
   width: 100%;
   background-color: $darkcolor;
+  color: $lightcolor;
   
   .footer-top{
+    position: relative;
     padding-top: 40px;
     min-height: 260px;
     .logo{
@@ -30,5 +32,25 @@
       color: $secondary;
     }
   }
-  
+  .scroll-to-top::before{
+    font-family: 'Font Awesome 5 Free';
+    content: '\f077';
+    font-size: $large;
+    font-weight: 800;
+  }
+  .scroll-to-top{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: $darkcolor2;
+    color: $secondary;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
 }

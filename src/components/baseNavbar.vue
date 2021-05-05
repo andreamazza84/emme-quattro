@@ -1,6 +1,7 @@
 <template>
   <div>
     <section id="navbar" :style="`height: ${navbar.height}`">
+    
       <!-- Mobile Menu -->
       <div v-if="showBars" class="container">
         <router-link to="/" class="home-page">
@@ -21,7 +22,7 @@
       </div>
       <!-- Desktop Menu -->
       <div v-else class="container desktop-menu">
-        <router-link class="desktop-menu-link" to="/chi-siamo"><span @click="scrollToTop()" style="font-size: $medium;">Chi Siamo</span></router-link>
+        <router-link class="desktop-menu-link" to="/chi-siamo"><span @click="scrollToTop()">Chi Siamo</span></router-link>
         <router-link class="desktop-menu-link" to="/prodotti"><span @click="scrollToTop()">Prodotti</span></router-link>
         <router-link class="desktop-menu-link" to="/servizi"><span @click="scrollToTop()">Servizi</span></router-link>
         <router-link class="desktop-menu-link home-page" to="/">
@@ -34,19 +35,21 @@
     </section>
 
     <section id="jingle">
-      <div class="container" :class="jingle.show?'active':''">
+      <div v-if="jingle.show" class="container">
         <div class="content">il colore su misura</div>
       </div>
     </section>
   </div>
 </template>
 <script>
+import routes from '../router/index';
 export default {
   props:{
     title: String,
   },
   data(){
     return{
+      router: routes,
       showBars: false,
       showMenu: false,
       closeMenu: false,
@@ -122,6 +125,7 @@ export default {
   mounted(){
     this.mediaWidth();
     this.navbarHeight();
+    console.log(this.router);
   },
   distroyed() {
     window.removeEventListener('resize', this.mediaWidth);

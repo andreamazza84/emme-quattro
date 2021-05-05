@@ -19,6 +19,7 @@
           </div>
         </div>
       </div>
+      <div class="scroll-to-top" @click="scrollToTop()"></div>
     </section>
 
     <section class="footer-bottom">
@@ -32,6 +33,7 @@
            
         </div>
       </div>
+      
     </section>
 
   </div>
@@ -42,7 +44,13 @@ export default {
   name: 'baseFooter',
   props: {
     //msg: String
-  }
+  },
+  methods:{
+    scrollToTop: function(){
+      window.scrollTo(0,0);
+    },
+  },
+
 }
 </script>
 
