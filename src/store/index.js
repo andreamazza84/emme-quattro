@@ -24,10 +24,10 @@ export default new Vuex.Store({
       state.register = register;
     },
     SET_PRODOTTI(state, prodotti){
-      state.prodotti = prodotti;
+      state.prodotti = prodotti.reverse();
     },
     SET_SERVIZI(state, servizi){
-      state.servizi = servizi;
+      state.servizi = servizi.reverse();
     },
     SET_SLIDER(state, carosello){
       state.carosello = carosello;

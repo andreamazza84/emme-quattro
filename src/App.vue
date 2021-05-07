@@ -4,7 +4,7 @@
       <baseNavbar/>
     </div>
     
-    <router-view id="main"/>
+    <router-view id="main" :style="`padding-top: ${this.window.scroll ? '90px' : '200px'}`" :scroll="window.scroll"/>
 
     <baseFooter/>
 
@@ -20,7 +20,12 @@
       baseFooter
     },
     data(){
-      return {}
+      return {
+        window: {
+          scrollY: 0,
+          scroll: false,
+        },
+      }
     },
     methods:{
       async retrieveData(item){
@@ -31,12 +36,28 @@
             console.log("Error", error);
         }
       },
+      scroll: function(){
+        this.window.scrollY = window.scrollY;
+        this.window.scroll = true;
+
+        if(this.window.scrollY === 0){
+          this.window.scroll = false;
+        }
+      }
+    
+    },
+
+    created(){
+      window.addEventListener('scroll', this.scroll);
     },
     mounted(){
         this.retrieveData('prodotti');
         this.retrieveData('servizi');
         this.retrieveData('carosello');
     },
+    destroyed(){
+      window.removeEventListener('scroll', this.scroll);
+    }
 }
 </script>
 

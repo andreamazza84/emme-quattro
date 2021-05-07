@@ -15,7 +15,7 @@
     :touchDrag="true"
     :mouseDrag="true"
     >
-      <slide class="slide" v-for="image in carosello" :key="image.slug">
+      <slide class="slide" v-for="image in carosello" :key="image.slug" :style="`height: calc(100vh - ${scroll ? '90px' : '200px'})`">
         <div class="image" :style="`background-image:url(${image.acf.image.url})`"></div>
       </slide>
     </carousel>
@@ -40,6 +40,11 @@ export default {
   components: {
     Carousel,
     Slide
+  },
+  props: {
+    scroll: {
+      type: Boolean,
+    }
   },
   data(){
     return {
