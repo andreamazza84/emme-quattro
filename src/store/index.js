@@ -30,7 +30,7 @@ export default new Vuex.Store({
       state.servizi = servizi.reverse();
     },
     SET_SLIDER(state, carosello){
-      state.carosello = carosello;
+      state.carosello = carosello.reverse();
     }
   },
   actions: {
