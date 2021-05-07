@@ -22,7 +22,7 @@
 
     <div class="overlay row">
       <div class="col-lg-4 col-offset-lg-7 col-md-6 col-offset-md-5 col-sm-10 col-offset-sm-1 call-out">
-        <div class="searchfor">
+        <div class="search-for">
           Cerchi una vernice oppure un colore in particolare?<br>Con M4 hai tante soluzioni per i <span>privati</span> e tanti servizi dedicati alle <span>imprese</span>
         </div>
         <router-link class="btn" to="/contatti">

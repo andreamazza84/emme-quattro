@@ -1,13 +1,25 @@
 #navbar{
   height: 150px;
+  padding: 0 2rem;
   background-color: $lightcolor;
   transition: height 300ms;
   .container{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
+  }
+  .logo{
+    width: 130px;
+    height: 130px;
+    margin: auto;
+    background-image: url($logo);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: left;
+    transition: transform 300ms;
+    }
+  .desktop-menu{
     .desktop-menu-link {
-      flex-basis: calc(100% / 7);
       color: $darkcolor;
       font-weight: bold;
       font-size: $large;
@@ -22,34 +34,29 @@
       }
     }
   }
-  .logo{
-    width: 130px;
-    height: 130px;
-    margin: auto;
-    background-image: url($logo);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: left;
-    transition: transform 300ms;
-    }
+  // .icon-hamburger,
+  // .home-page{
+  //   margin: 0 2rem;
+  // }
   
-  .menu-hamburger::before{
+  .icon-hamburger{
     display: flex;
     justify-content: center;
     align-items: center;
     width: 3rem;
     height: 3rem;
-    border: 1px solid #aaa;
-    font-family: "Font Awesome 5 Free"; 
-    font-size: 2rem;
-    font-weight: 900; 
-    content: "\f0c9";
+    border: 1px solid $borderlightcolor;
+    border-radius: 3px;
     color: $darkcolor;
     cursor: pointer;
+    &::before{
+      font-family: "Font Awesome 5 Free"; 
+      font-size: 2rem;
+      font-weight: 900; 
+      content: "\f0c9";
+    }
   }
-  .mobile-menu > *{
-    width: max-content;
-  }
+  
   .mobile-menu{
     position: absolute;
     top:0;
@@ -58,21 +65,24 @@
     height: 100vh;
     background-color: $darktrasparency;
     display: flex;
-    flex-direction:  column;
+    flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    .close-menu::before{
-      font-family: "Font Awesome 5 Free"; 
-      font-size: 2rem;
-      font-weight: 900; 
-      content: "\f00d";
-      color: $lightcolor;
-      cursor: pointer;
+    & > *{
+      width: max-content;
     }
     .close-menu{
       position: absolute;
       right: 40px;
       top: 20px;
+      &::before{
+        font-family: "Font Awesome 5 Free"; 
+        font-size: 2rem;
+        font-weight: 900; 
+        content: "\f00d";
+        color: $lightcolor;
+        cursor: pointer;
+      }
     }
     .mobile-menu-link{
       color: $lightcolor;

@@ -3,13 +3,13 @@
     <section id="navbar" :style="`height: ${navbar.height}`">
 
       <!-- Mobile Menu -->
-      <div v-if="showBars" class="container">
+      <div v-if="showBars" class="container menu-hamburger">
         <router-link to="/" class="home-page">
           <div class="logo" :style="`transform: scale(${logo.scale})`"></div>
         </router-link>
-        <i class="menu-hamburger" @click="showHide()"></i>
+        <i class="icon-hamburger" @click="showHide()"></i>
         
-        <div v-if="showMenu" class="mobile-menu">
+        <div v-if="showMenu" class="container mobile-menu">
             <i class="close-menu" @click="showHide()"></i>
             <router-link class="mobile-menu-link" to="/"><span class="link" @click="showHide()">Home</span></router-link>
             <router-link class="mobile-menu-link" to="/chi-siamo"><span class="link" @click="showHide()">Chi Siamo</span></router-link>
@@ -20,6 +20,7 @@
             <router-link class="mobile-menu-link" to="/area-clienti"><span class="link" @click="showHide()">Area<br>Clienti</span></router-link>
         </div>
       </div>
+
       <!-- Desktop Menu -->
       <div v-else class="container desktop-menu">
         <router-link class="desktop-menu-link" to="/chi-siamo"><span class="link" @click="scrollToTop()" :style="`font-size: ${link.size}`">Chi Siamo</span></router-link>
@@ -71,8 +72,25 @@ export default {
     }
   },
   methods:{
-    /**  
-    * @window_resize Shows menu hamburger under 992px screen width    
+    /** Scrolls page to top.
+    * @click 
+    */
+    scrollToTop: function(){
+      window.scrollTo(0,0);
+    },
+    /** Shows the menu for mobile devices
+    * @click 
+    */
+    showHide: function(){
+      if(this.showMenu){
+        this.showMenu = false;
+      }
+      else{
+        this.showMenu = true;
+      }
+    },
+    /** Shows menu hamburger under 992px screen width
+    * @window_resize     
     */
     mediaWidth: function() {
         //mobile 768px
@@ -83,54 +101,64 @@ export default {
         if(window.innerWidth > 1200) {
           this.showBars = false;
           this.showMenu = false;
+          //this.logo.scale = '100%'; *******
+
         }
         if(window.innerWidth  <= 1200){
             this.showBars = true;
+            //this.logo.scale = '65%'; ********
         }
     },
-    /**
-      @click shows the menu for mobile devices
-     */
-    showHide: function(){
-      if(this.showMenu){
-        this.showMenu = false;
-      }
-      else{
-        this.showMenu = true;
-      }
-    },
+    /** Adjusts the navbar height on the scroll position.
+    * @window_scroll 
+    */
     navbarHeight: function(){
       this.window.scrollY = window.scrollY;
       //console.log(this.window.scrollY);
       if(this.window.scrollY === 0){
         this.navbar.height = '150px';
-        this.logo.scale = '100%';
+        //this.logo.scale = '100%'; *******
         this.jingle.show = true;
         this.link.size = '1.5rem';
       }
       else{
         //this.$emit('scroll');
         this.navbar.height = '90px';
-        this.logo.scale = '65%';
+        //this.logo.scale = '65%'; *******
         this.jingle.show = false;
         this.link.size = '1.2rem';
       }
     },
-    scrollToTop: function(){
-      window.scrollTo(0,0);
+    /** Re-render navbar logo dimensions
+    * @window_scroll 
+    * @window_resize
+    */
+    logoScale: function(){
+      this.logo.scale = '65%';
+      if(this.window.scrollY === 0){
+        this.logo.scale = '70%';
+        if(this.window.width > 1200){
+          this.logo.scale = '100%';
+        }
+      }
     },
   },
   created() {
     window.addEventListener('resize', this.mediaWidth);
     window.addEventListener('scroll', this.navbarHeight);
+    window.addEventListener('resize', this.logoScale);
+    window.addEventListener('scroll', this.logoScale);
   },
   mounted(){
     this.mediaWidth();
     this.navbarHeight();
+    this.logoScale();
   },
   distroyed() {
     window.removeEventListener('resize', this.mediaWidth);
     window.removeEventListener('scroll', this.navbarHeight);
+    window.removeEventListener('resize', this.logoScale);
+    window.removeEventListener('scroll', this.logoScale);
   },
 }
 </script>
