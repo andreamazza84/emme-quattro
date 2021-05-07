@@ -55,6 +55,10 @@
       font-weight: 900; 
       content: "\f0c9";
     }
+    &:hover,
+    &:focus{
+      color: $primary;
+    }
   }
   
   .mobile-menu{

@@ -11,13 +11,13 @@
         
         <div v-if="showMenu" class="container mobile-menu">
             <i class="close-menu" @click="showHide()"></i>
-            <router-link class="mobile-menu-link" to="/"><span class="link" @click="showHide()">Home</span></router-link>
-            <router-link class="mobile-menu-link" to="/chi-siamo"><span class="link" @click="showHide()">Chi Siamo</span></router-link>
-            <router-link class="mobile-menu-link" to="/prodotti"><span class="link" @click="showHide()">Prodotti</span></router-link>
-            <router-link class="mobile-menu-link" to="/servizi"><span class="link" @click="showHide()">Servizi</span></router-link>
-            <router-link class="mobile-menu-link" to="/news"><span class="link" @click="showHide()">News</span></router-link>
-            <router-link class="mobile-menu-link" to="/contatti"><span class="link" @click="showHide()">Contatti</span></router-link>
-            <router-link class="mobile-menu-link" to="/area-clienti"><span class="link" @click="showHide()">Area<br>Clienti</span></router-link>
+            <router-link class="mobile-menu-link" to="/"><span class="link" @click="showHide(); scrollToTop()">Home</span></router-link>
+            <router-link class="mobile-menu-link" to="/chi-siamo"><span class="link" @click="showHide(); scrollToTop()">Chi Siamo</span></router-link>
+            <router-link class="mobile-menu-link" to="/prodotti"><span class="link" @click="showHide(); scrollToTop()">Prodotti</span></router-link>
+            <router-link class="mobile-menu-link" to="/servizi"><span class="link" @click="showHide(); scrollToTop()">Servizi</span></router-link>
+            <router-link class="mobile-menu-link" to="/news"><span class="link" @click="showHide(); scrollToTop()">News</span></router-link>
+            <router-link class="mobile-menu-link" to="/contatti"><span class="link" @click="showHide(); scrollToTop()">Contatti</span></router-link>
+            <router-link class="mobile-menu-link" to="/area-clienti"><span class="link" @click="showHide(); scrollToTop()">Area<br>Clienti</span></router-link>
         </div>
       </div>
 
@@ -101,12 +101,9 @@ export default {
         if(window.innerWidth > 1200) {
           this.showBars = false;
           this.showMenu = false;
-          //this.logo.scale = '100%'; *******
-
         }
         if(window.innerWidth  <= 1200){
             this.showBars = true;
-            //this.logo.scale = '65%'; ********
         }
     },
     /** Adjusts the navbar height on the scroll position.
@@ -114,19 +111,13 @@ export default {
     */
     navbarHeight: function(){
       this.window.scrollY = window.scrollY;
-      //console.log(this.window.scrollY);
+      this.navbar.height = '90px';
+      this.jingle.show = false;
+      this.link.size = '1.2rem';
       if(this.window.scrollY === 0){
         this.navbar.height = '150px';
-        //this.logo.scale = '100%'; *******
         this.jingle.show = true;
         this.link.size = '1.5rem';
-      }
-      else{
-        //this.$emit('scroll');
-        this.navbar.height = '90px';
-        //this.logo.scale = '65%'; *******
-        this.jingle.show = false;
-        this.link.size = '1.2rem';
       }
     },
     /** Re-render navbar logo dimensions
@@ -134,7 +125,7 @@ export default {
     * @window_resize
     */
     logoScale: function(){
-      this.logo.scale = '65%';
+      this.logo.scale = '60%';
       if(this.window.scrollY === 0){
         this.logo.scale = '70%';
         if(this.window.width > 1200){

@@ -2,7 +2,6 @@
   <div id="app">
     <div id="header">
       <baseNavbar/>
-      
     </div>
     
     <router-view id="main"/>
@@ -31,19 +30,13 @@
         catch(error){
             console.log("Error", error);
         }
-      }
+      },
     },
-    // created(){
-    //   window.addEventListener('scroll', this.scrollPosition);
-    // },
     mounted(){
         this.retrieveData('prodotti');
         this.retrieveData('servizi');
         this.retrieveData('carosello');
     },
-    // destroyed(){
-    //   window.removeEventListener('scroll', this.scrollPosition);
-    // }
 }
 </script>
 
