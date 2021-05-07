@@ -1,11 +1,11 @@
 <template>
-  <section id="about">
+  <section id="descrizione-prodotti">
     <div class="container">
       <h3>Descrizione</h3>
       <h4 class="title product-title"><span v-html="prodotto.title.rendered"></span></h4>
-      <div class="box">
-        <img :src="prodotto.acf.image.url" :alt="prodotto.acf.image.alt">
-        <p class="description product-description"><span v-html="prodotto.content.rendered"></span></p>
+      <div class="box row">
+        <img class="col-lg-4" :src="prodotto.acf.image.url" :alt="prodotto.acf.image.alt">
+        <p class="col-lg-8 description product-description"><span v-html="prodotto.content.rendered"></span></p>
       </div>
     </div>
   </section>
@@ -35,16 +35,3 @@ export default {
 
 </script>
 
-<style lang="scss" scoped>
-#about{
-  .box{
-    display: flex;
-    img{
-      width: 200px;
-    }
-    .product-description{
-      text-align: justify;
-    }
-  } 
-}
-</style>

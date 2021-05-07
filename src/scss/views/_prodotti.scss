@@ -1,0 +1,26 @@
+.prodotti{
+  .title{
+    margin: 2rem 0;
+  }
+}
+
+.dettagli{
+  .description{
+    margin-bottom: 2rem;
+  }
+  .card{
+    img{
+      max-width: 350px;
+      min-width: 200px;
+      width: 30vw;
+      
+      max-height: 350px;
+      min-height: 200px;
+      height: 30vw;
+
+      margin-bottom: 2rem;
+  
+    }
+  }
+
+}

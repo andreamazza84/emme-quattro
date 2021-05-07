@@ -1,0 +1,14 @@
+#descrizione-prodotti{
+  
+  .box{
+    display: flex;
+    img{
+      max-width: 300px;
+      min-width: 200px;
+      width: 30vw;
+    }
+    .product-description{
+      text-align: justify;
+    }
+  } 
+}

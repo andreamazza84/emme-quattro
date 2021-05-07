@@ -47,7 +47,7 @@ export default {
   },
   methods:{
     scrollToTop: function(){
-      window.scrollTo(0,0);
+      window.scrollTo({top: 20, behavior: 'smooth'});
     },
   },
 
