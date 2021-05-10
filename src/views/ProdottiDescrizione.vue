@@ -1,13 +1,23 @@
 <template>
   <section id="descrizione-prodotti">
     <div class="container">
-      <h3>Descrizione</h3>
-      <h4 class="title product-title"><span v-html="prodotto.title.rendered"></span></h4>
+      <h2 class="title product-title"><span v-html="prodotto.title.rendered"></span></h2>
       <div class="box row">
-        <img class="col-lg-4" :src="prodotto.acf.image.url" :alt="prodotto.acf.image.alt">
-        <p class="col-lg-8 description product-description"><span v-html="prodotto.content.rendered"></span></p>
+        <div class="col-lg-4">
+          <img :src="prodotto.acf.image.url" :alt="prodotto.acf.image.alt">
+        </div>
+        <div class="col-lg-6">
+          <p class="descrizione"><span v-html="prodotto.content.rendered"></span></p>
+        </div>
+        <div class="col-lg-2">
+          <div class="download">
+            <div class="pdf"></div>
+          </div>
+        </div>
       </div>
+    <router-link to="/prodotti" class="close"></router-link>
     </div>
+    
   </section>
 </template>
 

@@ -1,14 +1,80 @@
 #descrizione-prodotti{
-  
+  .container{
+    position: relative;
+    border: 1px solid $borderlightcolor;
+    padding-top: 2rem;
+    background-color: #f7f7f7;
+  }
   .box{
-    display: flex;
+    margin-bottom: 2rem;
+    height: 100%;
+    [class*="col-"],
+    [class*="col-"] > *{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
     img{
-      max-width: 300px;
+      max-width: 350px;
       min-width: 200px;
       width: 30vw;
+      max-height: 350px;
+      min-height: 200px;
+      height: 30vw;
     }
-    .product-description{
+    .descrizione{
+      font-size: $text;
       text-align: justify;
+      max-height: 350px;
+      min-height: 200px;
+      height: 30vw;
+      overflow-y: auto;
+      ul{
+        li::before{
+          font-family: "Font Awesome 5 Free"; 
+          content: "\f1fb";
+          font-size: $text;
+        }
+        li{
+          line-height: 2rem;
+        }
+      }
+    }
+    .download{
+      max-height: 350px;
+      min-height: 200px;
+      height: 30vw;
+      .pdf::before{
+        font-family: "Font Awesome 5 Free";
+        content: "\f1c1";
+        font-size: $xxlarge;
+      }
+      .pdf{
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+        color: $secondary;
+      }
+      .pdf::after{
+        margin-top: 1rem;
+        content: "Download Brochure";
+      }
+    }
+  }
+  .close{
+    position: absolute;
+    top: 2rem;
+    right: 3rem;
+    &::before{
+      font-family: "Font Awesome 5 Free";
+      content: "\f057";
+      color: $darkcolor;
+      font-size: $xlarge;
+      transition: color 300ms;
+    }
+    &:hover::before{
+      color: $primary;
+
     }
   } 
 }

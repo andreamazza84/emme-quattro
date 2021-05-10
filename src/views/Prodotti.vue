@@ -1,15 +1,10 @@
 <template>
     <div class="prodotti_servizi">
         <section class="prodotti">
-          <h1 class="title">Prodotti</h1>
-        </section>
-        
-        <section class="dettagli">
+            
             <div class="container">
-              <h3 class="description">Prodotti suddivisi per ambito di applicazione</h3>
-              <router-view :key="$route.path"/>
               <div class="card-container row">
-                <div class="card col-lg-4 col-md-6 col-sm-12" 
+                <div class="card col-lg-4 col-md-4 col-sm-12" 
                 v-for="prodotto in prodotti" 
                 :key="prodotto.slug"
                 >
@@ -17,12 +12,37 @@
                       name: 'ProdottiDescrizione',
                       params: {slug: prodotto.slug}
                   }">
-                      <div v-html="prodotto.title.rendered"></div>
+                      <div class="img" :style="`background-image: url(${prodotto.acf.image.url})`">
+                        <h4 class="title" v-html="prodotto.title.rendered"></h4>
+                      </div>
+                      <!-- <img :src="prodotto.acf.image.url" :alt="prodotto.acf.image.alt"> -->
+                  </router-link>
+                </div>
+              </div>
+            </div>
+                
+            <!-- Router View  -->
+            <router-view :key="$route.path" />
+            <!-- /Router View  -->
+            <!--
+            <div class="container">
+              <div class="card-container row">
+                <div class="card col-lg-4 col-md-4 col-sm-12" 
+                v-for="prodotto in prodotti.slice(3,6)" 
+                :key="prodotto.slug"
+                >
+                  <router-link class="innerlink" :to="{
+                      name: 'ProdottiDescrizione',
+                      params: {slug: prodotto.slug}
+                  }">
+                      <div class="title" v-html="prodotto.title.rendered"></div>
                       <img :src="prodotto.acf.image.url" :alt="prodotto.acf.image.alt">
                   </router-link>
                 </div>
               </div>
             </div>
+            -->
+
         </section>
     </div> 
 </template>
