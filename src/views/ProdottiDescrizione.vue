@@ -1,12 +1,14 @@
 <template>
   <section id="descrizione-prodotti">
     <div class="container">
-      <h2 class="title product-title"><span v-html="prodotto.title.rendered"></span></h2>
       <div class="box row">
         <div class="col-lg-4">
-          <img :src="prodotto.acf.image.url" :alt="prodotto.acf.image.alt">
+          <div class="img" :style="`background-image: url(${prodotto.acf.image.url})`" :alt="prodotto.acf.image.alt">
+          </div>
+          <!-- <img :src="prodotto.acf.image.url"> -->
         </div>
         <div class="col-lg-6">
+          <h3 class="title product-title"><span v-html="prodotto.title.rendered"></span></h3>
           <p class="descrizione"><span v-html="prodotto.content.rendered"></span></p>
         </div>
         <div class="col-lg-2">
@@ -15,7 +17,7 @@
           </div>
         </div>
       </div>
-    <router-link to="/prodotti" class="close"></router-link>
+    <router-link to="/prodotti" class="close-link"><div class="close" @click="scrollToTop()"></div></router-link>
     </div>
     
   </section>
@@ -40,6 +42,11 @@ export default {
         element => element.slug === this.slug
       );
     }
+  },
+  methods:{
+    scrollToTop: function(){
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    },
   },
 }
 
