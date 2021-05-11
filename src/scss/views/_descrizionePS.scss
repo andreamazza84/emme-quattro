@@ -1,34 +1,46 @@
 #descrizione-prodotti{
-  margin: 2rem 0;
-  .container{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  //height: 100vh;
+  bottom: 0;
+  z-index: 1;
+  background-color: $darkcolor;
+  color: $lightcolor;
+  padding-top: 200px;
+  //margin: 2rem 0;
+  .box-container{
     position: relative;
-    border: 1px solid $borderlightcolor;
-    //padding-top: 2rem;
-    background-color: #f7f7f7;
+    //border: 1px solid $borderlightcolor;
+    //background-color: #f7f7f7;
     padding: 2rem 0;
+    margin-bottom: 2rem;
   }
-  .box{
+  .box-row{
     .img{
-      max-width: 250px;
+      max-width: 300px;
       min-width: 200px;
-      width: 30vw;
-      max-height: 250px;
-      min-height: 100px;
-      height: 15vw;
+      width: 25vw;
+      max-height: 300px;
+      min-height: 200px;
+      height: 25vw;
+      margin: auto;
     }
     .product-title{
       margin:0;
       text-align: left;
+      color: $lightcolor;
     }
     .descrizione{
       font-size: $text;
       text-align: justify;
-      max-height: 250px;
+      //max-height: 250px;
       overflow-y: auto;
       padding-right: 1rem;
       ul{
         li::before{
-          font-family: "Font Awesome 5 Free"; 
+          font-family: $fontAwesome; 
           content: "\f1fb";
           font-size: $text;
         }
@@ -38,8 +50,11 @@
       }
     }
     .download{
+      a > span{
+        color: $primary;
+      }
       .pdf::before{
-        font-family: "Font Awesome 5 Free";
+        font-family: $fontAwesome;
         content: "\f1c1";
         font-size: $xxlarge;
       }
@@ -48,26 +63,30 @@
         flex-direction: column;
         cursor: pointer;
         color: $secondary;
+        //text-transform: lowercase;
       }
-      .pdf::after{
-        margin-top: 1rem;
-        content: "Download Brochure";
+      .pdf::first-letter{
+        text-transform: capitalize;
       }
+      // .pdf::after{
+      //   margin-top: 1rem;
+      //   content: "Prodotti";
+      // }
     }
   }
-  .close{
+  .close-link{
     position: absolute;
-    top: 1.2rem;
-    right: 1.2rem;
-    &::before{
-      font-family: "Font Awesome 5 Free";
+    top: 1rem;
+    right: 2rem;
+    .close::before{
+      font-family: $fontAwesome;
       content: "\f057";
-      color: $darkcolor;
-      font-size: $large;
+      color: $lightcolor;
+      font-size: $xlarge;
       transition: color 300ms;
     }
-    &:hover::before{
-      color: $primary;
+    .close:hover::before{
+      color: $secondary;
 
     }
   } 

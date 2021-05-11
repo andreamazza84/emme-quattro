@@ -1,32 +1,36 @@
-.prodotti{
-  .title{
-    margin: 2rem 0;
-  }
-  .img{
-    //display: flex;
-    //justify-content: center;
-    //align-items: flex-end;
-    margin: auto;
-    max-width: 350px;
-    min-width: 200px;
-    width: 30vw;
-    max-height: 175px;
-    min-height: 100px;
-    height: 15vw;
-    
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    
+.prodotti_servizi{
+  width: 100%;
+  height: 100%;
+  .prodotti{
+    position: relative;
+    padding-bottom: 2rem;
     .title{
-      color: $lightcolor;
-      background-color: $darktrasparency;
+      margin: 2rem 0 1rem 0;
+      color: $darkcolor;
+      //background-color: $darktrasparency;
     }
-  }
-  .router-link-active{
     .img{
-      transform: scale(1.1);
-      transition: transform 300ms;
+      //display: flex;
+      //justify-content: center;
+      //align-items: flex-end;
+      margin: auto;
+      max-width: 300px;
+      min-width: 200px;
+      width: 30vw;
+      max-height: 300px;
+      min-height: 200px;
+      height: 30vw;
+      
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      
+    }
+    .router-link-active{
+      .img{
+        transform: scale(1.1);
+        transition: transform 300ms;
+      }
     }
   }
 }
