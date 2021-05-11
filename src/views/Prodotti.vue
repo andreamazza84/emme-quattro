@@ -16,14 +16,15 @@
             >
                 <h4 class="title" v-html="prodotto.title.rendered"></h4>
                 <div class="img" :style="`background-image: url(${prodotto.acf.image.url})`"></div>
-                <!-- <img :src="prodotto.acf.image.url" :alt="prodotto.acf.image.alt"> -->
             </router-link>
           </div>
         </div>
       </div>
           
       <!-- Router View  -->
-      <router-view :key="$route.path" />
+      
+      <router-view :key="$route.path"/>
+      
       <!-- /Router View  -->
 
     </section>
@@ -38,7 +39,7 @@ export default {
   },
   methods:{
     scrollToTop: function(){
-      window.scrollTo({top: 0, behavior: 'smooth'});
+      window.scrollTo({top: 20, behavior: 'smooth'});
     },
   },
 }

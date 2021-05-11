@@ -3,7 +3,7 @@
     position: relative;
     .carousel{
         .slide{
-          //height: calc(100vh - 200px);
+          height: calc(100vh - 200px);
           transition: height 300ms;
           .image{
             width: 100%;

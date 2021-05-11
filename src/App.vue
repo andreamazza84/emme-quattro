@@ -4,7 +4,7 @@
       <baseNavbar/>
     </div>
     
-    <router-view id="main" :style="`padding-top: ${this.window.scroll ? '90px' : '200px'}`" :scroll="window.scroll"/>
+    <router-view id="main" :scroll="window.scroll"/>
 
     <baseFooter/>
 

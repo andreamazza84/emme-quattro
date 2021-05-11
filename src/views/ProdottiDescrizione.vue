@@ -5,7 +5,6 @@
         <div class="col-lg-4 col-md-6 col-sm-12">
           <div class="img" :style="`background-image: url(${prodotto.acf.image.url})`" :alt="prodotto.acf.image.alt">
           </div>
-          <!-- <img :src="prodotto.acf.image.url"> -->
         </div>
         <div class="col-lg-7 col-md-5 col-sm-10 col-offset-sm-1">
           <h3 class="title product-title"><span v-html="prodotto.title.rendered"></span></h3>
@@ -13,12 +12,7 @@
         </div>
       </div>
       
-    <router-link to="/prodotti" class="close-link"><div class="close"></div></router-link>
-    
-    </div>
-
-    <div class="box-container container" v-if="prodotto.acf.file">
-      <div class="box-row row">
+      <div class="box-row row" v-if="prodotto.acf.file">
         <div class="col-lg-6">
           <div class="download acqua">
             <a class="pdf" :href="prodotto.acf.file.url">{{prodotto.title.rendered}} <span>all'acqua</span></a>
@@ -30,7 +24,11 @@
           </div>
         </div>
       </div>
+
+    <router-link to="/prodotti" class="close-link"><div class="close"></div></router-link>
+    
     </div>
+
     
   </section>
 </template>

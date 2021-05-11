@@ -15,7 +15,7 @@
     :touchDrag="true"
     :mouseDrag="true"
     >
-      <slide class="slide" v-for="image in carosello" :key="image.slug" :style="`height: calc(100vh - ${scroll ? '90px' : '200px'})`">
+      <slide class="slide" v-for="image in carosello" :key="image.slug">
         <div class="image" :style="`background-image:url(${image.acf.image.url})`"></div>
       </slide>
     </carousel>

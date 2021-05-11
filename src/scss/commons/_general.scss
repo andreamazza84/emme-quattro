@@ -1,9 +1,6 @@
 html {
   scroll-behavior: smooth;
-}
-
-body{
-  //position: fixed;
+  background-color: $darkcolor;
 }
 
 #app {
@@ -14,7 +11,9 @@ body{
 }
 
 #main{
-  //padding-top: 200px;
+  //:style="`height: calc(100vh - ${scroll ? '90px' : '200px'})`"
+  padding-top: 200px;
   min-height: 100vh;
   transition: padding 300ms;
+  background-color: $lightcolor;
 }

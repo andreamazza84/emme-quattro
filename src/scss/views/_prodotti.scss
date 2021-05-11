@@ -7,12 +7,8 @@
     .title{
       margin: 2rem 0 1rem 0;
       color: $darkcolor;
-      //background-color: $darktrasparency;
     }
     .img{
-      //display: flex;
-      //justify-content: center;
-      //align-items: flex-end;
       margin: auto;
       max-width: 300px;
       min-width: 200px;
@@ -20,16 +16,12 @@
       max-height: 300px;
       min-height: 200px;
       height: 30vw;
-      
       background-position: center;
       background-size: cover;
       background-repeat: no-repeat;
-      
-    }
-    .router-link-active{
-      .img{
+      transition: transform 300ms;
+      &:hover{
         transform: scale(1.1);
-        transition: transform 300ms;
       }
     }
   }
