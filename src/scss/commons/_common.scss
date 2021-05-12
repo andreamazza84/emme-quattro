@@ -75,4 +75,12 @@ input, button{
   -moz-box-shadow:    2px 2px 20px 0px $borderlightcolor;  /* Firefox 3.5 - 3.6 */
   box-shadow:         2px 2px 20px 0px $borderlightcolor;  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
 }
-//box-shadow: 2px 2px 30px 0 $darkcolor;
+
+/* Set the size of the div element that contains the map */
+#map {
+  height: 400px;
+  /* The height is 400 pixels */
+  width: 100%;
+  /* The width is the width of the web page */
+}
+
