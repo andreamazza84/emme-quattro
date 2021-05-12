@@ -4,7 +4,7 @@
         
       <div class="container">
         <div class="card-container row">
-          <div class="card col-lg-4 col-md-6 col-sm-12" 
+          <div class="card col-lg-2 col-md-4 col-sm-6" 
           v-for="prodotto in prodotti" 
           :key="prodotto.slug"
           >
