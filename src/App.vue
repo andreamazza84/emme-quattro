@@ -5,7 +5,6 @@
     </div>
     
     <router-view id="main" :scroll="window.scroll"/>
-
     <baseFooter/>
 
   </div>
