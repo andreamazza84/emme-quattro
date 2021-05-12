@@ -1,38 +1,49 @@
 <template>
-    <div class="prodotti_servizi">
-        <section class="servizi">
-            <h1>Servizi</h1>
-        </section>
-        
-        <section class="dettagli">
-            <div class="container">
-                <h3>Servizi suddivisi per ambito di applicazione</h3>
-                <ul class="cards">
-                    <li class="card" 
-                    v-for="servizio in servizi" 
-                    :key="servizio.slug"
-                    >
-                        <router-link class="innerlink" :to="{
-                            name: 'ServiziDescrizione',
-                            params: {slug: servizio.slug}
-                        }">
-                            <span v-html="servizio.title.rendered"></span>
-                            <img :src="servizio.acf.image.url" :alt="servizio.acf.image.alt">
-                        
-                        </router-link>
-                    </li>
-                </ul>
+  <div class="prodotti_servizi">
+      <section class="servizi">
+      
+        <div class="container">
+          <div class="card-container row">
+            <div class="card col-lg-4 col-md-6 col-sm-12" 
+            v-for="servizio in servizi" 
+            :key="servizio.slug"
+            >
+              <router-link class="innerlink" 
+                :to="{
+                  name: 'ServiziDescrizione',
+                  params: {slug: servizio.slug}
+                  }"
+                >
+                  <h4 class="title" v-html="servizio.title.rendered"></h4>
+                  <div class="img" :style="`background-image: url(${servizio.acf.image.url})`" @click="savePosition(), scrollToTop()" :alt="servizio.acf.image.alt"> </div>  
+                </router-link>    
             </div>
-        </section>
-        <router-view :key="$route.path"/>
-    </div> 
+          </div>
+        </div>
+    <!-- Router View  -->
+    <router-view :key="$route.path" :position="window.scrollY"/>
+    <!-- /Router View  -->
+
+    </section>
+  </div> 
 </template>
 <script>
 export default {
-    data(){
-        return{
-            servizi: this.$store.state.servizi
+  data(){
+      return{
+          servizi: this.$store.state.servizi,
+          window:{
+          scrollY: 0,
         }
+      }
+  },
+  methods:{
+    scrollToTop: function(){
+      window.scrollTo({top: 0, behavior: 'auto'});
     },
+    savePosition: function(){
+      this.window.scrollY = window.scrollY; 
+    },
+  },
 }
 </script>

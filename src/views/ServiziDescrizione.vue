@@ -1,12 +1,18 @@
 <template>
-  <section id="about">
-    <div class="container">
-      <h3>Descrizione</h3>
-      <h4 class="title product-title"><span v-html="servizio.title.rendered"></span></h4>
-      <div class="box">
-        <img :src="servizio.acf.image.url" :alt="servizio.acf.image.alt">
-        <p class="description product-description"><span v-html="servizio.content.rendered"></span></p>
+  <section class="descrizione">
+    <div class="box-container container">
+      <!-- Description -->
+      <div class="box-row row">
+        <h2 class="col-lg-12 product-title" v-html="servizio.title.rendered"></h2>
+        <div class="col-lg-4 col-md-6 col-sm-12">
+          <div class="img" :style="`background-image: url(${servizio.acf.image.url})`" :alt="servizio.acf.image.alt"></div>
+        </div>
+        <div class="col-lg-7 col-md-5 col-sm-10 col-offset-sm-1">
+          <p class="content" v-html="servizio.content.rendered"></p>
+        </div>    
       </div>
+
+    <router-link to="/servizi" class="close-link"><div class="close" @click="scrollToLastPosition()"></div></router-link>
     </div>
   </section>
 </template>
@@ -17,6 +23,9 @@ export default {
     slug: {
       type: String,
       required: true
+    },
+    position:{
+      type: Number,
     },
   },
   data(){
@@ -31,20 +40,11 @@ export default {
       );
     }
   },
+  methods:{
+    scrollToLastPosition: function(){
+      window.scrollTo({top: this.position, behavior: 'auto'});
+    },
+  },
 }
 
 </script>
-
-<style lang="scss" scoped>
-#about{
-  .box{
-    display: flex;
-    img{
-      width: 200px;
-    }
-    .product-description{
-      text-align: justify;
-    }
-  } 
-}
-</style>

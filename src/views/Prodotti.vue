@@ -14,8 +14,8 @@
                 params: {slug: prodotto.slug}
               }"
             >
-                <h4 class="title" v-html="prodotto.title.rendered"></h4>
-                <div class="img" :style="`background-image: url(${prodotto.acf.image.url})`" @click="savePosition(), scrollToTop()"></div>
+              <h4 class="title" v-html="prodotto.title.rendered"></h4>
+              <div class="img" :style="`background-image: url(${prodotto.acf.image.url})`" @click="savePosition(), scrollToTop()"></div>
             </router-link>
           </div>
         </div>
@@ -44,7 +44,6 @@ export default {
     },
     savePosition: function(){
       this.window.scrollY = window.scrollY; 
-      console.log(this.window.scrollY);
     },
   },
 }
