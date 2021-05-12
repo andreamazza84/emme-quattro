@@ -15,7 +15,7 @@
                   }"
                 >
                   <h4 class="title" v-html="servizio.title.rendered"></h4>
-                  <div class="img" :style="`background-image: url(${servizio.acf.image.url})`" @click="savePosition(), scrollToTop()" :alt="servizio.acf.image.alt"> </div>  
+                  <div class="img shadow" :style="`background-image: url(${servizio.acf.image.url})`" @click="savePosition(), scrollToTop()" :alt="servizio.acf.image.alt"> </div>  
                 </router-link>    
             </div>
           </div>

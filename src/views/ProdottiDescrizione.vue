@@ -5,7 +5,7 @@
       <div class="box-row row">
         <h2 class="col-lg-12 product-title" v-html="prodotto.title.rendered"></h2>
         <div class="col-lg-4 col-md-6 col-sm-12">
-          <div class="img" :style="`background-image: url(${prodotto.acf.image.url})`" :alt="prodotto.acf.image.alt"></div>
+          <div class="img shadow" :style="`background-image: url(${prodotto.acf.image.url})`" :alt="prodotto.acf.image.alt"></div>
         </div>
         <div class="col-lg-7 col-md-5 col-sm-10 col-offset-sm-1">
           <p class="content" v-html="prodotto.content.rendered"></p>

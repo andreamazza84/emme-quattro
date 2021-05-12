@@ -18,9 +18,10 @@
     background-size: cover;
     background-position: left;
     transition: transform 300ms;
-    }
+  }
   .desktop-menu{
     .desktop-menu-link {
+      flex-basis: 100%;
       color: $darkcolor;
       font-weight: bold;
       font-size: $large;
