@@ -4,7 +4,7 @@
         
       <div class="container">
         <div class="card-container row">
-          <div class="card col-lg-2 col-md-4 col-sm-6" 
+          <div class="card col-lg-4 col-md-6 col-sm-12" 
           v-for="prodotto in prodotti" 
           :key="prodotto.slug"
           >
@@ -15,16 +15,14 @@
               }"
             >
                 <h4 class="title" v-html="prodotto.title.rendered"></h4>
-                <div class="img" :style="`background-image: url(${prodotto.acf.image.url})`"></div>
+                <div class="img" :style="`background-image: url(${prodotto.acf.image.url})`" @click="savePosition(), scrollToTop()"></div>
             </router-link>
           </div>
         </div>
       </div>
           
       <!-- Router View  -->
-      
-      <router-view :key="$route.path"/>
-      
+      <router-view :key="$route.path" :position="window.scrollY"/>
       <!-- /Router View  -->
 
     </section>
@@ -35,11 +33,18 @@ export default {
   data(){
       return{
           prodotti: this.$store.state.prodotti,
+          window:{
+            scrollY: 0,
+          }
       }
   },
   methods:{
     scrollToTop: function(){
-      window.scrollTo({top: 20, behavior: 'smooth'});
+      window.scrollTo({top: 0, behavior: 'auto'});
+    },
+    savePosition: function(){
+      this.window.scrollY = window.scrollY; 
+      console.log(this.window.scrollY);
     },
   },
 }
