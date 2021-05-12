@@ -53,6 +53,7 @@
         this.retrieveData('prodotti');
         this.retrieveData('servizi');
         this.retrieveData('carosello');
+        this.retrieveData('contatti');
     },
     destroyed(){
       window.removeEventListener('scroll', this.scroll);

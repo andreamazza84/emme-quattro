@@ -31,12 +31,12 @@
 <script>
 export default {
   data(){
-      return{
-          prodotti: this.$store.state.prodotti,
-          window:{
-            scrollY: 0,
-          }
+    return{
+      prodotti: this.$store.state.prodotti,
+      window:{
+        scrollY: 0,
       }
+    }
   },
   methods:{
     scrollToTop: function(){

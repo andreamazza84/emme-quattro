@@ -12,6 +12,7 @@ export default new Vuex.Store({
     prodotti: null,
     servizi: null,
     carosello: null,
+    contatti: null,
   },
   mutations: {
     SET_USER(state, user) {
@@ -31,6 +32,9 @@ export default new Vuex.Store({
     },
     SET_SLIDER(state, carosello){
       state.carosello = carosello.reverse();
+    },
+    SET_CONTATTI(state, contatti){
+      state.contatti = contatti;
     }
   },
   actions: {
@@ -91,6 +95,7 @@ export default new Vuex.Store({
           if(item === "prodotti"){ return commit('SET_PRODOTTI', data); }
           if(item === "servizi"){ return commit ('SET_SERVIZI', data); }
           if(item === "carosello"){ return commit ('SET_SLIDER', data); }
+          if(item === "contatti"){ return commit('SET_CONTATTI', data); }
           resolve(data);
         }
         catch(error){
