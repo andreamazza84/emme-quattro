@@ -1,5 +1,5 @@
 <template>
-<div class="home">
+<div class="home pt-90">
   <div class="container">
     <carousel class="carousel" 
     :per-page="1"

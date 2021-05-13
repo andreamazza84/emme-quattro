@@ -1,5 +1,5 @@
 <template>
-  <div class="contact-us">
+  <div class="contact-us pt-200">
     <div class="container">
       <div class="row">
         <div class="col-lg-4 col-md-6 col-sm-12">
@@ -25,9 +25,7 @@
       </div>
     </div>
 </template>
-<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap&libraries=&v=weekly"
-      async
->
+<script>
 export default {
   data(){
     return {

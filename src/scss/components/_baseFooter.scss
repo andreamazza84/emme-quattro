@@ -4,14 +4,66 @@
   color: $lightcolor;
   
   .footer-top{
+    padding: 0 2rem;
     position: relative;
     padding-top: 40px;
     min-height: 260px;
-    .logo{
-      .whole-logo{
-        height: 80px;
+    .footer-container{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      text-align: left;
+      & > *{
+        min-width: max-content;
+        margin-right: 1rem;
+      }
+      .contatti,
+      .social{
+        flex-basis: calc(100% / 12 * 3);
+      }
+      .contatti{
+        text-align: right;
+        & hr{
+          width: 80%;
+          margin-left: 20%;
+          margin-top: 1rem;
+          margin-bottom: 1rem;
+          color: $lightcolor;
+          border-top: 1px;
+          border-left: 0;
+          border-right: 0;
+        }
+      }
+      .menu{
+        flex-basis: calc(100% / 12 * 4);
+        transition: all 300ms;
+        .footer-menu-links:hover{
+          color: $secondary;
+        }
+      }
+      .home-page-link{
+        width: 130px;
+        height: 130px;
+        .logo{
+          flex-basis: calc(100% / 12 * 2);
+        }
       }
     }
+
+    //.logo{
+      .clear-logo{
+
+        height: 78px;
+        width: 78px;
+        //margin: auto;
+        background-image: url($logo-footer);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position-x: left;
+        color: white;
+        fill: white;
+      }
+    //}
 
     .providers{
       a{
@@ -22,16 +74,21 @@
       }
     }
   }
+  // .footer-bottom{
+  //   background-color: $darkcolor2;
+  //   font-size: $small;
+  //   font-weight: 200;
+  //   padding: 15px 0;
+  //   .privacy-policy-link{
+  //     color: $secondary;
+  //   }
+  // }
 
   .footer-bottom{
-    background-color: $darkcolor2;
-    font-size: $small;
-    font-weight: 200;
-    padding: 15px 0;
-    .privacy-policy-link{
-      color: $secondary;
-    }
+    height: 1px;
+    background-color: $lightcolor;
   }
+
   .scroll-to-top::before{
     font-family: 'Font Awesome 5 Free';
     content: '\f077';
@@ -48,9 +105,60 @@
     width: 50px;
     height: 50px;
     background-color: $darkcolor2;
-    color: $secondary;
+    color: $lightcolor;
     border-radius: 5px;
     cursor: pointer;
+    transition: color 300ms;
+    &:hover{
+      color: $secondary;
+    }
   }
 
+}
+@media all and (min-width: 769px) and (max-width: 1200px){
+  #footer{
+    .footer-top{
+      .footer-container{
+        .home-page-link{
+          .logo{
+            //flex-basis: calc(100% / );
+            .clear-logo{
+              margin: auto;
+            }
+          }
+        }
+        .contatti{
+          flex-basis: calc(100% / 12 * 10);
+        }
+        .social{
+          flex-basis: calc(100% /12 * 6);  
+        }
+        .menu{
+          flex-basis: calc(100% / 12 * 6);
+        }
+      }  
+    }
+  }
+}
+
+@media all and (max-width: 768px) {
+  #footer{
+    .footer-top{
+      .footer-container{
+        .home-page-link,
+        .contatti,
+        .social,
+        .menu{
+          flex-basis: 100%;
+        }
+        .home-page-link{
+          .logo{
+            .clear-logo{
+              margin: auto;
+            }
+          }
+        }
+      }
+    }
+  }
 }

@@ -7,13 +7,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    //gap: 12px;
   }
   .logo{
     width: 130px;
     height: 130px;
     margin: auto;
-    background-image: url($logo);
+    background-image: url($logo-nav);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: left;
@@ -21,7 +20,8 @@
   }
   .desktop-menu{
     .desktop-menu-link {
-      flex-basis: 100%;
+      flex-basis: 130px;
+
       color: $darkcolor;
       font-weight: bold;
       font-size: $large;

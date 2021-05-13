@@ -35,6 +35,13 @@ input, button{
   font-size: $medium;
 }
 
+.pt-200{
+  padding-top: 200px;
+}
+.pt-90{
+  padding-top: 90px;
+}
+
 @mixin btn {
   width: max-content;
   height: auto;

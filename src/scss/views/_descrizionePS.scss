@@ -49,13 +49,9 @@
         justify-content: center;
         align-items: center;
         transition: border 300ms;
-        &:hover{
+        &:hover,
+        &:focus{
           border: 1px solid $borderlightcolor;
-        }
-        .pdf::before{
-          font-family: $fontAwesome;
-          content: "\f1c1";
-          font-size: $xxlarge;
         }
         .pdf{
           width: 90%;
@@ -73,9 +69,14 @@
           .solvente{
             color: $secondary;
           }
-        }
-        .pdf::first-letter{
-          text-transform: uppercase;
+          &::before{
+            font-family: $fontAwesome;
+            content: "\f1c1";
+            font-size: $xxlarge;
+          }  
+          &::first-letter{
+            text-transform: uppercase;
+          }
         }
       }
     }

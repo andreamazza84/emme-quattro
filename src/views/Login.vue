@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="login pt-200">
     <baseLoginForm />
   </div>
 </template>

@@ -1,5 +1,5 @@
 <template>
-  <div class="protected">
+  <div class="protected pt-200">
     <h1>This is a protected page</h1>
     <p>Only logged in users are going to be able to see this page</p>
     <button @click="logout()">Logout</button>
