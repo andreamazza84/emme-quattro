@@ -16,7 +16,7 @@
   export default {
     components:{
       baseNavbar,
-      baseFooter
+      baseFooter,
     },
     data(){
       return {

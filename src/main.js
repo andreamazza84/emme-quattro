@@ -11,34 +11,23 @@ import store from '@/store'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 
-//Font Awesome
+// Font Awesome
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-// Global Registration
-// ****** //
-// import upperFirst from 'loadsh/upperfirst'
-// import camelCase from 'loadsh/camelCase'
+// Google Maps
+import * as VueGoogleMaps from 'vue2-google-maps'
 
-// // Require in a case component context
-// const requireComponent = require. context(
-//   '.', false, /base-[\w-]+\.vue$/
-// );
+/* ---------------------------------- */
 
-// requireComponent.keys().forEach(fileName =>{
-//   // Get component config
-//   const componentConfig = requireComponent(fileName);
-// });
-
-// //Get Pascalcase name of component 
-// const componentName = upperFirst(
-//   camelCase(fileName.replace(/^\. \//, '').replace(/\. \w+$/, ''))
-// );
-
-// //Register component globally
-// Vue.component(componentName, componentConfig.default || componentConfig);
-// ****** // 
+// Google Maps
+Vue.use(VueGoogleMaps, {
+  load: {
+    key: '',
+    libraries: 'places',
+  }
+});
 
 //Axios
 Vue.use(VueAxios, axios);

@@ -18,7 +18,7 @@
 
         <div class="col-lg-8 col-md-6 col-sm-12">
           <h3 class="py-title">Dove siamo</h3>
-          <div id="map"></div>
+          <GoogleMap/>
         </div>
 
       </div>
@@ -26,7 +26,12 @@
     </div>
 </template>
 <script>
+import GoogleMap from '@/components/GoogleMap'
+
 export default {
+  components: {
+    GoogleMap
+  },
   data(){
     return {
       contatti: this.$store.state.contatti,
