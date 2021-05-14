@@ -8,20 +8,21 @@
     justify-content: space-between;
     align-items: center;
   }
-  .logo{
-    width: 130px;
-    height: 130px;
-    margin: auto;
-    background-image: url($logo-nav);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: left;
-    transition: transform 300ms;
+  .home-page{
+    .logo{
+      width: 100%;
+      height: 100%;
+      margin:auto;
+      background-image: url($logo-nav);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: left;
+      transition: transform 300ms;
+    }
   }
   .desktop-menu{
     .desktop-menu-link {
       flex-basis: 130px;
-
       color: $darkcolor;
       font-weight: bold;
       font-size: $large;

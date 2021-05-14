@@ -5,7 +5,7 @@
       <!-- Mobile Menu -->
       <div v-if="showBars" class="container menu-hamburger">
         <router-link to="/" class="home-page">
-          <div class="logo" :style="`transform: scale(${logo.scale})`"></div>
+          <div class="logo" :style="logoStyle"></div>
         </router-link>
         <i class="icon-hamburger" @click="showHide()"></i>
         
@@ -27,7 +27,7 @@
         <router-link class="desktop-menu-link" to="/prodotti"><span class="link" @click="scrollToTop()" :style="`font-size: ${link.size}`">Prodotti</span></router-link>
         <router-link class="desktop-menu-link" to="/servizi"><span class="link" @click="scrollToTop()" :style="`font-size: ${link.size}`">Servizi</span></router-link>
         <router-link class="desktop-menu-link home-page" to="/">
-          <div class="logo" :style="`transform: scale(${logo.scale})`" @click="scrollToTop()"></div>
+          <div class="logo" :style="logoStyle" @click="scrollToTop()"></div>
         </router-link>
         <router-link class="desktop-menu-link" to="/news"><span class="link" @click="scrollToTop()" :style="`font-size: ${link.size}`">News</span></router-link>
         <router-link class="desktop-menu-link" to="/contatti"><span class="link" @click="scrollToTop()" :style="`font-size: ${link.size}`">Contatti</span></router-link>
@@ -62,6 +62,7 @@ export default {
       },
       logo: {
         scale: '100%',
+        dim: '130px',
       },
       jingle:{
         show: true,
@@ -71,6 +72,12 @@ export default {
       },
     }
   },
+  computed:{
+    logoStyle() {
+      return {'width': this.logo.dim, 'height': this.logo.dim};
+      },
+    },
+
   methods:{
     /** Scrolls page to top.
     * @click 
@@ -125,11 +132,11 @@ export default {
     * @window_resize
     */
     logoScale: function(){
-      this.logo.scale = '60%';
+      this.logo.dim = '78px';
       if(this.window.scrollY === 0){
-        this.logo.scale = '70%';
+        this.logo.dim = '90px';
         if(this.window.width > 1200){
-          this.logo.scale = '100%';
+          this.logo.dim = '130px';
         }
       }
     },

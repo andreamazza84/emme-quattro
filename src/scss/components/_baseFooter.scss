@@ -4,9 +4,8 @@
   color: $lightcolor;
   
   .footer-top{
-    padding: 0 2rem;
+    padding: 2rem;
     position: relative;
-    padding-top: 40px;
     min-height: 260px;
     .footer-container{
       display: flex;
@@ -15,17 +14,30 @@
       text-align: left;
       & > *{
         min-width: max-content;
-        margin-right: 1rem;
+        padding-bottom: 2rem;
       }
-      .contatti,
-      .social{
-        flex-basis: calc(100% / 12 * 3);
+      .home-page-link{
+        flex-basis: calc(100% / 12 * 2);
+        .logo{
+          text-align: left;
+          .clear-logo{
+            height: 78px;
+            width: 78px;
+            //margin-left: 1rem;
+            background-image: url($logo-footer);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position-x: left;
+          }
+        }
       }
       .contatti{
+        flex-basis: calc(100% / 12 * 3);
         text-align: right;
         & hr{
+          display: inline-block;
           width: 80%;
-          margin-left: 20%;
+          max-width: 40vw;          
           margin-top: 1rem;
           margin-bottom: 1rem;
           color: $lightcolor;
@@ -34,67 +46,49 @@
           border-right: 0;
         }
       }
+      .social{
+        flex-basis: calc(100% / 12 * 3);
+        display: flex;
+        justify-content: center;
+        i{
+          font-size: $xlarge;
+          margin: 0 1rem;
+          transition: color 300ms;
+          &:hover{
+              color: $secondary;
+            }
+          }
+        }
+
       .menu{
         flex-basis: calc(100% / 12 * 4);
-        transition: all 300ms;
-        .footer-menu-links:hover{
-          color: $secondary;
-        }
-      }
-      .home-page-link{
-        width: 130px;
-        height: 130px;
-        .logo{
-          flex-basis: calc(100% / 12 * 2);
-        }
-      }
-    }
-
-    //.logo{
-      .clear-logo{
-
-        height: 78px;
-        width: 78px;
-        //margin: auto;
-        background-image: url($logo-footer);
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position-x: left;
-        color: white;
-        fill: white;
-      }
-    //}
-
-    .providers{
-      a{
-        display: block;
-        img{
-          height: 40px;
+        text-transform: capitalize;
+        li{
+          height: 2rem;
+          .footer-menu-links{
+            transition: color 300ms;
+            &:hover{
+              color: $secondary;
+            }
+          }
         }
       }
     }
+    // .providers{
+    //   a{
+    //     display: block;
+    //     img{
+    //       height: 40px;
+    //     }
+    //   }
+    // }
   }
-  // .footer-bottom{
-  //   background-color: $darkcolor2;
-  //   font-size: $small;
-  //   font-weight: 200;
-  //   padding: 15px 0;
-  //   .privacy-policy-link{
-  //     color: $secondary;
-  //   }
-  // }
 
   .footer-bottom{
     height: 1px;
     background-color: $lightcolor;
   }
 
-  .scroll-to-top::before{
-    font-family: 'Font Awesome 5 Free';
-    content: '\f077';
-    font-size: $large;
-    font-weight: 800;
-  }
   .scroll-to-top{
     display: flex;
     justify-content: center;
@@ -109,6 +103,10 @@
     border-radius: 5px;
     cursor: pointer;
     transition: color 300ms;
+    i{
+      font-size: $large;
+      font-weight: 800;
+    }
     &:hover{
       color: $secondary;
     }
@@ -120,18 +118,23 @@
     .footer-top{
       .footer-container{
         .home-page-link{
+          flex-basis: calc(100% / 12 * 6);
           .logo{
-            //flex-basis: calc(100% / );
             .clear-logo{
-              margin: auto;
+              //margin: auto;
             }
           }
         }
         .contatti{
-          flex-basis: calc(100% / 12 * 10);
+          flex-basis: calc(100% / 12 * 6);
+          text-align: left;
         }
         .social{
-          flex-basis: calc(100% /12 * 6);  
+          flex-basis: calc(100% /12 * 6);
+          justify-content: flex-start;
+          li:first-child i{
+            margin-left: 0;
+          }  
         }
         .menu{
           flex-basis: calc(100% / 12 * 6);
@@ -150,6 +153,7 @@
         .social,
         .menu{
           flex-basis: 100%;
+          text-align: center;
         }
         .home-page-link{
           .logo{

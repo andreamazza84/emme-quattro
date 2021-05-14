@@ -21,29 +21,29 @@
         </ul>
 
         <ul class="social">
-          <li><a class="facebook" href="www.facebook.com">facebook</a></li>
-          <li><a class="linkedin" href="www.linkedin.com">linkedin</a></li>
-          <li><a class="instagram" href="www.instagram.com">instagram</a></li>
+          <li><a class="facebook" href="https://www.facebook.com"><i class="fab fa-facebook-square"></i></a></li>
+          <li><a class="linkedin" href="https://www.linkedin.com"><i class="fab fa-linkedin"></i></a></li>
+          <li><a class="instagram" href="https://www.instagram.com"><i class="fab fa-instagram-square"></i></a></li>
         </ul>
         
         <ul class="menu">
           <li>
-            <router-link class="footer-menu-links" to="/">chi siamo</router-link>
+            <router-link class="footer-menu-links" to="/chi-siamo"><span>chi siamo</span></router-link>
           </li>
           <li>
-            <router-link class="footer-menu-links" to="/">prodotti</router-link>
+            <router-link class="footer-menu-links" to="/prodotti"><span>prodotti</span></router-link>
           </li>
           <li>
-            <router-link class="footer-menu-links" to="/">servizi</router-link>
+            <router-link class="footer-menu-links" to="/servizi"><span>servizi</span></router-link>
           </li>
           <li>
-            <router-link class="footer-menu-links" to="/">news</router-link>
+            <router-link class="footer-menu-links" to="/news"><span>news</span></router-link>
           </li>
           <li>
-            <router-link class="footer-menu-links" to="/">contatti</router-link>
+            <router-link class="footer-menu-links" to="/contatti"><span>contatti</span></router-link>
           </li>
           <li>
-            <router-link class="footer-menu-links" to="/">area riservata</router-link>
+            <router-link class="footer-menu-links" to="/area-clienti"><span>area clienti</span></router-link>
           </li>
         </ul>
         
@@ -70,7 +70,7 @@
         </div>
       </div>
       -->
-      <div class="scroll-to-top" @click="scrollToTop()"></div>
+      <div class="scroll-to-top" @click="scrollToTop()"><i class="fas fa-chevron-up"></i></div>
     </section>
 
     <section class="footer-bottom">
