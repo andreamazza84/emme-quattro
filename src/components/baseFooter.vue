@@ -4,11 +4,11 @@
     <section class="footer-top">
       <div class="container footer-container">
       
-        <router-link class="home-page-link" to="/">
-          <div class="logo">
-            <div class="clear-logo" alt="logo M4"></div>
-          </div>
-        </router-link>
+        <div class="logo">
+          <router-link class="home-page-link" to="/">
+              <div class="clear-logo" alt="logo M4"></div>
+          </router-link>
+        </div>
 
         <ul class="contatti">
           <li>EMME QUATTRO SRL</li>

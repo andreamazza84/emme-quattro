@@ -41,6 +41,9 @@ input, button{
 .pt-90{
   padding-top: 90px;
 }
+.py-title{
+  padding: 2rem 0 1rem 0;
+}
 
 @mixin btn {
   width: max-content;

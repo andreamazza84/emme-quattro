@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-lg-4 col-md-6 col-sm-12">
           <div class="row">
-            <h3>Contatti</h3>
+            <h3 class="py-title">Contatti</h3>
             <div class="contatti" v-for="contatto in contatti" :key="contatto.slug">
               <div class="col-lg-6">
                 <span class="index" v-html="contatto.title.rendered"></span>
@@ -17,7 +17,7 @@
         </div>
 
         <div class="col-lg-8 col-md-6 col-sm-12">
-          <h3>Dove siamo</h3>
+          <h3 class="py-title">Dove siamo</h3>
           <div id="map"></div>
         </div>
 

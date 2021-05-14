@@ -10,14 +10,14 @@
   }
   .home-page{
     .logo{
-      width: 100%;
-      height: 100%;
-      margin:auto;
+      width: 130px;
+      height: 130px;
+      margin: auto;
       background-image: url($logo-nav);
       background-repeat: no-repeat;
       background-size: cover;
       background-position: left;
-      transition: transform 300ms;
+      transition: all 300ms;
     }
   }
   .desktop-menu{
@@ -37,10 +37,6 @@
       }
     }
   }
-  // .icon-hamburger,
-  // .home-page{
-  //   margin: 0 2rem;
-  // }
   
   .icon-hamburger{
     display: flex;

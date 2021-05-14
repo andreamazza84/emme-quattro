@@ -16,18 +16,17 @@
         min-width: max-content;
         padding-bottom: 2rem;
       }
-      .home-page-link{
+      .logo{
         flex-basis: calc(100% / 12 * 2);
-        .logo{
-          text-align: left;
+        .home-page-link{
           .clear-logo{
             height: 78px;
             width: 78px;
-            //margin-left: 1rem;
             background-image: url($logo-footer);
             background-repeat: no-repeat;
             background-size: cover;
             background-position-x: left;
+            margin-left: 14px;
           }
         }
       }
@@ -74,14 +73,6 @@
         }
       }
     }
-    // .providers{
-    //   a{
-    //     display: block;
-    //     img{
-    //       height: 40px;
-    //     }
-    //   }
-    // }
   }
 
   .footer-bottom{
@@ -117,11 +108,11 @@
   #footer{
     .footer-top{
       .footer-container{
-        .home-page-link{
+        .logo{
           flex-basis: calc(100% / 12 * 6);
-          .logo{
+          .home-page-link{
             .clear-logo{
-              //margin: auto;
+              margin: 0;
             }
           }
         }
@@ -148,15 +139,15 @@
   #footer{
     .footer-top{
       .footer-container{
-        .home-page-link,
+        .logo,
         .contatti,
         .social,
         .menu{
           flex-basis: 100%;
           text-align: center;
         }
-        .home-page-link{
-          .logo{
+        .logo{
+          .home-page-link{
             .clear-logo{
               margin: auto;
             }
