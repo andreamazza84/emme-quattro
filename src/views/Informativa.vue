@@ -25,7 +25,7 @@ export default {
     } 
   },
   mounted(){
-    console.log(this.pages);
+    //console.log(this.pages);
   }
 }
 </script>

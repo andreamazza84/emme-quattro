@@ -51,20 +51,29 @@
         margin-bottom: 1rem;
       }
       .btn{
-        @include btn;
         margin-bottom: 2rem;
       }
     }
   }
   .contatti{
+    display: flex;
+    width: 100%;
     text-align: left;
-    &.left{
-      text-align: center;
+    margin-left: 2rem;
+    margin-bottom: 1rem;
+    input[type="button"]{
+      width: 96px;
+      height: max-content;
+      font-size: $small;
+      margin-right: 1rem;
+      text-transform: capitalize;
     }
   }
- 
-  
+}
+
+.btn{
+  @include btn;
 }
 #maps{
-  padding: 1rem;
+  margin-bottom: 2rem;
 }
