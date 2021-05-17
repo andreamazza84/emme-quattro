@@ -43,7 +43,6 @@
           this.window.scroll = false;
         }
       }
-    
     },
 
     created(){
@@ -54,6 +53,8 @@
         this.retrieveData('servizi');
         this.retrieveData('carosello');
         this.retrieveData('contatti');
+        this.retrieveData('pages');
+
     },
     destroyed(){
       window.removeEventListener('scroll', this.scroll);

@@ -13,6 +13,7 @@ export default new Vuex.Store({
     servizi: null,
     carosello: null,
     contatti: null,
+    pages: null,
   },
   mutations: {
     SET_USER(state, user) {
@@ -33,9 +34,23 @@ export default new Vuex.Store({
     SET_SLIDER(state, carosello){
       state.carosello = carosello.reverse();
     },
+    SET_PAGES(state, pages){
+      state.pages = pages;
+    },
     SET_CONTATTI(state, contatti){
-      state.contatti = contatti;
-    }
+      let id = null; let slug = null; let title = null; let content = null;
+      let array = [];
+      const parser = new DOMParser();
+      for(const element of contatti){
+        id = element.id;
+        slug = element.slug;
+        title = element.title.rendered;
+        content = parser.parseFromString(element.content.rendered, "text/html");
+        content = content.body.firstChild.textContent;
+        array.push({id, slug, title, content});
+      }
+      state.contatti = array;
+    },
   },
   actions: {
     //Login
@@ -96,6 +111,8 @@ export default new Vuex.Store({
           if(item === "servizi"){ return commit ('SET_SERVIZI', data); }
           if(item === "carosello"){ return commit ('SET_SLIDER', data); }
           if(item === "contatti"){ return commit('SET_CONTATTI', data); }
+          if(item === "pages"){ return commit('SET_PAGES', data); }
+
           resolve(data);
         }
         catch(error){

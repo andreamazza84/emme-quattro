@@ -47,10 +47,13 @@ export default {
     }
   },
   data(){
-    return {
-      carosello: this.$store.state.carosello,
+    return {}
+  },
+  computed:{
+    carosello: function(){
+      return this.$store.state.carosello
     }
-  }
+  },
 }
 </script>
 

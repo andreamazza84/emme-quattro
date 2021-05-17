@@ -15,7 +15,15 @@
 
 .container-fluid {
   max-width: 100%;
+  height: 100%;
   margin: 0 auto;
+}
+
+.container90{
+  margin: auto;
+  width: 90%;
+  height: 100%;
+  max-width: $maxScreen;
 }
 
 i{
@@ -41,8 +49,11 @@ input, button{
 .pt-90{
   padding-top: 90px;
 }
-.py-title{
+.py-2-1{
   padding: 2rem 0 1rem 0;
+}
+.py-2-2{
+  padding: 2rem 0;
 }
 
 @mixin btn {

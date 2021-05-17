@@ -91,6 +91,11 @@ const routes = [
     path: '/privacy-policy',
     name: 'Privacy',
     component: () => import(/* webpackChunkName: "privacy" */ '../views/Privacy.vue')
+  },
+  {
+    path: '/informativa-area-contatti',
+    name: 'Informativa',
+    component: () => import(/* webpackChunkName: "informativa" */ '../views/Informativa.vue')
   }
 ]
 

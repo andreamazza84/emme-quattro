@@ -1,12 +1,8 @@
 <template>
   <div id="maps">
-    <div>
-      <h2>Search and add a pin</h2>
-    </div>
-    <br>
     <GmapMap
       :center='center'
-      :zoom='12'
+      :zoom='15'
       style='width: 100%;  height: 400px;'
     />
   </div>

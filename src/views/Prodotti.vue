@@ -32,10 +32,14 @@
 export default {
   data(){
     return{
-      prodotti: this.$store.state.prodotti,
       window:{
         scrollY: 0,
       }
+    }
+  },
+  computed:{
+    prodotti: function(){
+      return this.$store.state.prodotti;
     }
   },
   methods:{

@@ -30,12 +30,16 @@
 <script>
 export default {
   data(){
-      return{
-          servizi: this.$store.state.servizi,
-          window:{
-          scrollY: 0,
-        }
+    return{
+        window:{
+        scrollY: 0,
       }
+    }
+  },
+  computed:{
+    servizi: function(){
+      return this.$store.state.servizi;
+    }
   },
   methods:{
     scrollToTop: function(){
