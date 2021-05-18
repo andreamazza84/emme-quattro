@@ -28,22 +28,22 @@
         
         <ul class="menu">
           <li>
-            <router-link class="footer-menu-links" to="/chi-siamo"><span>chi siamo</span></router-link>
+            <router-link class="footer-menu-links" to="/chi-siamo"><span @click="scrollToTopAuto()">chi siamo</span></router-link>
           </li>
           <li>
-            <router-link class="footer-menu-links" to="/prodotti"><span>prodotti</span></router-link>
+            <router-link class="footer-menu-links" to="/prodotti"><span @click="scrollToTopAuto()">prodotti</span></router-link>
           </li>
           <li>
-            <router-link class="footer-menu-links" to="/servizi"><span>servizi</span></router-link>
+            <router-link class="footer-menu-links" to="/servizi"><span @click="scrollToTopAuto()">servizi</span></router-link>
           </li>
           <li>
-            <router-link class="footer-menu-links" to="/news"><span>news</span></router-link>
+            <router-link class="footer-menu-links" to="/news"><span @click="scrollToTopAuto()">news</span></router-link>
           </li>
           <li>
-            <router-link class="footer-menu-links" to="/contatti"><span>contatti</span></router-link>
+            <router-link class="footer-menu-links" to="/contatti"><span @click="scrollToTopAuto()">contatti</span></router-link>
           </li>
           <li>
-            <router-link class="footer-menu-links" to="/area-clienti"><span>area clienti</span></router-link>
+            <router-link class="footer-menu-links" to="/area-clienti"><span @click="scrollToTopAuto()">area clienti</span></router-link>
           </li>
         </ul>
         
@@ -107,6 +107,9 @@ export default {
   methods:{
     scrollToTop: function(){
       window.scrollTo({top: 0, behavior: 'smooth'});
+    },
+    scrollToTopAuto: function(){
+      window.scrollTo({top: 0, behavior: 'auto'});
     },
   },
 

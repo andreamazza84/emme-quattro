@@ -54,6 +54,7 @@
         this.retrieveData('carosello');
         this.retrieveData('contatti');
         this.retrieveData('pages');
+        this.retrieveData('posts');
 
     },
     destroyed(){

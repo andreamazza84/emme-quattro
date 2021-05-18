@@ -49,7 +49,10 @@ export default new Vuex.Store({
         content = content.body.firstChild.textContent;
         array.push({id, slug, title, content});
       }
-      state.contatti = array;
+      state.contatti = array.reverse();
+    },
+    SET_POSTS(state, posts){
+      state.posts = posts;
     },
   },
   actions: {
@@ -112,6 +115,7 @@ export default new Vuex.Store({
           if(item === "carosello"){ return commit ('SET_SLIDER', data); }
           if(item === "contatti"){ return commit('SET_CONTATTI', data); }
           if(item === "pages"){ return commit('SET_PAGES', data); }
+          if(item === "posts"){ return commit('SET_POSTS', data); }
 
           resolve(data);
         }

@@ -37,8 +37,8 @@
           </div>
           <div class="fornitori">
             <h2 class="py-2-2">I nostri fornitori</h2>
-            <a href="https://www.chimen.it/"><img src="~@/assets/logo-chimen.png" alt="logo CHIMEN"></a>
             <a href="https://www.bottosso-frighetto.it"><img src="~@/assets/logo-BF.jpg" alt="logo Botosso e Frighetto"></a>
+            <a href="https://www.chimen.it/"><img src="~@/assets/logo-chimen.png" alt="logo CHIMEN"></a>
           </div>
         </div>
       </section>
@@ -67,7 +67,7 @@ export default {
   },
   computed:{
     contatti: function(){
-      return this.$store.state.contatti;
+      return this.$store.state.contatti.slice(0,4);
     },
     pages: function(){
       return this.$store.state.pages
