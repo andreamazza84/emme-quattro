@@ -1,17 +1,21 @@
 .home{
+  .carousel{
+    .image{
+      height: 100%;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-attachment: fixed;
+    }
+  }
   section.top{
     position: relative;
-    .carousel{
+    .big-carousel{
       .slide{
         height: calc(100vh - 90px);
-        .image{
-          width: 100%;
-          height: 100%;
-          background-size: cover;
-          background-repeat: no-repeat;
-          background-position: center;
-          background-attachment: fixed;
-        }
+      }
+      .image{
+        width: 100%;
       }
     }
     .overlay{
@@ -22,21 +26,10 @@
       height: 100%;
       pointer-events: none;
       .call-out{
-        height: 200px;
-        margin-top: 20vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        align-items: center;
-        padding: 0 2rem;
-        padding-top: 2rem;
-        background-color: $lighttrasparency;
-        color: $darkcolor;
-        font-family: 'Poppins';
+        @include call-out;
+        height: max-content;
+        margin-top: 25vh;
         font-size: $medium;
-        & > *{
-          margin-bottom: 1.5rem;
-        }
         .btn{
           @include btn;
           pointer-events: auto;
@@ -57,18 +50,20 @@
     .row{
       margin: 2rem 0;
     }
-    img{
-      width: 100%;
-      width: 300px;
-      height: 200px;
-    }
     .area-riservata{
-      height: 250px;
+      .left{
+        height: 400px;
+        background-image: url(~@/assets/dima-pechurin-JUbjYFvCv00-unsplash_1200x800.jpg);
+        background-size: cover;
+        background-position: right;
+        background-repeat: no-repeat;
+      }
       .right{
-        height: 100%;
+        height: 400px;
         display: flex;
-        justify-content: right;
-        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-end;
         p{
           text-align: right;
           padding-left: 1rem;
@@ -77,6 +72,35 @@
         .btn{
           text-align: right;
         }
+      }
+    }
+    .contattaci{
+      height: 400px;
+      background-image: url(~@/assets/parker-byrd-gxD8hCmi0IQ-unsplash-clear_1200x800.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center top;
+      .call-out-col{
+        height: 100%;
+        display: flex;
+        align-items: center;
+        .call-out{
+          @include call-out;
+          height: 50%;
+          font-size: $normal;
+          margin: 0 1rem;
+        }
+      }
+    }
+    .articles{
+      height: 400px;
+      .small-carousel{
+        .slide{
+          height: 300px;
+        }
+        .image{
+          margin: 0 1rem;
+        } 
       }
     }
   }

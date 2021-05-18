@@ -98,6 +98,22 @@ input, button{
   }
 }
 
+@mixin call-out{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  min-height: max-content;
+  padding: 2rem;
+  background-color: $lighttrasparency;
+  color: $darkcolor;
+  font-family: 'Poppins';
+  border-radius: 2px;
+  & > *{
+    margin-bottom: 1.5rem;
+  }
+}
+
 .shadow {
   -webkit-box-shadow: 2px 2px 20px 0px $borderlightcolor;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
   -moz-box-shadow:    2px 2px 20px 0px $borderlightcolor;  /* Firefox 3.5 - 3.6 */

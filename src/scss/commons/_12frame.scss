@@ -32,7 +32,7 @@
 }
 
 /* columns large screen*/
-@for $i from 1 through 12 {
+@for $i from 0 through 12 {
     .col-lg-#{$i} {
         width: calc((100%/12) * #{$i});
     }
@@ -47,7 +47,7 @@
 
 /* Medium screen media - md */
 @media all and (min-width: 769px) and (max-width: 1200px) {
-    @for $i from 1 through 12 {
+    @for $i from 0 through 12 {
         .col-md-#{$i} {
             width: calc((100%/12) * #{$i});
         }
@@ -61,7 +61,7 @@
 
 /* Small screen media - sm */
 @media all and (max-width: 768px) {
-    @for $i from 1 through 12 {
+    @for $i from 0 through 12 {
         .col-sm-#{$i} {
             width: calc((100%/12) * #{$i});
         }
