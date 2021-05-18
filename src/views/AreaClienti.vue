@@ -1,6 +1,6 @@
 <template>
     
-    <div id="area-clienti pt-200">
+    <div class="area-clienti pt-200">
         <div class="container">
           <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-12">

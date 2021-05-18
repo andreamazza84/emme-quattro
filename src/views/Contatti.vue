@@ -1,10 +1,9 @@
 <template>
   <div class="contact-us pt-200">
     <div class="container90">
-      <div class="row form">
-        
+      <section class="row form">
         <div class="col-lg-8 col-md-8 col-sm-12">
-          <h3 class="py-2-1">Contattaci</h3>
+          <h2 class="py-2-1">Contattaci</h2>
           <form action="submit" method="post">
             <label for="name">
               <input type="text" name="name" placeholder="Nome" minlength="3" maxlength="100" required>
@@ -16,7 +15,7 @@
               <input type="text" name="name" placeholder="Oggetto delle richiesta" minlength="3" maxlength="100" required>
             </label>
             <label for="message">Il tuo messaggio:
-              <textarea name="message" id="message" cols="20" rows="8" minlength="3" maxlength="10000" placeholder="Scrivi qui" required></textarea>
+              <textarea name="message" cols="20" rows="8" minlength="3" maxlength="10000" placeholder="Scrivi qui" required></textarea>
             </label>
             <label for="info">
               <div class="info">
@@ -31,23 +30,30 @@
         </div>
 
         <div class="col-lg-4 col-md-4 col-sm-12">
-          <h3 class="py-2-2 row">Contatti</h3>
+          <h2 class="py-2-2">Contatti</h2>
           <div class="contatti" v-for="(contatto, index) in contatti" :key="contatto.slug">
-            <input type="button" :value="(copied === index)?'copiato!':contatto.title" class="btn" @click="copyToClipboard(contatto.content, index)">
+            <input type="button" class="btn" :value="(copied === index)?'copiato!': contatto.title" @click="copyToClipboard(contatto.content, index)">
             <span>{{contatto.content}}</span>
           </div>
+          <div class="fornitori">
+            <h2 class="py-2-2">I nostri fornitori</h2>
+            <a href="https://www.chimen.it/"><img src="~@/assets/logo-chimen.png" alt="logo CHIMEN"></a>
+            <a href="https://www.bottosso-frighetto.it"><img src="~@/assets/logo-BF.jpg" alt="logo Botosso e Frighetto"></a>
+          </div>
         </div>
+      </section>
 
-      </div>
-      <div class="row contacts">
+      <section class="row maps">
         <div class="col-lg-12">
-          <h3 class="py-2-1">Dove siamo</h3>
+          <h2 class="py-2-1">Dove siamo</h2>
           <GoogleMap/>
         </div>
-      </div>
+      </section>
+
     </div>
   </div>
 </template>
+
 <script>
 import GoogleMap from '@/components/GoogleMap'
 export default {
@@ -92,9 +98,6 @@ export default {
       }, 5000);
     },
   },
-  mounted(){
-    //console.log(this.contatti);
-
-  }
+  mounted(){}
 }
 </script>
