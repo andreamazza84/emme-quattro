@@ -1,6 +1,6 @@
 <template>
 <div class="home pt-90">
-  <div class="container">
+  <section class="container top">
     <carousel class="carousel" 
     :per-page="1"
     :autoplay="true"
@@ -20,6 +20,7 @@
       </slide>
     </carousel>
 
+
     <div class="overlay row">
       <div class="col-lg-4 col-offset-lg-7 col-md-6 col-offset-md-5 col-sm-10 col-offset-sm-1 call-out shadow">
         <div class="search-for">
@@ -30,7 +31,32 @@
         </router-link>
       </div>
     </div>
-  </div>
+  </section>
+
+
+  <section class="container90 bottom">
+    <div class="row area-riservata">
+      <div class="col-lg-6 left">
+        <div class="img" :style="`background-image: url(${areaClientiImg});`"></div>
+        <!-- <img src="~/@/assets/dima-pechurin-JUbjYFvCv00-unsplash_1200x800.jpg" alt="area clienti"> -->
+      </div>
+      <div class="col-lg-6 right">
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor officiis, odio consequatur ad ullam quod recusandae repellat facere ex quis asperiores molestiae ipsum hic eum aspernatur, cum alias sint voluptas.</p>
+        <router-link class="btn" to="/area-clienti">Accedi all'area riservata</router-link>
+      </div>
+
+    </div>
+    
+    <div class="row">
+      <div class="col-lg-12"></div>
+    </div>
+    
+    <div class="row">
+      <carousel>
+      
+      </carousel>
+    </div>
+  </section>
 </div>
 </template>
 
@@ -47,7 +73,9 @@ export default {
     }
   },
   data(){
-    return {}
+    return {
+      areaClientiImg: "~/@/assets/dima-pechurin-JUbjYFvCv00-unsplash_1200x800.jpg",
+    }
   },
   computed:{
     carosello: function(){
