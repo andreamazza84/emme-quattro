@@ -6,6 +6,7 @@
         <h2 class="col-lg-12 product-title" v-html="article.title.rendered"></h2>
         <div class="col-lg-4 col-md-6 col-sm-12">
           <div class="img shadow" :style="`background-image: url(${article.acf.image.url})`" :alt="article.acf.image.alt"></div>
+          <span class="date">Ultimo aggiornamento:<br><em>{{lastUpdate(article.date)}}</em></span>
         </div>
         <div class="col-lg-7 col-md-5 col-sm-10 col-offset-sm-1">
           <p class="content" v-html="article.content.rendered"></p>
@@ -52,7 +53,9 @@ export default {
     },
   },
   data(){
-    return {}
+    return {
+      date: '',
+    }
   },
   computed: {
     news: function(){
@@ -62,13 +65,42 @@ export default {
       return this.news.find(
         element => element.slug === this.slug
       );
-    }
+    },
   },
   methods:{
     scrollToLastPosition: function(){
       window.scrollTo({top: this.position, behavior: 'auto'});
     },
+    lastUpdate: function(date){
+      const d = new Date(date);
+      const monthIndex = d.getMonth();
+      const months = [
+        'Gennaio',
+        'Febbraio',
+        'Marzo',
+        'Aprile',
+        'Maggio',
+        'Giugno',
+        'Luglio',
+        'Agosto',
+        'Settembre',
+        'Ottobre',
+        'Novembre',
+        'Dicembre'
+      ];
+      const year = d.getFullYear();
+      const month = months[monthIndex];
+      const day = d.getDate();
+      const formatted = `${day} ${month} ${year}`
+      return formatted  
+      //const now = new Date(); 
+      //let elapsed = now - lastUpdate;
+      //return elapsed = Date(elapsed);
+    },
   },
+  mounted(){
+    console.log(this.lastUpdate);
+  }
 }
 
 </script>

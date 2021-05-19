@@ -11,6 +11,8 @@ import Prodotti from '../views/Prodotti.vue'
 import Servizi from '../views/Servizi.vue'
 import News from '../views/News.vue'
 import Contatti from '../views/Contatti.vue'
+import Articolo from '../views/Articolo.vue'
+
 
 //Children
 import ProdottiDescrizione from '../views/ProdottiDescrizione.vue'
@@ -65,7 +67,10 @@ const routes = [
       path: ":slug",
       name: "ArticoloDescrizione",
       props: true,
-      component: ArticoloDescrizione
+      component: {
+        default: Articolo,
+        helper: ArticoloDescrizione
+      },
     }],
   },
   {
