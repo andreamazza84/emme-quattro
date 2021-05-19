@@ -55,7 +55,7 @@
         this.retrieveData('contatti');
         this.retrieveData('pages');
         this.retrieveData('posts');
-
+        this.retrieveData('news');
     },
     destroyed(){
       window.removeEventListener('scroll', this.scroll);

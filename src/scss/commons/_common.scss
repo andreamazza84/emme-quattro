@@ -66,7 +66,7 @@ input, button{
 @mixin btn {
   width: max-content;
   height: auto;
-  font-family: 'Roboto Slab', serif;
+  font-family: $fontSecondary;
   font-size: $medium;
   padding: 5px 20px;
   border-radius: 2px;

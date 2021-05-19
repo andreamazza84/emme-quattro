@@ -32,7 +32,19 @@ export default new Vuex.Store({
       state.servizi = servizi.reverse();
     },
     SET_SLIDER(state, carosello){
+      const carosello_fallback = [
+        "@/assets/carosello/carosello_1.jpg",
+        "@/assets/carosello/carosello_2.jpg",
+        "@/assets/carosello/carosello_3.jpg",
+        "@/assets/carosello/carosello_4.jpg"
+      ]; 
+
+      carosello.forEach((image, index) =>{
+        image.acf.image.url = image.acf.image.url ?? carosello_fallback[index] 
+      });
+            
       state.carosello = carosello.reverse();
+      //console.log(state.carosello);
     },
     SET_PAGES(state, pages){
       state.pages = pages;
@@ -53,6 +65,9 @@ export default new Vuex.Store({
     },
     SET_POSTS(state, posts){
       state.posts = posts;
+    },
+    SET_NEWS(state, news){
+      state.news = news;
     },
   },
   actions: {
@@ -116,7 +131,7 @@ export default new Vuex.Store({
           if(item === "contatti"){ return commit('SET_CONTATTI', data); }
           if(item === "pages"){ return commit('SET_PAGES', data); }
           if(item === "posts"){ return commit('SET_POSTS', data); }
-
+          if(item === "news"){ return commit('SET_NEWS', data); }
           resolve(data);
         }
         catch(error){

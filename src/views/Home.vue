@@ -32,12 +32,12 @@
   </section>
 
 
-  <section class="container90 bottom">
+  <section class="container bottom">
     <div class="row area-riservata">
       <div class="col-lg-6 col-md-6 col-sm-12 left">
         <!-- <img src="~@/assets/dima-pechurin-JUbjYFvCv00-unsplash_1200x800.jpg" alt="area clienti"> -->
       </div>
-      <div class="col-lg-6 col-sm-12 right">
+      <div class="col-lg-4 col-offset-lg-1 col-md-5 col-offset-md-0 col-sm-11 col-offset-sm-0 right">
         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor officiis, odio consequatur ad ullam quod recusandae repellat facere ex quis asperiores molestiae ipsum hic eum aspernatur, cum alias sint voluptas.</p>
         <router-link class="btn" to="/area-clienti"><span @click="scrollToTopAuto()">Accedi all'area riservata</span></router-link>
       </div>
@@ -59,7 +59,7 @@
     
     <div class="row articles">
       <carousel class="carousel small-carousel"
-      :per-page="show"
+      :per-page="2"
       :autoplay="true"
       :autoplayTimeout="3000"
       :loop="true"
@@ -72,8 +72,13 @@
       :touchDrag="true"
       :mouseDrag="true"
       >
-        <slide class="slide" v-for="image in carosello" :key="image.slug">
-          <div class="image" :style="`background-image:url(${image.acf.image.url})`"></div>
+        <slide class="slide" v-for="article in news" :key="article.slug">
+          <router-link to="/news" class="article image" @click="scrollToTopAuto()" :style="`background-image:url(${article.acf.image.url})`">
+            <div class="preview">            
+              <h4 class="title">{{article.title.rendered}}</h4>
+              <span class="excerpt" v-html="article.excerpt.rendered"></span>
+            </div>
+          </router-link> 
         </slide>
       </carousel>
     </div>
@@ -104,7 +109,10 @@ export default {
   computed:{
     carosello: function(){
       return this.$store.state.carosello
-    }
+    },
+    news: function(){
+      return this.$store.state.news
+    },
   },
   methods:{
     scrollToTopAuto: function(){

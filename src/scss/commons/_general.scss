@@ -1,17 +1,15 @@
 html {
-  //scroll-behavior: smooth;
   background-color: $darkcolor;
 }
 
 #app {
-  font-family: 'Poppins', serif;
+  font-family: $fontPrimary;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
 }
 
 #main{
-  //:style="`height: calc(100vh - ${scroll ? '90px' : '200px'})`"
   min-height: 100vh;
   transition: padding 300ms;
   background-color: $lightcolor;
