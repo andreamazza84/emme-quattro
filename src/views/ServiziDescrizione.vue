@@ -29,11 +29,12 @@ export default {
     },
   },
   data(){
-    return {
-      servizi: this.$store.state.servizi,
-    }
+    return {}
   },
   computed: {
+    servizi: function(){
+      return this.$store.state.servizi
+    },
     servizio: function(){
       return this.servizi.find(
         element => element.slug === this.slug

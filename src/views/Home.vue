@@ -59,7 +59,7 @@
     
     <div class="row articles">
       <carousel class="carousel small-carousel"
-      :per-page="2"
+      :per-page="show"
       :autoplay="true"
       :autoplayTimeout="3000"
       :loop="true"
@@ -74,7 +74,7 @@
       >
         <slide class="slide" v-for="article in news" :key="article.slug">
           <router-link to="/news" class="article image" @click="scrollToTopAuto()" :style="`background-image:url(${article.acf.image.url})`">
-            <div class="preview">            
+            <div class="preview">
               <h4 class="title">{{article.title.rendered}}</h4>
               <span class="excerpt" v-html="article.excerpt.rendered"></span>
             </div>

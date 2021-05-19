@@ -13,9 +13,10 @@
     .big-carousel{
       .slide{
         height: calc(100vh - 90px);
-      }
-      .image{
-        width: 100%;
+        .image{
+          width: 100%;
+          background-image: url($caroselloFallback);
+        }
       }
     }
     .overlay{
@@ -114,6 +115,9 @@
               .title{
                 font-family: $fontSecondary;
                 margin: 0.3rem 0;
+              }
+              .excerpt{
+                font-size: $text;
               }
             }
           } 

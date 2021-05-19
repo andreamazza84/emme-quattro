@@ -15,6 +15,7 @@ import Contatti from '../views/Contatti.vue'
 //Children
 import ProdottiDescrizione from '../views/ProdottiDescrizione.vue'
 import ServiziDescrizione from '../views/ServiziDescrizione.vue'
+import ArticoloDescrizione from '../views/ArticoloDescrizione.vue'
 
 
 Vue.use(VueRouter)
@@ -49,16 +50,23 @@ const routes = [
     props: true,
     component: Servizi,
     children: [{
-        path: ":slug",
-        name: "ServiziDescrizione",
-        props: true,
-        component: ServiziDescrizione
+      path: ":slug",
+      name: "ServiziDescrizione",
+      props: true,
+      component: ServiziDescrizione
     }],
   },
   {
     path: '/news',
     name: 'News',
+    props: true,
     component: News,
+    children: [{
+      path: ":slug",
+      name: "ArticoloDescrizione",
+      props: true,
+      component: ArticoloDescrizione
+    }],
   },
   {
     path: '/contatti',

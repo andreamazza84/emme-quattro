@@ -52,11 +52,12 @@ export default {
     },
   },
   data(){
-    return {
-      prodotti: this.$store.state.prodotti,
-    }
+    return {}
   },
   computed: {
+    prodotti: function(){
+      return this.$store.state.prodotti
+    },
     prodotto: function(){
       return this.prodotti.find(
         element => element.slug === this.slug
