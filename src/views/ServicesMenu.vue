@@ -2,17 +2,20 @@
   <div class="container">
     <div class="card-container row">
       <div class="card col-lg-4 col-md-6 col-sm-12" 
-      v-for="article in articles" 
-      :key="article.slug"
+      v-for="item in items" 
+      :key="item.slug"
       >
         <router-link class="innerlink" 
           :to="{
-            name: 'ArticoloDescrizione',
-            params: {slug: article.slug}
+            name: component.name,
+            params: {slug: item.slug}
           }"
         >
-          <h4 class="title" v-html="article.title.rendered"></h4>
-          <div class="img shadow" :style="`background-image: url(${article.acf.image.url})`" @click="savePosition(), scrollToTop()"></div>
+          <h4 class="title" v-html="item.title.rendered"></h4>
+          <div class="img shadow" 
+            :style="`background-image: url(${item.acf.image.url})`" 
+            @click="savePosition(), scrollToTop()">
+          </div>
         </router-link>
       </div>
     </div>
@@ -27,11 +30,15 @@ export default {
       window:{
         scrollY: 0,
       },
+      component: {
+        name: 'ServicesDescription'
+      },
     }
   },
   computed:{
-    articles: function(){
-      return this.$store.state.news;
+    //## modificare questo elemento ##
+    items: function(){
+      return this.$store.state.servizi;
     }
   },
   methods:{

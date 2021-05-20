@@ -3,38 +3,37 @@
     <div class="box-container container">
       <!-- Description -->
       <div class="box-row row">
-        <h2 class="col-lg-12 product-title" v-html="article.title.rendered"></h2>
+        <h2 class="col-lg-12 product-title" v-html="item.title.rendered"></h2>
         <div class="col-lg-4 col-md-6 col-sm-12">
-          <div class="img shadow" :style="`background-image: url(${article.acf.image.url})`" :alt="article.acf.image.alt"></div>
-          <span class="date">Ultimo aggiornamento:<br><em>{{lastUpdate(article.date)}}</em></span>
+          <div class="img shadow" :style="`background-image: url(${item.acf.image.url})`" :alt="item.acf.image.alt"></div>
         </div>
         <div class="col-lg-7 col-md-5 col-sm-10 col-offset-sm-1">
-          <p class="content" v-html="article.content.rendered"></p>
+          <p class="content" v-html="item.content.rendered"></p>
         </div>
       </div>
 
       <!-- Download -->
-      <div class="box-row row" v-if="article.acf.acqua || article.acf.solvente || article.acf.olii">
+      <div class="box-row row" v-if="item.acf.acqua || item.acf.solvente || item.acf.olii">
         <h3 class="col-lg-12 download-title">Scarica la documentazione</h3>
-        <div class="col-lg-6 col-sm-12" v-if="article.acf.acqua">
+        <div class="col-lg-6 col-sm-12" v-if="item.acf.acqua">
           <div class="download" >
-            <a class="pdf" :href="article.acf.acqua.url">{{article.title.rendered}} <span class="acqua">all'acqua</span></a>
+            <a class="pdf" :href="item.acf.acqua.url">{{item.title.rendered}} <span class="acqua">all'acqua</span></a>
           </div>
         </div>
-        <div class="col-lg-6 col-sm-12" v-if="article.acf.solvente">
+        <div class="col-lg-6 col-sm-12" v-if="item.acf.solvente">
           <div class="download">
-            <a class="pdf" :href="article.acf.solvente.url">{{article.title.rendered}} <span class="solvente">al solvente</span></a>
+            <a class="pdf" :href="item.acf.solvente.url">{{item.title.rendered}} <span class="solvente">al solvente</span></a>
           </div>
         </div>
-        <div class="col-lg-12" v-if="article.acf.olii">
+        <div class="col-lg-12" v-if="item.acf.olii">
           <div class="download">
-            <a class="pdf" :href="article.acf.olii.url">{{article.title.rendered}} <span class="olii"></span></a>
+            <a class="pdf" :href="item.acf.olii.url">{{item.title.rendered}} <span class="olii"></span></a>
           </div>
         </div>
       </div>
 
     
-    <router-link to="/news" class="close-link"><div class="close" @click="scrollToLastPosition()"></div></router-link>
+    <router-link :to="page.previous" class="close-link"><div class="close" @click="scrollToLastPosition()"></div></router-link>
     </div>
 
     
@@ -55,14 +54,18 @@ export default {
   data(){
     return {
       date: '',
+      page:{
+        previous: '/servizi'
+      },
     }
   },
   computed: {
-    news: function(){
-      return this.$store.state.news
+    // ## Cambiare il campo "news"##
+    items: function(){
+      return this.$store.state.servizi
     },
-    article: function(){
-      return this.news.find(
+    item: function(){
+      return this.items.find(
         element => element.slug === this.slug
       );
     },
@@ -93,14 +96,8 @@ export default {
       const day = d.getDate();
       const formatted = `${day} ${month} ${year}`
       return formatted  
-      //const now = new Date(); 
-      //let elapsed = now - lastUpdate;
-      //return elapsed = Date(elapsed);
     },
   },
-  mounted(){
-    console.log(this.lastUpdate);
-  }
 }
 
 </script>

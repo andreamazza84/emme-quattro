@@ -7,18 +7,19 @@ import store from '@/store'
 //Views
 import Home from '../views/Home.vue'
 import About from '../views/About.vue'
-import Prodotti from '../views/Prodotti.vue'
-import Servizi from '../views/Servizi.vue'
+import Products from '../views/Products.vue'
+import Services from '../views/Services.vue'
 import News from '../views/News.vue'
 import Contatti from '../views/Contatti.vue'
-import Articolo from '../views/Articolo.vue'
 
 
 //Children
-import ProdottiDescrizione from '../views/ProdottiDescrizione.vue'
-import ServiziDescrizione from '../views/ServiziDescrizione.vue'
-import ArticoloDescrizione from '../views/ArticoloDescrizione.vue'
-
+import NewsMenu from '../views/NewsMenu.vue'
+import NewsDescription from '../views/NewsDescription.vue'
+import ProductsMenu from '../views/ProductsMenu.vue'
+import ProductsDescription from '../views/ProductsDescription.vue'
+import ServicesMenu from '../views/ServicesMenu.vue'
+import ServicesDescription from '../views/ServicesDescription.vue'
 
 Vue.use(VueRouter)
 
@@ -33,51 +34,88 @@ const routes = [
     name: 'About',
     component: About,
   },
-  {
-    path: '/prodotti',
-    name: 'Prodotti',
-    props: true,
-    component: Prodotti,
-    children: [{ 
-        path: ":slug",
-        name: "ProdottiDescrizione",
-        props: true,
-        component: ProdottiDescrizione
-        //component: () => import(/* webpackChunkName: "ProdottiDescrizione" */ "../views/ProdottiDescrizione.vue"),
-    }],
-  },
-  {
-    path: '/servizi',
-    name: 'Servizi',
-    props: true,
-    component: Servizi,
-    children: [{
-      path: ":slug",
-      name: "ServiziDescrizione",
-      props: true,
-      component: ServiziDescrizione
-    }],
-  },
+  // {
+  //   path: '/prodotti',
+  //   name: 'Prodotti',
+  //   props: true,
+  //   component: Prodotti,
+  //   children: [{ 
+  //       path: ":slug",
+  //       name: "ProdottiDescrizione",
+  //       props: true,
+  //       component: ProdottiDescrizione
+  //       //component: () => import(/* webpackChunkName: "ProdottiDescrizione" */ "../views/ProdottiDescrizione.vue"),
+  //   }],
+  // },
+  // {
+  //   path: '/servizi',
+  //   name: 'Servizi',
+  //   props: true,
+  //   component: Servizi,
+  //   children: [{
+  //     path: ":slug",
+  //     name: "ServiziDescrizione",
+  //     props: true,
+  //     component: ServiziDescrizione
+  //   }],
+  // },
+
   {
     path: '/news',
-    //name: 'News',
     props: true,
     component: News,
     children: [
-    {
-      path: '/',
-      props: true,
-      name: 'Articolo',
-      component: Articolo
-    },
-    {
-      path: ":slug",
-      props: true,
-      name: "ArticoloDescrizione",
-      component: ArticoloDescrizione
-    },
-  ],
-      
+      {
+        path: '/',
+        props: true,
+        name: 'NewsMenu',
+        component: NewsMenu
+      },
+      {
+        path: ":slug",
+        props: true,
+        name: "NewsDescription",
+        component: NewsDescription
+      },
+    ],
+  },
+  {
+    path: '/prodotti',
+    props: true,
+    component: Products,
+    children: [
+      {
+        path: '/',
+        props: true,
+        name: 'ProductsMenu',
+        component: ProductsMenu
+      },
+      {
+        path: ":slug",
+        props: true,
+        name: "ProductsDescription",
+        component: ProductsDescription
+      },
+    ],
+  },
+  {
+    path: '/servizi',
+    props: true,
+    component: Services,
+    children: [
+      {
+        path: '/',
+        props: true,
+        name: 'ServicesMenu',
+        component: ServicesMenu
+      },
+      {
+        path: ":slug",
+        props: true,
+        name: "ServicesDescription",
+        component: ServicesDescription
+      },
+    ],
   },
   {
     path: '/contatti',
