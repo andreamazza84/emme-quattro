@@ -1,6 +1,6 @@
 <template>
-  <div class="news pt-200">
-    <section class="articles">
+  <div class="items-menu pt-200">
+    <section class="items">
       <div class="container">
         <div class="card-container row">
           <div class="card col-lg-4 col-md-6 col-sm-12" 
@@ -59,6 +59,7 @@ export default {
     },
   },
   mounted(){
+    console.log(this.name);
   },
 }
 </script>

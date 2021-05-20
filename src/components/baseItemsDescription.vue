@@ -1,9 +1,9 @@
 <template>
-  <section class="descrizione">
+  <section class="descrizione pt-200">
     <div class="box-container container">
       <!-- Description -->
       <div class="box-row row">
-        <h2 class="col-lg-12 product-title" v-html="item.title.rendered"></h2>
+        <h2 class="col-lg-12 item-title" v-html="item.title.rendered"></h2>
         <div class="col-lg-4 col-md-6 col-sm-12">
           <div class="img shadow" :style="`background-image: url(${item.acf.image.url})`" :alt="item.acf.image.alt"></div>
         </div>
@@ -60,7 +60,6 @@ export default {
     }
   },
   computed: {
-    // ## Cambiare il campo "news"##
     items: function(){
       return this.$store.state[this.parent]
     },
@@ -98,6 +97,9 @@ export default {
       return formatted  
     },
   },
+  mounted(){
+    console.log(this.slug);
+  }
 }
 
 </script>
