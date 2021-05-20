@@ -60,18 +60,24 @@ const routes = [
   },
   {
     path: '/news',
-    name: 'News',
+    //name: 'News',
     props: true,
     component: News,
-    children: [{
-      path: ":slug",
-      name: "ArticoloDescrizione",
+    children: [
+    {
+      path: '/',
       props: true,
-      component: {
-        default: Articolo,
-        helper: ArticoloDescrizione
-      },
-    }],
+      name: 'Articolo',
+      component: Articolo
+    },
+    {
+      path: ":slug",
+      props: true,
+      name: "ArticoloDescrizione",
+      component: ArticoloDescrizione
+    },
+  ],
+      
   },
   {
     path: '/contatti',

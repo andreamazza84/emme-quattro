@@ -2,7 +2,7 @@
   <div class="container">
     <div class="card-container row">
       <div class="card col-lg-4 col-md-6 col-sm-12" 
-      v-for="article in news" 
+      v-for="article in articles" 
       :key="article.slug"
       >
         <router-link class="innerlink" 
@@ -21,15 +21,16 @@
 
 <script>
 export default {
+
   data(){
     return{
       window:{
         scrollY: 0,
-      }
+      },
     }
   },
   computed:{
-    news: function(){
+    articles: function(){
       return this.$store.state.news;
     }
   },
@@ -41,4 +42,7 @@ export default {
       this.window.scrollY = window.scrollY; 
     },
   },
+  mounted(){
+  },
 }
+</script>
