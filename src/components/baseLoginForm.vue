@@ -1,24 +1,24 @@
 <template>
   <div class="form">
     <baseErrorMessage :text="message.error != '' ? message.error : message.success" />
+    <!-- Login -->
     <form @submit.prevent="login()" class="login">
       <label for="username">
         <input v-model="form.username" type="text" name="username" placeholder="Username" minlength="3" maxlength="100" required>
       </label>
-      <div class="field password">
-        <label for="log-password">Password</label>
-        <input v-model="form.password" id="log-password" type="password" placeholder="•••••••••••">
-      </div>
-      <div class="field submit">
-        <button class="btn" type="submit">Entra</button>
-      </div>
+      <label for="password">
+        <input v-model="form.password" type="password" name="password" placeholder="password" maxlength="100" required>
+      </label>
+      <button class="btn" type="submit">Entra</button>
     </form>
 
-    <form @submit.prevent="reset()" class="form">
+    <!-- Password reset -->
+    <form @submit.prevent="reset()" class="password-reset">
       <div class="field forgot" @click="show()">Password dimenticata?</div>
       <div v-if="active" class="field password">
-        <label for="reset-password">Email</label>
-        <input v-model="forgot.user_login" id="reset-password" type="email" placeholder="Inserisci qui la tua email per recuperare la password" required>
+        <label for="reset-password">
+          <input v-model="forgot.user_login" id="reset-password" type="email" placeholder="Inserisci qui la tua email per recuperare la password" required>
+        </label>
         <button class="btn" type="submit">Recupera password</button>
       </div>
     </form>
@@ -85,3 +85,61 @@ export default {
   }
 }
 </script>
+<style lang="scss" scoped>
+form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  label{
+    width: 100%;
+    text-align: left;
+    margin: 0.5rem 0;
+    font-size: $text;
+    input, 
+    textarea{
+      width: 100%;
+      font-family: 'Poppins', serif;
+      font-size: $text;
+      border: 1px solid $borderlightcolor;
+      border-radius: 5px;
+      padding: 5px;
+      margin: 0.3rem 0;
+    }
+  }
+  label[for="info"]{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    .btn{
+      @include btn;
+      margin-bottom: 0;
+      font-size: $normal;
+      text-align: center;
+    }
+    div.info{
+      display: flex;
+      align-items: center;
+      input[type="checkbox"]{
+        width: auto;
+        margin-right: 1rem;
+        transition: color 300ms;
+        &:hover{
+          color: $primary;
+        }
+      }
+    }
+  }
+  hr{
+    color: $borderlightcolor;
+    width: 100%;
+    border: 1px 0 0 0;
+    margin-bottom: 1rem;
+  }
+  .btn{
+    @include btn;
+    margin-bottom: 2rem;
+  }
+}
+</style>
