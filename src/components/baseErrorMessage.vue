@@ -1,5 +1,5 @@
 <template>
-    <div v-if="text" id="message">
+    <div v-if="text" id="error-message">
       <div class="error">
         {{text}}
       </div>
@@ -18,7 +18,7 @@ export default {
 }
 </script>
 <style lang="scss">
-  #message{
+  #error-message{
     display: flex;
     align-items: center;
     justify-content: center;

@@ -4,29 +4,7 @@
       <section class="row form">
         <div class="col-lg-6 col-offset-lg-1 col-md-6 col-offset-md-1 col-sm-12 col-offset-sm-0">
           <h2 class="py-2-1">Contattaci</h2>
-          <form action="submit" method="post">
-            <label for="name">
-              <input type="text" name="name" placeholder="Nome" minlength="3" maxlength="100" required>
-            </label>
-            <label for="email">
-              <input type="email" name="email" placeholder="Email" maxlength="100" required>
-            </label>
-            <label for="name">
-              <input type="text" name="name" placeholder="Oggetto delle richiesta" minlength="3" maxlength="100" required>
-            </label>
-            <label for="message">Il tuo messaggio:
-              <textarea name="message" cols="20" rows="8" minlength="3" maxlength="10000" placeholder="Scrivi qui" required></textarea>
-            </label>
-            <label for="info">
-              <div class="info">
-                <input type="checkbox" name="info" required>
-                <div>Accetto l'informativa <br> sull'utilizzo dei dati</div>
-              </div>
-              <router-link class="btn" to="/informativa-area-contatti">Leggi<br>l'informativa</router-link>
-            </label>
-            <hr>
-            <button type="submit" class="btn">Invia</button>
-          </form>
+          <baseForm :typology="message"/>
         </div>
 
         <div class="col-lg-4 col-offset-lg-1 col-md-4 col-offset-md-1 col-sm-12 col-offset-sm-0">
@@ -56,9 +34,11 @@
 
 <script>
 import GoogleMap from '@/components/GoogleMap'
+import baseForm from '@/components/baseForm.vue'
 export default {
   components: {
-    GoogleMap
+    GoogleMap,
+    baseForm
   },
   data(){
     return {

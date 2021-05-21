@@ -1,11 +1,10 @@
 <template>
-  <div>
+  <div class="form">
     <baseErrorMessage :text="message.error != '' ? message.error : message.success" />
-    <form @submit.prevent="login()" class="form">
-      <div class="field name">
-        <label for="username">Username</label>
-        <input v-model="form.username" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Username">
-      </div>
+    <form @submit.prevent="login()" class="login">
+      <label for="username">
+        <input v-model="form.username" type="text" name="username" placeholder="Username" minlength="3" maxlength="100" required>
+      </label>
       <div class="field password">
         <label for="log-password">Password</label>
         <input v-model="form.password" id="log-password" type="password" placeholder="•••••••••••">
@@ -14,6 +13,7 @@
         <button class="btn" type="submit">Entra</button>
       </div>
     </form>
+
     <form @submit.prevent="reset()" class="form">
       <div class="field forgot" @click="show()">Password dimenticata?</div>
       <div v-if="active" class="field password">
@@ -23,11 +23,9 @@
       </div>
     </form>
   </div>
-    
 </template>
 <script>
 import baseErrorMessage from '@/components/baseErrorMessage.vue'
-
 export default {
   components: {
     baseErrorMessage
@@ -87,47 +85,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.form{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
-  width: 100%;
-  max-width: $maxForm;
-  padding: 5%;
-  margin: 5%;
-  border: 1px solid #aaa;
-  .field{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin: 10px 0;
-    label{
-      margin-bottom: 5px;
-    }
-    input{
-      width: 100%;
-      height: 2rem;
-      border-radius: 5px;
-      border: 1px solid $borderlightcolor;
-      padding: 0 10px;
-    }
-    .btn{
-      @include btn;
-      align-self: center;
-      background-color: $primary;
-      &:hover{
-        background-color: $primary-hover;
-      }
-    }
-  }
-  .forgot{
-    cursor: pointer;
-    &:hover{
-      text-decoration: underline;
-    }
-  }
-}
-</style>
