@@ -57,8 +57,11 @@
       <div class="col-lg-6 col-md-4 col-sm-0"></div>
     </div>
     
-    <div class="row articles">
-      <carousel class="carousel small-carousel"
+    <div class="row articles clear" @click="scrollToTopAuto()">
+      <router-link  class="tag fl" to="/news">
+        <p class="news rotate">news</p>
+      </router-link>
+      <carousel class="carousel small-carousel fl"
       :per-page="show"
       :autoplay="true"
       :autoplayTimeout="3000"
@@ -73,7 +76,11 @@
       :mouseDrag="true"
       >
         <slide class="slide" v-for="article in news" :key="article.slug">
-          <router-link to="/news" class="article image" @click="scrollToTopAuto()" :style="`background-image:url(${article.acf.image.url})`">
+          <router-link 
+          :to="`/news/${article.slug}`" 
+          class="article image" 
+          :style="`background-image:url(${article.acf.image.url})`"
+        >
             <div class="preview">
               <h4 class="title">{{article.title.rendered}}</h4>
               <span class="excerpt" v-html="article.excerpt.rendered"></span>

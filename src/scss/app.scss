@@ -18,15 +18,14 @@
 @import 'components/_baseNavbar.scss';
 @import 'components/_baseFooter.scss';
 @import 'components/_baseRegistrationForm.scss';
+@import 'components/itemsMenu.scss';
+@import 'components/itemsDescription.scss'; //Descrizione prodotti, servizi e news
 
 //Views
 @import 'views/home.scss';
 @import 'views/about.scss'; //Chi-siamo
 @import 'views/contacts.scss';
-@import 'views/prodotti.scss';
-@import 'views/servizi.scss'; 
-@import 'views/news.scss';
-@import 'views/descrizione'; //Descrizione prodotti, servizi e news
 @import 'views/areaclienti.scss';
 @import 'views/informativa.scss';
+
 
