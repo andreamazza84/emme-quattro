@@ -5,10 +5,13 @@
     position: relative;
     padding-bottom: 2rem;
     .title{
-      margin: 2rem 0 1rem 0;
+      //max-width: 330px;
+      //min-width: 220px;
+      //@function: 30vh;
       color: $darkcolor;
-      height: calc(2 * 1rem);
+      height: 3rem;
       font-size: $normal;
+      text-transform: uppercase;
     }
     .img{
       margin: auto;

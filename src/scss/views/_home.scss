@@ -96,8 +96,26 @@
       }
     }
     .articles{
+      display: flex;
       height: 400px;
+      .tag{
+        display: flex;
+        align-content: center;
+        background-color: $primary;
+        color: $lightcolor;
+        text-transform: uppercase;
+        width: 3rem;
+        height: 90%;
+        font-family: $fontSecondary;
+        .news{
+          width: 100%;
+          margin: auto;
+          letter-spacing: 2px;
+          font-size: $medium;
+        }
+      }
       .small-carousel{
+        width: calc(100% - 3rem);
         .slide{
           height: 400px;
           .article{

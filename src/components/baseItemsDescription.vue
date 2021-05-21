@@ -1,20 +1,22 @@
 <template>
   <section class="descrizione pt-200">
     <div class="box-container container">
+
       <!-- Description -->
       <div class="box-row row">
-        <h2 class="col-lg-12 item-title" v-html="item.title.rendered"></h2>
-        <div class="col-lg-4 col-md-6 col-sm-12">
+        <h2 class="item-title title" v-html="item.title.rendered"></h2>
+        <div class="col-lg-8 col-offset-lg-2 col-md-12 col-offset-md-0 col-sm-12 col-offset-sm-0">
           <div class="img shadow" :style="`background-image: url(${item.acf.image.url})`" :alt="item.acf.image.alt"></div>
+          <div v-show="(parent === 'news')" class="date"><em>Pubblicato il : </em>{{lastUpdate(item.date)}}</div>
         </div>
-        <div class="col-lg-7 col-md-5 col-sm-10 col-offset-sm-1">
-          <p class="content" v-html="item.content.rendered"></p>
+        <div class="col-lg-8 col-offset-lg-2 col-md-10 col-offset-md-1 col-sm-10 col-offset-sm-1">
+          <span class="content" v-html="item.content.rendered"></span>
         </div>
       </div>
 
       <!-- Download -->
       <div class="box-row row" v-if="item.acf.acqua || item.acf.solvente || item.acf.olii">
-        <h3 class="col-lg-12 download-title">Scarica la documentazione</h3>
+        <h3 class="col-lg-12 download-title title">Scarica la documentazione</h3>
         <div class="col-lg-6 col-sm-12" v-if="item.acf.acqua">
           <div class="download" >
             <a class="pdf" :href="item.acf.acqua.url">{{item.title.rendered}} <span class="acqua">all'acqua</span></a>
@@ -31,10 +33,14 @@
           </div>
         </div>
       </div>
-    
-    <router-link :to="`/${parent}`" class="close-link"><div class="close" @click="scrollToLastPosition()"></div></router-link>
-    </div>
 
+      <!-- Navigation buttons -->
+      <div class="navigation">
+        <a @click="$router.back()" class="navigation-link"><i class="fas fa-arrow-circle-left back" @click="scrollToLastPosition()"></i></a>
+        <router-link :to="`/${parent}`" class="navigation-link"><i class="fas fa-times-circle close" @click="scrollToLastPosition()"></i></router-link>
+      </div>
+
+    </div>
     
   </section>
 </template>
@@ -98,9 +104,8 @@ export default {
     },
   },
   mounted(){
-    console.log(this.slug);
+    //console.log(this.slug);
   }
 }
-
 </script>
 

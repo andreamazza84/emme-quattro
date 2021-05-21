@@ -13,7 +13,7 @@
                 params: {slug: item.slug}
               }"
             >
-              <h4 class="title" v-html="item.title.rendered"></h4>
+              <h4 class="title my-2-1" v-html="item.title.rendered"></h4>
               <div class="img shadow" 
                 :style="`background-image: url(${item.acf.image.url})`" 
                 @click="savePosition(), scrollToTop()">
@@ -59,7 +59,7 @@ export default {
     },
   },
   mounted(){
-    console.log(this.name);
+    //console.log(this.name);
   },
 }
 </script>
