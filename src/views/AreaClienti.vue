@@ -10,7 +10,7 @@
         </div>
         <div class="col-lg-5 col-offset-lg-2 col-md-5 col-sm-10 col-offset-sm-1">
           <h2 class="py-2-1">Accedi all'area riservata</h2>
-          <p>Se hai già effettuato la registrazione, inserisci username e password per accedere all'area riservata</p>
+          <p>Se hai già effettuato la registrazione, inserisci <em>nome utente</em> e <em>password</em> per accedere all'area riservata</p>
           <!-- <baseLoginForm/> -->
           <baseForm typology="login"/>
         </div>
