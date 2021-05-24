@@ -4,10 +4,10 @@
       <section class="row form">
         <div class="col-lg-6 col-offset-lg-1 col-md-6 col-offset-md-1 col-sm-12 col-offset-sm-0">
           <h2 class="py-2-1">Contattaci</h2>
-          <baseForm :typology="message"/>
+          <baseForm typology="message"/>
         </div>
 
-        <div class="col-lg-4 col-offset-lg-1 col-md-4 col-offset-md-1 col-sm-12 col-offset-sm-0">
+        <div class="col-lg-4 col-md-4 col-sm-12">
           <h2 class="py-2-2">Contatti</h2>
           <div class="contatti" v-for="(contatto, index) in contatti" :key="contatto.slug">
             <input type="button" class="btn" :value="(copied === index)?'copiato!': contatto.title" @click="copyToClipboard(contatto.content, index)">

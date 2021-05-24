@@ -48,12 +48,7 @@ export default {
   },
   methods: {
     show: function(){
-      if(!this.active){
-        return this.active = true;
-      }
-      if(this.active){
-        return this.active = false;
-      }
+      return this.active = !this.active;
     },
     async login() {
       try{

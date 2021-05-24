@@ -1,16 +1,16 @@
 <template>
   <div class="form">
     <!-- MESSAGE FORM-->
-    <div v-if="typology === message" class="message">
+    <div v-if="typology === 'message'" class="message-wrapper">
       <form action="submit" method="post">
-        <label for="name">
+        <label for="name">Nome utente
           <input type="text" name="name" placeholder="Nome" minlength="3" maxlength="100" required>
         </label>
-        <label for="email">
+        <label for="email">Email
           <input type="email" name="email" placeholder="Email" maxlength="100" required>
         </label>
-        <label for="name">
-          <input type="text" name="name" placeholder="Oggetto delle richiesta" minlength="3" maxlength="100" required>
+        <label for="object">Oggetto
+          <input type="text" name="object" placeholder="Oggetto delle richiesta" minlength="3" maxlength="100" required>
         </label>
         <label for="message">Il tuo messaggio:
           <textarea name="message" cols="20" rows="8" minlength="3" maxlength="10000" placeholder="Scrivi qui" required></textarea>
@@ -28,24 +28,25 @@
     </div>
     
     <!-- LOGIN FORM -->
-    <div v-if="typology === login" class="login">
+    <div v-if="typology === 'login'" class="login-wrapper">
       <baseErrorMessage :text="message.error != '' ? message.error : message.success" />
       <!-- Login -->
       <form @submit.prevent="login()" class="login">
-        <label for="username">
-          <input v-model="form.username" type="text" name="username" placeholder="Username" minlength="3" maxlength="100" required>
+        <label for="username">Nome utente
+          <input v-model="form.login.username" type="text" name="username" placeholder="Username" minlength="3" maxlength="100" required>
         </label>
-        <label for="password">
-          <input v-model="form.password" type="password" name="password" placeholder="password" maxlength="100" required>
+        <label for="password">Password
+          <input v-model="form.login.password" type="password" name="password" placeholder="Password" maxlength="100" required>
         </label>
         <button class="btn" type="submit">Entra</button>
       </form>
-      <!-- Password reset -->
-      <form @submit.prevent="reset()" class="password-reset">
-        <div class="field forgot" @click="show()">Password dimenticata?</div>
-        <div v-if="active" class="field password">
+
+      <!-- Reset password -->
+      <form @submit.prevent="reset()" class="reset-password">
+        <div class="forgot" @click="show()">Password dimenticata?</div>
+        <div v-if="active" class="form hidden">
           <label for="reset-password">
-            <input v-model="forgot.user_login" id="reset-password" type="email" placeholder="Inserisci qui la tua email per recuperare la password" required>
+            <input v-model="forgot.user_login" name="reset-password" type="email" placeholder="Inserisci qui la tua email per recuperare la password" required>
           </label>
           <button class="btn" type="submit">Recupera password</button>
         </div>
@@ -53,36 +54,28 @@
     </div>
 
     <!-- REGISTRATION FORM -->
-    <div v-if="typology === registration" class="registration">
+    <div v-if="typology === 'registration'" class="registration-wrapper">
       <form @submit.prevent="register()" class="registration">
-      <!-- Username -->
-      <div class="field name">
-          <label for="name">Username</label>
-          <input v-model="form.username" type="text" name="name" id="name" required>
-      </div>
-      <!-- Email -->
-      <div class="field email">
-          <label for="email">Email</label>
-          <input v-model="form.email" type="email" name="email" id="email" required>
-      </div>
-      <div class="field password">
-          <!-- Password -->
-          <label for="password">Password</label>        
-          <input v-model="form.password" type="password" name="password" id="password" placeholder="•••••••••••" required>
-      </div>
-      <div class="field password">
-          <!-- Confirm password -->
-          <label for="confirm-password">Conferma password</label>        
-          <input type="password" name="password" id="confirm-password" placeholder="•••••••••••" required>
-      </div>
-      <div class="field submit">
-          <button class="btn" type="submit">Invia</button>
-      </div>
-      <baseErrorMessage :text="message.error != '' ? message.error : message.success"/>
-    </form>
-    
+        <!-- Username -->
+        <label for="name">Nome utente
+            <input v-model="form.registration.username" type="text" name="name" placeholder="Nome" minlength="3" maxlength="100" required>
+        </label>
+        <!-- Email -->
+        <label for="email">Email
+            <input v-model="form.registration.email" type="email" name="email" placeholder="Email" maxlength="100" required>
+          </label>
+        <!-- Password -->
+        <label for="password">Password
+            <input v-model="form.registration.password" type="password" name="password" placeholder="Password" maxlength="100" required>
+        </label>
+            <!-- Confirm password -->
+        <label for="confirm-password">
+          <input type="password" name="confirm-password" placeholder="Conferma password" required>
+        </label>        
+        <button class="btn" type="submit">Invia</button> 
+        <baseErrorMessage :text="message.error != '' ? message.error : message.success"/>
+      </form>
     </div>
-
   </div>
 
 
@@ -99,6 +92,80 @@ export default {
       type: String //message || registration || login 
     }
   },
+  data(){
+    return {
+      form:{
+        login: {
+          username: '',
+          password: ''
+        },
+        registration:{
+          username: '',
+          email: '',
+          password: ''
+        },
+      },
+      forgot:{
+        user_login: '',
+      },
+      message:{
+        error: '',
+        success: '',
+      },
+      active: false,
+    }
+  },
+  methods:{
+    show: function(){
+      return this.active = !this.active;
+    },
+    // LOGIN
+    async login() {
+      try{
+        const result = await this.$store.dispatch('login', this.form.login);
+        const { redirect = false } = this.$route.query;
+        const path = redirect ? decodeURI(redirect) : '/protected';
+        this.$router.push({ path });
+      }
+      catch(error){
+        console.log("Error:");
+        console.log(error);
+        console.log(error.response.data.message);
+        this.message.error = error.response.data.message;
+      }
+    },
+
+    async reset() {
+      try{
+        const result = await this.$store.dispatch('reset', this.forgot)
+        this.message.success = "Una email con ##### è stata inviata alla tua casella di posta"
+      }
+      catch(error){
+        this.message.error = error.response.data.message;
+      }
+    },
+    // LOGIN
+
+    // REGISTRATION
+    async register(){
+      try{
+          const result = await this.$store.dispatch('register', this.form.registration);
+          //const { redirect = false } = this.$route.query;
+          //const path = redirect ? decodeURI(redirect) : '/login';
+          //this.$router.push({ path });
+          //alert('Registrazione avvenuta con successo');
+          this.message.success = "Registrazione avvenuta con successo";
+          this.messagge.error = '';
+      }
+      catch(error){
+          console.log("Error ", error);
+          this.message.error = error.response.data.message;
+          this.message.success = '';
+      }
+    }
+    // REGISTRATION
+
+  },
 }
 </script>
 
@@ -108,6 +175,9 @@ form{
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 100%;
+  height: 100%;
+  margin-bottom: 2rem;
   label{
     width: 100%;
     text-align: left;
@@ -116,7 +186,7 @@ form{
     input, 
     textarea{
       width: 100%;
-      font-family: 'Poppins', serif;
+      font-family: $fontPrimary;
       font-size: $text;
       border: 1px solid $borderlightcolor;
       border-radius: 5px;
@@ -148,6 +218,14 @@ form{
       }
     }
   }
+  .forgot{
+    cursor: pointer;
+    transition: color 300ms;
+    &:hover,
+    &:focus{
+      color: $primary;
+    }
+  }
   hr{
     color: $borderlightcolor;
     width: 100%;
@@ -156,7 +234,8 @@ form{
   }
   .btn{
     @include btn;
-    margin-bottom: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
   }
 }
 </style>
