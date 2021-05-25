@@ -3,7 +3,7 @@
     <div class="container90">
     
       <section class="row form">
-        <div class="col-lg-6 col-offset-lg-1 col-md-6 col-offset-md-1 col-sm-12 col-offset-sm-0">
+        <div class="col-lg-6 col-md-6 col-sm-12">
           <h2 class="py-2-1">Contattaci</h2>
           <baseForm typology="message"/>
         </div>
