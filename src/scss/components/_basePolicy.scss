@@ -1,0 +1,44 @@
+.info{
+  text-align: justify;
+  .content{
+    p{
+      line-height: 2;
+      margin-bottom: 1rem;
+    }
+  }
+  .title{
+    h3{
+      text-transform: uppercase;
+      padding: 2rem 0 0.5rem;
+    }
+  }
+  table{
+    width: 100%;
+    margin-bottom: 2rem;
+    border: 1px solid $borderlightcolor;
+    border-collapse: collapse;
+    font-size: $small;
+    text-align: center;
+    table{
+      border: none;
+    }
+    thead{
+      font-weight: bold;
+      text-transform: uppercase;
+      border: 1px solid $borderlightcolor;
+      td{
+        padding: 5px 0;
+      }
+    }
+    td{
+      max-width: 150px;
+      width: max-content;
+    }
+  }
+  a{
+    color: $primary;
+    &:hover{
+      color: $primary-hover;
+    }
+  }
+}

@@ -83,7 +83,7 @@
           :style="`background-image:url(${article.acf.image.url})`"
         >
             <div class="preview">
-              <h4 class="title">{{article.title.rendered}} Ciao</h4>
+              <h4 class="title">{{article.title.rendered}}</h4>
               <span class="excerpt" v-html="article.excerpt.rendered"></span>
             </div>
           </router-link> 

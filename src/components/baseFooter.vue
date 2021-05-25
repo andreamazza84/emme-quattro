@@ -50,6 +50,13 @@
       </div>
       <div class="scroll-to-top" @click="scrollToTop()"><i class="fas fa-chevron-up"></i></div>
     </section>
+    <section class="footer-bottom">
+      <ul class="policies row">
+        <li><router-link to="/privacy-policy"><div>Privacy Policy</div></router-link></li>
+        <li><router-link to="/cookie-policy"><div>Cookie policy</div></router-link></li>
+        <li><router-link to="/informativa-area-contatti"><div>Informativa area contatti</div></router-link></li>
+      </ul>
+    </section>
   </div>
 </template>
 
@@ -156,8 +163,36 @@ export default {
   }
 
   .footer-bottom{
-    height: 1px;
-    background-color: $lightcolor;
+    background-color: $darkcolor2;
+    .policies{
+      width: 50%;
+      height: 100%;
+      margin: auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      align-items: center;
+      color: $secondary;
+      font-size: $small;
+      li{
+        margin: 1rem 0;
+        flex-basis: calc(100% / 3);
+        a{
+          height: 1.5rem;
+          border-bottom: 1px solid transparent;
+          div{
+            transition: letter-spacing 300ms;
+            min-width: 200px;
+          }
+          div:hover{
+            letter-spacing: 2px;
+          }
+        }
+        .router-link-active{
+          border-bottom: 1px solid $secondary;
+        }
+      }
+    }
   }
 
   .scroll-to-top{

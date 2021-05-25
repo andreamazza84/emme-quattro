@@ -27,20 +27,3 @@ export default {
   },
 }
 </script>
-<style lang="scss" scoped>
-.info{
-  text-align: justify;
-  .content::v-deep{
-    p{
-      line-height: 2;
-      margin-bottom: 1rem;
-    }
-  }
-  .title::v-deep{
-    h3{
-      text-transform: uppercase;
-      padding: 2rem 0 0.5rem;
-    }
-  }
-}
-</style>
