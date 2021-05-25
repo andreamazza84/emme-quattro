@@ -3,7 +3,7 @@
     <!-- MESSAGE FORM-->
     <div v-if="typology === 'message'" class="message-wrapper">
       <form action="submit" method="post">
-        <label for="name">Nome utente
+        <label for="name">Nome
           <input type="text" name="name" placeholder="Nome" minlength="3" maxlength="100" required>
         </label>
         <label for="email">Email
@@ -13,14 +13,18 @@
           <input type="text" name="object" placeholder="Oggetto delle richiesta" minlength="3" maxlength="100" required>
         </label>
         <label for="message">Il tuo messaggio:
-          <textarea name="message" cols="20" rows="8" minlength="3" maxlength="10000" placeholder="Scrivi qui" required></textarea>
+          <textarea name="message" cols="20" rows="8" minlength="3" maxlength="10000" placeholder="Scrivi qui..." required></textarea>
         </label>
         <label for="info">
           <div class="info">
             <input type="checkbox" name="info" required>
             <div>Accetto l'informativa <br> sull'utilizzo dei dati</div>
           </div>
-          <router-link class="btn" to="/informativa-area-contatti">Leggi<br>l'informativa</router-link>
+          <router-link to="/informativa-area-contatti">
+            <div class="btn" @click="scrollToTopAuto()">
+            Leggi<br>l'informativa
+            </div>
+          </router-link>
         </label>
         <hr>
         <button type="submit" class="btn">Invia</button>
@@ -118,6 +122,9 @@ export default {
   methods:{
     show: function(){
       return this.active = !this.active;
+    },
+    scrollToTopAuto: function(){
+      window.scrollTo({top: 0, behavior: 'auto'});
     },
     // LOGIN
     async login() {

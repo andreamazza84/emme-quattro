@@ -108,4 +108,117 @@ export default {
   }
 }
 </script>
+<style lang="scss" scoped>
+.descrizione{
+  background-color: $lightcolor;
+  color: $darkcolor;
+  .box-container{
+    position: relative;
+    .box-row{
+      width: 100%;
+      padding: 1rem 0;
+      .title{
+        color: $darkcolor;
+        margin-bottom: 2rem;
+      }
+      .item-title{
+        height: 3rem;
+        width: 100%;
+        margin: auto;
+        margin-top: 3rem;
+        margin-bottom: 2rem;
+      }
+      .img{
+        width: 100%;
+        height: 400px;
+        margin-bottom: 2rem;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        &:hover,
+        &:focus{
+          transform: none;
+        }
+      }
+      .date{
+        margin-bottom: 2rem;
+      }
+      .content{
+        font-size: $text;
+        text-align: justify;
+        line-height: 2;
+        ul{
+          margin-left: 1rem;
+          margin-top: 1rem;
+          text-align: left;
+          li{
+            line-height: 2rem;
+            list-style: circle;
+          }
+        }
+      }
+      .download{
+        text-align: center;
+        width: 200px;
+        height: 200px;
+        margin: auto;
+        margin-bottom: 1rem;
+        border-radius: 50%;
+        border: 1px solid transparent;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: border 300ms;
+        &:hover,
+        &:focus{
+          border: 1px solid $borderlightcolor;
+        }
+        .pdf{
+          width: 90%;
+          margin: auto;
+          display: flex;
+          flex-direction: column;
+          cursor: pointer;
+          color: $darkcolor;
+          span{
+            font-weight: 600;
+          }
+          .acqua{
+            color: $primary;
+          }
+          .solvente{
+            color: $secondary;
+          }
+          &::before{
+            font-family: $fontAwesome;
+            content: "\f1c1";
+            font-size: $xxlarge;
+          }  
+          &::first-letter{
+            text-transform: uppercase;
+          }
+        }
+      }
+    }
+    .navigation{
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      .navigation-link{
+        i{
+          font-size: $xlarge;
+          color: $darkcolor;
+          transition: color 300ms;
+        }
+        i:hover{
+          color: $secondary;
+        }
+        i:first-of-type{
+          margin-right: 1rem;
+        }
+      } 
+    }
+  }
+}
+</style>
 

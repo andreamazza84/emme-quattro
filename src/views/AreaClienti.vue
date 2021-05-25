@@ -20,19 +20,15 @@
 </template>
 
 <script>
-import baseLoginForm from '@/components/baseLoginForm'
-import baseRegistrationForm from '@/components/baseRegistrationForm'
+//import baseLoginForm from '@/components/baseLoginForm'
+//import baseRegistrationForm from '@/components/baseRegistrationForm'
 import baseForm from '@/components/baseForm.vue'
 
 export default {
   components:{
-      baseLoginForm,
-      baseRegistrationForm,
+     // baseLoginForm,
+     // baseRegistrationForm,
       baseForm
   }
 }
 </script>
-<style lang="scss" scoped>
-    
-
-</style>

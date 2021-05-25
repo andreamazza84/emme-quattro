@@ -71,3 +71,36 @@ export default {
   }
 }
 </script>
+<style lang="scss" scoped>
+.registration{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 300px;
+  max-width: $maxForm;
+  padding: 5%;
+  margin: 5%;
+  .field{
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin: 20px 0;
+      label{
+        margin-bottom: 5px;
+      }
+      input{
+        width: 100%;
+        height: 2rem;
+        border-radius: 5px;
+        border: 1px solid $borderlightcolor;
+        padding: 0 10px;
+      }
+      .btn{
+        @include btn;
+        align-self: center;
+      }
+  }
+}
+</style>

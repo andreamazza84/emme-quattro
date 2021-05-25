@@ -4,7 +4,7 @@
       <baseNavbar/>
     </div>
     
-    <router-view id="main" :scroll="window.scroll"/>
+    <router-view id="main" class="pb-3" :scroll="window.scroll"/>
     <baseFooter/>
 
   </div>
@@ -49,13 +49,13 @@
       window.addEventListener('scroll', this.scroll);
     },
     mounted(){
+        this.retrieveData('carosello');
+        this.retrieveData('news');
         this.retrieveData('prodotti');
         this.retrieveData('servizi');
-        this.retrieveData('carosello');
         this.retrieveData('contatti');
-        this.retrieveData('pages');
         this.retrieveData('posts');
-        this.retrieveData('news');
+        this.retrieveData('pages');
     },
     destroyed(){
       window.removeEventListener('scroll', this.scroll);
