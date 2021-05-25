@@ -47,19 +47,7 @@ const routes = [
   //       //component: () => import(/* webpackChunkName: "ProdottiDescrizione" */ "../views/ProdottiDescrizione.vue"),
   //   }],
   // },
-  // {
-  //   path: '/servizi',
-  //   name: 'Servizi',
-  //   props: true,
-  //   component: Servizi,
-  //   children: [{
-  //     path: ":slug",
-  //     name: "ServiziDescrizione",
-  //     props: true,
-  //     component: ServiziDescrizione
-  //   }],
-  // },
-
+  
   {
     path: '/news',
     props: true,
@@ -153,6 +141,11 @@ const routes = [
     path: '/informativa-area-contatti',
     name: 'Informativa',
     component: () => import(/* webpackChunkName: "informativa" */ '../views/Informativa.vue')
+  },
+  {
+    path: '/cookie-policy',
+    name: 'CookiePolicy',
+    component: () => import(/* webpackChunkName: "cookie" */ '../views/CookiePolicy.vue')
   }
 ]
 

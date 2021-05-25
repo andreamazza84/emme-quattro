@@ -1,6 +1,6 @@
 <template>
   <div class="cookie">
-
+    <p>Questo sito utilizza cookie</p>
   
   </div>
 </template>

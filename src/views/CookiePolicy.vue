@@ -1,11 +1,11 @@
 <template>
-  <basePolicy content="informativa-area-contatti"/>
+ <basePolicy content="cookie-policy"/>    
 </template>
 <script>
 import basePolicy from '@/components/basePolicy.vue'
 export default {
   components:{
     basePolicy
-  }
+  },
 }
 </script>
