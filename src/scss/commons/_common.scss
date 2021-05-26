@@ -60,6 +60,13 @@ input, button{
   font-size: $medium;
 }
 
+.p-rel{
+  position: relative;
+}
+.p-abs{
+  position: absolute;
+}
+
 .pt-200{
   padding-top: 200px;
 }
@@ -127,7 +134,8 @@ input, button{
   padding: 2rem;
   background-color: $lighttrasparency;
   color: $darkcolor;
-  font-family: 'Poppins';
+  font-family: $primary;
+  font-weight: 500;
   border-radius: 2px;
   & > *{
     margin-bottom: 1.5rem;

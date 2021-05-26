@@ -48,6 +48,7 @@ export default new Vuex.Store({
     },
     SET_PAGES(state, pages){
       state.pages = pages;
+      console.log(state.pages);
     },
     SET_CONTATTI(state, contatti){
       let id = null; let slug = null; let title = null; let content = null;
@@ -137,7 +138,7 @@ export default new Vuex.Store({
         catch(error){
           reject(error);
         }
-      }); 
+      });
     },
 
   },

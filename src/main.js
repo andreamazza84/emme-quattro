@@ -36,8 +36,8 @@ Vue.use(VueAxios, axios);
 Vue.axios.defaults.baseURL = 'http://localhost:8880/wp-json';
 
 //FontAwesome
-library.add(faUserSecret)
-Vue.component('font-awesome-icon', FontAwesomeIcon)
+//library.add(faUserSecret)
+//Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 Vue.config.productionTip = false
 

@@ -16,15 +16,11 @@
           <textarea name="message" cols="20" rows="8" minlength="3" maxlength="10000" placeholder="Scrivi qui..." required></textarea>
         </label>
         <label for="info">
-          <div class="info">
+          <div class="info p-rel">
+            <!-- <div>Accetto <router-link to="/informativa-area-contatti" target="_blank">l'informativa sull'utilizzo dei dati</router-link></div> -->
+            <div><modal :show="true">Accetto l'informativa sull'utilizzo dei dati</modal></div>
             <input type="checkbox" name="info" required>
-            <div>Accetto l'informativa <br> sull'utilizzo dei dati</div>
           </div>
-          <router-link to="/informativa-area-contatti">
-            <div class="btn" @click="scrollToTopAuto()">
-            Leggi<br>l'informativa
-            </div>
-          </router-link>
         </label>
         <hr>
         <button type="submit" class="btn">Invia</button>
@@ -86,9 +82,11 @@
 </template>
 <script>
 import baseErrorMessage from '@/components/baseErrorMessage.vue'
+import modal from '@/components/modal.vue'
 export default {
   components: {
-    baseErrorMessage
+    baseErrorMessage,
+    modal
   },
   props: {
     typology: {
@@ -203,7 +201,7 @@ form{
   }
   label[for="info"]{
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
     flex-wrap: nowrap;
     .btn{
@@ -212,12 +210,12 @@ form{
       font-size: $normal;
       text-align: center;
     }
-    div.info{
+    .info{
       display: flex;
       align-items: center;
       input[type="checkbox"]{
         width: auto;
-        margin-right: 1rem;
+        margin-left: 0.5rem;
         transition: color 300ms;
         &:hover{
           color: $primary;

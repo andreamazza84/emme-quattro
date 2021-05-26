@@ -69,32 +69,42 @@ export default {
     .title{
       color: $darkcolor;
       height: 3rem;
-      font-size: $normal;
+      font-size: $medium;
+      font-weight: 700;
       text-transform: uppercase;
     }
-    .img{
+    .link-to-description{
       position: relative;
-      margin: auto;
-      max-width: 300px;
-      min-width: 200px;
-      width: 30vh;
-      max-height: 300px;
-      min-height: 200px;
-      height: 30vh;
-      background-position: center;
-      background-size: cover;
-      background-repeat: no-repeat;
-      transition: transform 300ms;
-      &:hover{
-        transform: scale(1.1);
+      width: 100%;
+      padding: 0 2rem;
+      .title{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       }
-      .innerlink{
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        z-index: 1;
+      .img{
+        margin: auto;
+        //width: 30vh;
+        //max-width: 300px;
+        min-width: 200px;
+        height: 30vh;
+        max-height: 300px;
+        min-height: 200px;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        transition: transform 300ms;
+        &:hover{
+          transform: scale(1.1);
+        }
+        .innerlink{
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          z-index: 1;
+        }
       }
     }
   }

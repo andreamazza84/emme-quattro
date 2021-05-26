@@ -1,5 +1,5 @@
 <template>
-  <div class="info container90 pt-200" v-show="policy.content">
+  <div v-if="show" class="modal container90 pt-200" v-show="policy.content">
     <h2 class="py-2-2 title" v-html="policy.title.rendered"></h2>
     <div class="content" v-html="policy.content.rendered"></div>
   </div>
@@ -11,13 +11,12 @@ export default {
     content:{
       type: String,
       required: true,
-    }
+    },
+    show: {
+      type: Boolean,
+      required: true,
+    },
   },
-  // data(){
-  //   return{
-  //     policy: null,
-  //   }
-  // },
   computed:{
     policy: function(){
       return this.retrieveContent(this.content);
@@ -35,3 +34,12 @@ export default {
   // }
 }
 </script>
+<style lang="scss" scoped>
+.modal{
+  position: absolute;
+  top: 2rem;
+  bottom: 2rem;
+  left: 2rem;
+  right: 2rem;
+}
+</style>
