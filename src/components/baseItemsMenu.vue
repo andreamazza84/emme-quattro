@@ -10,8 +10,8 @@
               <h4 class="title my-2-1" v-html="item.title.rendered"></h4>
               <div class="img shadow" 
                 :style="`background-image: url(${item.acf.image.url})`" 
-                @click="savePosition(), scrollToTop()">
-                <router-link class="innerlink" :to="{name: child, params: {slug: item.slug}}"></router-link>
+                @click="scrollToTop(), storePosition()">
+                <router-link class="innerlink" :to="{name: child, params: {slug: item.slug, position: window.scrollY}}"></router-link>
               </div>
             </div>
           </div>
@@ -31,6 +31,9 @@ export default {
     child:{
       type: String,
       required: true
+    },
+    position: {
+      type: Number,
     }
   },
   data(){
@@ -49,12 +52,11 @@ export default {
     scrollToTop: function(){
       window.scrollTo({top: 0, behavior: 'auto'});
     },
-    savePosition: function(){
-      this.window.scrollY = window.scrollY; 
+    storePosition: function(){
+      this.$store.commit('SET_SCROLL', window.scrollY);
     },
   },
   mounted(){
-    //console.log(this.name);
   },
 }
 </script>

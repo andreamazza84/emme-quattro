@@ -41,4 +41,18 @@
       color: $primary-hover;
     }
   }
+  .navigation-link{
+    position: absolute;
+    top: 2rem;
+    right: 0;
+    cursor: pointer;
+    i{
+      font-size: $xlarge;
+      color: $darkcolor;
+      transition: color 300ms;
+    }
+    i:hover{
+      color: $secondary;
+    }
+  } 
 }

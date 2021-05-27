@@ -1,7 +1,11 @@
 <template>
-  <div class="info container90 pt-200" v-show="policy.content">
+  <div class="info container90 pt-200 p-rel" v-show="policy.content">
+  <div class="p-rel">
     <h2 class="py-2-2 title" v-html="policy.title.rendered"></h2>
     <div class="content" v-html="policy.content.rendered"></div>
+    <!-- Navigation buttons -->
+    <a @click="$router.back()" class="navigation-link"><i class="fas fa-times-circle close" @click="scrollToLastPosition()"></i></a>
+  </div>
   </div>
 </template>
 <script>
@@ -13,11 +17,6 @@ export default {
       required: true,
     }
   },
-  // data(){
-  //   return{
-  //     policy: null,
-  //   }
-  // },
   computed:{
     policy: function(){
       return this.retrieveContent(this.content);
@@ -30,8 +29,5 @@ export default {
       });
     }
   },
-  // async mounted(){
-  //   this.policy = await this.retrieveContent(this.content);
-  // }
 }
 </script>

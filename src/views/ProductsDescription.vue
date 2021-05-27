@@ -1,5 +1,5 @@
 <template>
-  <baseItemsDescription parent="prodotti" :slug="slug"/>
+  <baseItemsDescription parent="prodotti" :slug="slug" :position="position"/>
 </template>
 
 <script>
@@ -13,6 +13,9 @@ export default {
       type: String,
       required: true
     },
+    position:{
+      type: Number,
+    }
   }
 }
 </script>

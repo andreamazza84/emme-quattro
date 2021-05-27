@@ -38,6 +38,7 @@
       scroll: function(){
         this.window.scrollY = window.scrollY;
         this.window.scroll = true;
+        //console.log(window.scrollY);
 
         if(this.window.scrollY === 0){
           this.window.scroll = false;

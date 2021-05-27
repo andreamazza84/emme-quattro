@@ -14,6 +14,7 @@ export default new Vuex.Store({
     carosello: null,
     contatti: null,
     pages: null,
+    scroll: null,
   },
   mutations: {
     SET_USER(state, user) {
@@ -32,23 +33,22 @@ export default new Vuex.Store({
       state.servizi = servizi.reverse();
     },
     SET_SLIDER(state, carosello){
-      const carosello_fallback = [
-        "@/assets/carosello/carosello_1.jpg",
-        "@/assets/carosello/carosello_2.jpg",
-        "@/assets/carosello/carosello_3.jpg",
-        "@/assets/carosello/carosello_4.jpg"
-      ]; 
+      // const carosello_fallback = [
+      //   "./@/assets/carosello/carosello_1.jpg",
+      //   "./@/assets/carosello/carosello_2.jpg",
+      //   "./@/assets/carosello/carosello_3.jpg",
+      //   "./@/assets/carosello/carosello_4.jpg"
+      // ]; 
 
-      carosello.forEach((image, index) =>{
-        image.acf.image.url = image.acf.image.url ?? carosello_fallback[index] 
-      });
+      // carosello.forEach((image, index) =>{
+      //   image.acf.image.url = undefined ?? carosello_fallback[index] 
+      // });
             
       state.carosello = carosello.reverse();
       //console.log(state.carosello);
     },
     SET_PAGES(state, pages){
       state.pages = pages;
-      console.log(state.pages);
     },
     SET_CONTATTI(state, contatti){
       let id = null; let slug = null; let title = null; let content = null;
@@ -69,6 +69,9 @@ export default new Vuex.Store({
     },
     SET_NEWS(state, news){
       state.news = news;
+    },
+    SET_SCROLL(state, scroll){
+      state.scroll = scroll;
     },
   },
   actions: {

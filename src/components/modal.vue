@@ -1,7 +1,10 @@
 <template>
-  <div v-if="show" class="modal container90 pt-200" v-show="policy.content">
-    <h2 class="py-2-2 title" v-html="policy.title.rendered"></h2>
-    <div class="content" v-html="policy.content.rendered"></div>
+  <div v-if="show" class="modal-wrapper">
+    <i class="fas fa-times-circle"></i>
+    <div class="modal-container container90">
+      <h2 class="py-2-2 title" v-html="policy.title.rendered"></h2>
+      <div class="content" v-html="policy.content.rendered"></div>
+    </div>
   </div>
 </template>
 <script>
@@ -17,6 +20,11 @@ export default {
       required: true,
     },
   },
+  data(){
+    return{
+      show: false,
+    }
+  },
   computed:{
     policy: function(){
       return this.retrieveContent(this.content);
@@ -29,17 +37,33 @@ export default {
       });
     }
   },
-  // async mounted(){
-  //   this.policy = await this.retrieveContent(this.content);
-  // }
 }
 </script>
-<style lang="scss" scoped>
-.modal{
-  position: absolute;
-  top: 2rem;
-  bottom: 2rem;
-  left: 2rem;
-  right: 2rem;
+<style lang="scss">
+.modal-wrapper{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9998;
+  background-color: $modaltrasparency;
+  i{
+    position: absolute;
+  }
+  .modal-container{
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+    margin: 202px auto;
+    background-color: $lightcolor;
+    border-radius: 5px;
+    overflow-Y: scroll;
+    overflow-X: hidden;
+    .content{
+      margin-bottom: 400px;
+    }
+  }
 }
 </style>

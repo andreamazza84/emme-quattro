@@ -16,9 +16,9 @@
           <textarea name="message" cols="20" rows="8" minlength="3" maxlength="10000" placeholder="Scrivi qui..." required></textarea>
         </label>
         <label for="info">
-          <div class="info p-rel">
-            <!-- <div>Accetto <router-link to="/informativa-area-contatti" target="_blank">l'informativa sull'utilizzo dei dati</router-link></div> -->
-            <div><modal :show="true">Accetto l'informativa sull'utilizzo dei dati</modal></div>
+          <div class="info">
+            <div>Accetto <router-link to="/informativa-area-contatti"><span @click="scrollToTopAuto()">l'informativa sull'utilizzo dei dati</span></router-link></div>
+            <!-- <div><modal :show="true" content="cookie-policy"/>Accetto l'informativa sull'utilizzo dei dati</div> -->
             <input type="checkbox" name="info" required>
           </div>
         </label>
@@ -29,7 +29,6 @@
     
     <!-- LOGIN FORM -->
     <div v-if="typology === 'login'" class="login-wrapper">
-      <baseErrorMessage :text="message.error != '' ? message.error : message.success" />
       <!-- Login -->
       <form @submit.prevent="login()" class="login">
         <label for="username">Nome utente
@@ -44,12 +43,11 @@
       <!-- Reset password -->
       <form @submit.prevent="reset()" class="reset-password">
         <div class="forgot" @click="show()">Password dimenticata?</div>
-        <div v-if="active" class="form hidden">
-          <label for="reset-password">
-            <input v-model="forgot.user_login" name="reset-password" type="email" placeholder="Inserisci qui la tua email per recuperare la password" required>
-          </label>
-          <button class="btn" type="submit">Recupera password</button>
-        </div>
+        <label v-if="active" class="hidden" for="reset-password">
+          <input v-model="forgot.user_login" name="reset-password" type="email" placeholder="Inserisci qui la tua email per recuperare la password" required>
+        </label>
+        <button v-if="active" class="btn" type="submit">Recupera password</button>
+        <baseErrorMessage v-show="response" :error="error" :success="success" :text="text"/>
       </form>
     </div>
 
@@ -72,8 +70,8 @@
         <label for="confirm-password">
           <input type="password" name="confirm-password" placeholder="Conferma password" required>
         </label>        
-        <button class="btn" type="submit">Invia</button> 
-        <baseErrorMessage :text="message.error != '' ? message.error : message.success"/>
+        <button class="btn" type="submit" @click="timer()">Invia</button> 
+        <baseErrorMessage v-show="response" :error="error" :success="success" :text="text"/>
       </form>
     </div>
   </div>
@@ -82,11 +80,9 @@
 </template>
 <script>
 import baseErrorMessage from '@/components/baseErrorMessage.vue'
-import modal from '@/components/modal.vue'
 export default {
   components: {
     baseErrorMessage,
-    modal
   },
   props: {
     typology: {
@@ -112,14 +108,30 @@ export default {
       },
       message:{
         error: '',
-        success: '',
+        success: '', 
       },
       active: false,
+      response: false,
+    }
+  },
+  computed:{
+    error: function(){
+      return this.message.error != '' ? true : false
+    },
+    success: function(){
+      return this.message.error != '' ? false : true
+    },
+    text: function(){
+      return this.message.error != '' ? this.message.error : this.message.success
     }
   },
   methods:{
     show: function(){
       return this.active = !this.active;
+    },
+    timer: function(){
+      this.response = true;
+      setTimeout(()=>{ this.response = false }, 10000);
     },
     scrollToTopAuto: function(){
       window.scrollTo({top: 0, behavior: 'auto'});
@@ -131,12 +143,14 @@ export default {
         const { redirect = false } = this.$route.query;
         const path = redirect ? decodeURI(redirect) : '/protected';
         this.$router.push({ path });
+        this.timer();
       }
       catch(error){
         console.log("Error:");
         console.log(error);
-        console.log(error.response.data.message);
         this.message.error = error.response.data.message;
+        this.timer();
+
       }
     },
 
@@ -144,9 +158,12 @@ export default {
       try{
         const result = await this.$store.dispatch('reset', this.forgot)
         this.message.success = "Una email con ##### è stata inviata alla tua casella di posta"
+        this.timer();
       }
       catch(error){
         this.message.error = error.response.data.message;
+          this.timer();
+
       }
     },
     // LOGIN
@@ -160,16 +177,18 @@ export default {
           //this.$router.push({ path });
           //alert('Registrazione avvenuta con successo');
           this.message.success = "Registrazione avvenuta con successo";
-          this.messagge.error = '';
+          this.message.error = '';
+          this.timer();
       }
       catch(error){
           console.log("Error ", error);
           this.message.error = error.response.data.message;
           this.message.success = '';
+          this.timer();
+
       }
     }
     // REGISTRATION
-
   },
 }
 </script>

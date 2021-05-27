@@ -268,7 +268,7 @@ export default {
   width: 100%;
   color: $lightcolor;
   background-color: $darkcolor;
-  border-bottom: 2px solid $darkcolor;
+  border-top: 2px solid $darkcolor;
   .container{
     height: 50px;
     display: flex;

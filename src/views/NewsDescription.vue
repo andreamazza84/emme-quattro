@@ -13,6 +13,9 @@ export default {
       type: String,
       required: true
     },
+    position:{
+      type: Number,
+    }
   }
 }
 </script>

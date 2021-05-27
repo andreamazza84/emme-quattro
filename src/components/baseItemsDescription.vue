@@ -36,8 +36,8 @@
 
       <!-- Navigation buttons -->
       <div class="navigation">
-        <a @click="$router.back()" class="navigation-link"><i class="fas fa-arrow-circle-left back" @click="scrollToLastPosition()"></i></a>
-        <router-link :to="`/${parent}`" class="navigation-link"><i class="fas fa-times-circle close" @click="scrollToLastPosition()"></i></router-link>
+        <a @click="$router.back(), scrollToLastPosition()" class="navigation-link"><i class="fas fa-arrow-circle-left back"></i></a>
+        <router-link :to="`/${parent}`" class="navigation-link"><i class="fas fa-times-circle close"></i></router-link>
       </div>
 
     </div>
@@ -77,7 +77,8 @@ export default {
   },
   methods:{
     scrollToLastPosition: function(){
-      window.scrollTo({top: this.position, behavior: 'auto'});
+      console.log(this.$store.state.scroll);
+      window.scrollTo({top: this.$store.state.scroll, behavior: 'auto'});
     },
     lastUpdate: function(date){
       const d = new Date(date);

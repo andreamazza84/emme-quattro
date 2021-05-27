@@ -82,7 +82,7 @@
           class="article image" 
           :style="`background-image:url(${article.acf.image.url})`"
         >
-            <div class="preview">
+            <div class="preview" @click="storePosition()">
               <h4 class="title">{{article.title.rendered}}</h4>
               <span class="excerpt" v-html="article.excerpt.rendered"></span>
             </div>
@@ -126,9 +126,10 @@ export default {
     scrollToTopAuto: function(){
       window.scrollTo({top: 0, behavior: 'auto'});
     },
-    /** Shows menu hamburger under 992px screen width
-    * @window_resize     
-    */
+    storePosition: function(){
+      this.$store.commit('SET_SCROLL', window.scrollY);
+      console.log(this.$store.state.scroll);
+    },
     mediaWidth: function() {
         //mobile 768px
         //tablet 992px

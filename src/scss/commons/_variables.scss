@@ -9,6 +9,7 @@ $lightcolor: #f9faf7;
 $borderlightcolor: #dddddd;
 $darktrasparency: rgba(0,0,0,0.85);
 $lighttrasparency: rgba(255,255,255,0.85);
+$modaltrasparency: rgba(0,0,0,0.5);
 
 /*Font sizes*/
 $xxlarge: 4rem;
@@ -32,6 +33,3 @@ $maxForm: 768px;
 $logo-nav: '~@/assets/M4_2021_only_logo.svg';
 $logo-footer: '~@/assets/M4_2021_clear_logo_only.svg';
 $caroselloFallback: '~@/assets/carosello/carosello_1.jpg';
-
-
-//:to="{path:`/news/${article.slug}`}"
