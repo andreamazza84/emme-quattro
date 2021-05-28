@@ -8,10 +8,11 @@
           :key="item.slug">
             <div class="link-to-description">
               <h4 class="title my-2-1" v-html="item.title.rendered"></h4>
-              <div class="img shadow" 
-                :style="`background-image: url(${item.acf.image.url})`" 
-                @click="scrollToTop(), storePosition()">
-                <router-link class="innerlink" :to="{name: child, params: {slug: item.slug, position: window.scrollY}}"></router-link>
+              <div class="img shadow" :style="`background-image: url(${item.acf.image.url})`">
+                <router-link class="innerlink"
+                  @click.native="scrollToTop(), storePosition()" 
+                  :to="{name: child, params: {slug: item.slug, position: window.scrollY}}">
+                </router-link>
               </div>
             </div>
           </div>
@@ -39,7 +40,7 @@ export default {
   data(){
     return{
       window:{
-        scrollY: 0,
+        scrollY: null,
       },
     }
   },
@@ -53,7 +54,10 @@ export default {
       window.scrollTo({top: 0, behavior: 'auto'});
     },
     storePosition: function(){
+      console.log("storePosition ",true);
+      this.window.scrollY = Math.floor(window.scrollY);
       this.$store.commit('SET_SCROLL', window.scrollY);
+      console.log(this.$store.state.scroll);
     },
   },
   mounted(){

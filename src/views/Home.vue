@@ -26,7 +26,7 @@
         <div class="search-for">
           Cerchi una vernice oppure un colore in particolare?<br>Con M4 hai tante soluzioni per i <span>privati</span> e tanti servizi dedicati alle <span>imprese</span>
         </div>
-        <router-link class="btn" to="/contatti"> <span @click="scrollToTopAuto()">Contattaci</span></router-link>
+        <router-link @click.native="scrollToTopAuto()" class="btn" to="/contatti">Contattaci</router-link>
       </div>
     </div>
   </section>
@@ -49,16 +49,14 @@
           <div class="search-for">
             Contattaci per maggiori informazioni
           </div>
-          <router-link class="btn" to="/contatti">
-            <span @click="scrollToTopAuto()">Contattaci</span>
-          </router-link>
+          <router-link @click.native="scrollToTopAuto()" class="btn" to="/contatti">Contattaci</router-link>
         </div>
       </div>
       <div class="col-lg-6 col-md-4 col-sm-0"></div>
     </div>
     
-    <div class="row articles clear" @click="scrollToTopAuto()">
-      <router-link  class="tag fl" to="/news">
+    <div class="row articles clear">
+      <router-link @click.native="scrollToTopAuto()"  class="tag fl" to="/news">
         <p class="news rotate">news</p>
       </router-link>
       
@@ -81,8 +79,9 @@
           :to="`/news/${article.slug}`" 
           class="article image" 
           :style="`background-image:url(${article.acf.image.url})`"
+          @click.native="storePosition(), scrollToTopAuto()"
         >
-            <div class="preview" @click="storePosition()">
+            <div class="preview">
               <h4 class="title">{{article.title.rendered}}</h4>
               <span class="excerpt" v-html="article.excerpt.rendered"></span>
             </div>
@@ -109,7 +108,8 @@ export default {
   data(){
     return {
       window:{
-        width: 0
+        width: 0,
+        scrollY: null,
       },
       show: 4,
     }
@@ -127,7 +127,9 @@ export default {
       window.scrollTo({top: 0, behavior: 'auto'});
     },
     storePosition: function(){
-      this.$store.commit('SET_SCROLL', window.scrollY);
+      console.log("storePosition ",true);
+      this.window.scrollY = Math.floor(window.scrollY);
+      this.$store.commit('SET_SCROLL', this.window.scrollY);
       console.log(this.$store.state.scroll);
     },
     mediaWidth: function() {
