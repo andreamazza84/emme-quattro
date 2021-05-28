@@ -135,21 +135,25 @@ const routes = [
   {
     path: '/privacy-policy',
     name: 'Privacy',
+    props: true,
     component: () => import(/* webpackChunkName: "privacy" */ '../views/Privacy.vue')
   },
   {
     path: '/informativa-area-contatti',
     name: 'Informativa',
+    props: true,
     component: () => import(/* webpackChunkName: "informativa" */ '../views/Informativa.vue')
   },
   {
     path: '/cookie-policy',
     name: 'CookiePolicy',
+    props: true,
     component: () => import(/* webpackChunkName: "cookie" */ '../views/CookiePolicy.vue')
   }
 ]
 
 const router = new VueRouter({
+  mode: 'history',
   routes
 })
 

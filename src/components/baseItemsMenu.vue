@@ -10,8 +10,8 @@
               <h4 class="title my-2-1" v-html="item.title.rendered"></h4>
               <div class="img shadow" :style="`background-image: url(${item.acf.image.url})`">
                 <router-link class="innerlink"
-                  @click.native="scrollToTop(), storePosition()" 
-                  :to="{name: child, params: {slug: item.slug, position: window.scrollY}}">
+                  @click.native="storePosition(), scrollToTop()" 
+                  :to="{name: child, params: {slug: item.slug}}">
                 </router-link>
               </div>
             </div>
@@ -33,9 +33,9 @@ export default {
       type: String,
       required: true
     },
-    position: {
-      type: Number,
-    }
+    // position: {
+    //   type: Number,
+    // }
   },
   data(){
     return{
@@ -54,13 +54,19 @@ export default {
       window.scrollTo({top: 0, behavior: 'auto'});
     },
     storePosition: function(){
-      console.log("storePosition ",true);
+      //console.log("storePosition ",true);
       this.window.scrollY = Math.floor(window.scrollY);
-      this.$store.commit('SET_SCROLL', window.scrollY);
-      console.log(this.$store.state.scroll);
+      this.$store.commit('SET_SCROLL', this.window.scrollY);
+      //console.log(window.scrollY);
+      //console.log(this.$store.state.scroll);
+
     },
   },
+  created(){
+    //window.addEventListener('scroll', this.storePosition);
+  },
   mounted(){
+    console.log(this.name);
   },
 }
 </script>
@@ -70,7 +76,6 @@ export default {
   width: 100%;
   height: 100%;
   section.items{
-    position: relative;
     padding-bottom: 2rem;
     .title{
       color: $darkcolor;
@@ -80,7 +85,6 @@ export default {
       text-transform: uppercase;
     }
     .link-to-description{
-      position: relative;
       width: 100%;
       padding: 0 2rem;
       .title{
@@ -89,9 +93,10 @@ export default {
       align-items: center;
       }
       .img{
+        position: relative;
         margin: auto;
-        //width: 30vh;
-        //max-width: 300px;
+        width: 30vh;
+        max-width: 300px;
         min-width: 200px;
         height: 30vh;
         max-height: 300px;

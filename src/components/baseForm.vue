@@ -17,7 +17,7 @@
         </label>
         <label for="info">
           <div class="info">
-            <div>Accetto <router-link to="/informativa-area-contatti"><span @click="scrollToTopAuto()">l'informativa sull'utilizzo dei dati</span></router-link></div>
+            <div>Accetto <router-link :to="{name:'Informativa'}" target="_blank" @click.native="scrollToTopAuto()">l'informativa sull'utilizzo dei dati</router-link></div>
             <!-- <div><modal :show="true" content="cookie-policy"/>Accetto l'informativa sull'utilizzo dei dati</div> -->
             <input type="checkbox" name="info" required>
           </div>

@@ -100,11 +100,6 @@ export default {
     Carousel,
     Slide
   },
-  props: {
-    scroll: {
-      type: Boolean,
-    }
-  },
   data(){
     return {
       window:{

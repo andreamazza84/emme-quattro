@@ -52,9 +52,9 @@ export default {
       type: String,
       required: true
     },
-    position:{
-      type: Number,
-    },
+    // position:{
+    //   type: Number,
+    // },
     parent:{
       type: String,
       required: true
@@ -77,7 +77,7 @@ export default {
   },
   methods:{
     scrollToLastPosition: function(){
-      console.log(this.$store.state.scroll);
+      //console.log(this.$store.state.scroll);
       window.scrollTo({top: this.$store.state.scroll, behavior: 'auto'});
     },
     lastUpdate: function(date){
@@ -127,7 +127,7 @@ export default {
         width: 100%;
         margin: auto;
         margin-top: 3rem;
-        margin-bottom: 2rem;
+        text-transform: uppercase;
       }
       .img{
         width: 100%;

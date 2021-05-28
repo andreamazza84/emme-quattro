@@ -13,9 +13,9 @@ export default {
       type: String,
       required: true
     },
-    position:{
-      type: Number,
-    }
+    // position:{
+    //   type: Number,
+    // }
   }
 }
 </script>
