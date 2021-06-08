@@ -34,7 +34,7 @@ export default {
         try{
           const { data } = await axios.get(`/wp/v2/pages`);
           resolve(data);
-          this.content = data;
+          this.content = this.$store.state.pages ?? data;
           this.policy = this.retrieveContent(this.slug);
         }
         catch(error){

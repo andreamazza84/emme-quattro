@@ -120,12 +120,12 @@ export default {
       padding: 1rem 0;
       .title{
         color: $darkcolor;
+        margin: auto;
         margin-bottom: 2rem;
       }
       .item-title{
-        height: 3rem;
+        height: max-content;
         width: 100%;
-        margin: auto;
         margin-top: 3rem;
         text-transform: uppercase;
       }
