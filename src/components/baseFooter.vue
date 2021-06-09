@@ -28,34 +28,36 @@
         
         <ul class="menu">
           <li>
-            <router-link class="footer-menu-links" to="/chi-siamo"><span @click="scrollToTopAuto()">chi siamo</span></router-link>
+            <router-link @click.native="scrollToTopAuto()" class="footer-menu-links" to="/chi-siamo">chi siamo</router-link>
           </li>
           <li>
-            <router-link class="footer-menu-links" to="/prodotti"><span @click="scrollToTopAuto()">prodotti</span></router-link>
+            <router-link @click.native="scrollToTopAuto()" class="footer-menu-links" to="/prodotti">prodotti</router-link>
           </li>
           <li>
-            <router-link class="footer-menu-links" to="/servizi"><span @click="scrollToTopAuto()">servizi</span></router-link>
+            <router-link @click.native="scrollToTopAuto()" class="footer-menu-links" to="/servizi">servizi</router-link>
           </li>
           <li>
-            <router-link class="footer-menu-links" to="/news"><span @click="scrollToTopAuto()">news</span></router-link>
+            <router-link @click.native="scrollToTopAuto()" class="footer-menu-links" to="/news">news</router-link>
           </li>
           <li>
-            <router-link class="footer-menu-links" to="/contatti"><span @click="scrollToTopAuto()">contatti</span></router-link>
+            <router-link @click.native="scrollToTopAuto()" class="footer-menu-links" to="/contatti">contatti</router-link>
           </li>
           <li>
-            <router-link class="footer-menu-links" to="/area-clienti"><span @click="scrollToTopAuto()">area clienti</span></router-link>
+            <router-link @click.native="scrollToTopAuto()" class="footer-menu-links" to="/area-clienti">area clienti</router-link>
           </li>
         </ul>
         
       </div>
-      <div class="scroll-to-top" @click="scrollToTop()"><i class="fas fa-chevron-up"></i></div>
+      <div class="sticky-arrow">
+        <div class="scroll-to-top" @click="scrollToTop()"><i class="fas fa-chevron-up"></i></div>
+      </div>
     </section>
     <section class="footer-bottom">
-      <ul class="policies row">
-        <li><router-link to="/privacy-policy"><div>Privacy Policy</div></router-link></li>
-        <li><router-link to="/cookie-policy"><div>Cookie policy</div></router-link></li>
-        <li><router-link to="/informativa-area-contatti"><div>Informativa area contatti</div></router-link></li>
-      </ul>
+      <div class="policies row">
+        <div class="col-lg-4 col-md-4 col-sm-12 policy-link"><router-link @click.native="scrollToTopAuto()" :to="{name: 'Privacy'}" target="_blank,fullscreen=no">Privacy Policy</router-link></div>
+        <div class="col-lg-4 col-md-4 col-sm-12 policy-link"><router-link @click.native="scrollToTopAuto()" :to="{name: 'CookiePolicy' }" target="_blank,fullscreen=no">Cookie policy</router-link></div>
+        <div class="col-lg-4 col-md-4 col-sm-12 policy-link"><router-link @click.native="scrollToTopAuto()" :to="{name: 'Informativa'}" target="_blank,fullscreen=no">Informativa area contatti</router-link></div>
+      </div>
     </section>
   </div>
 </template>
@@ -91,7 +93,8 @@ export default {
   color: $lightcolor;
   
   .footer-top{
-    padding: 2rem;
+    padding: 0 2rem;
+    padding-top: 2rem;
     position: relative;
     min-height: 260px;
     .footer-container{
@@ -165,56 +168,57 @@ export default {
   .footer-bottom{
     background-color: $darkcolor2;
     .policies{
-      width: 50%;
+      width: 90%;
       height: 100%;
       margin: auto;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-around;
-      align-items: center;
       color: $secondary;
       font-size: $small;
-      li{
+      .policy-link{
+        //border: 1px solid white;
         margin: 1rem 0;
-        flex-basis: calc(100% / 3);
         a{
+          display: block;
           height: 1.5rem;
           border-bottom: 1px solid transparent;
           div{
             transition: letter-spacing 300ms;
-            min-width: 200px;
           }
           div:hover{
-            letter-spacing: 2px;
+            letter-spacing: 1px;
           }
         }
         .router-link-active{
-          border-bottom: 1px solid $secondary;
+          font-weight: 800;
         }
       }
     }
   }
 
-  .scroll-to-top{
+  .sticky-arrow{
+    position: sticky;
+    width: 100%;
+    bottom: 0;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    bottom: 30px;
-    right: 30px;
-    width: 50px;
-    height: 50px;
-    background-color: $darkcolor2;
-    color: $lightcolor;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: color 300ms;
-    i{
-      font-size: $large;
-      font-weight: 800;
-    }
-    &:hover{
-      color: $secondary;
+    justify-content: flex-end;
+    .scroll-to-top{
+      width: 50px;
+      height: 50px;
+      margin-bottom: 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: $darkcolor2;
+      color: $lightcolor;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: color 300ms;
+      i{
+        font-size: $large;
+        font-weight: 800;
+      }
+      &:hover{
+        color: $secondary;
+      }
     }
   }
 

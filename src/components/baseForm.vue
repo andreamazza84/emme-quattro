@@ -17,7 +17,7 @@
         </label>
         <label for="info">
           <div class="info">
-            <div>Accetto <router-link to="/informativa-area-contatti"><span @click="scrollToTopAuto()">l'informativa sull'utilizzo dei dati</span></router-link></div>
+            <div>Accetto <router-link :to="{name:'Informativa'}" target="_blank" @click.native="scrollToTopAuto()">l'informativa sull'utilizzo dei dati</router-link></div>
             <!-- <div><modal :show="true" content="cookie-policy"/>Accetto l'informativa sull'utilizzo dei dati</div> -->
             <input type="checkbox" name="info" required>
           </div>
@@ -56,19 +56,19 @@
       <form @submit.prevent="register()" class="registration">
         <!-- Username -->
         <label for="name">Nome utente
-            <input v-model="form.registration.username" type="text" name="name" placeholder="Nome" minlength="3" maxlength="100" required>
+            <input v-model="form.registration.username" type="text" name="name" placeholder="Nome" minlength="3" maxlength="30" required>
         </label>
         <!-- Email -->
         <label for="email">Email
-            <input v-model="form.registration.email" type="email" name="email" placeholder="Email" maxlength="100" required>
+            <input v-model="form.registration.email" type="email" name="email" placeholder="Email" minlength="3" maxlength="30" required>
           </label>
         <!-- Password -->
-        <label for="password">Password
-            <input v-model="form.registration.password" type="password" name="password" placeholder="Password" maxlength="100" required>
+        <label for="password">Password (min 8, max 24 caratteri)
+            <input v-model="form.registration.password" type="password" name="password" placeholder="Password" minlength="8" maxlength="24" required>
         </label>
             <!-- Confirm password -->
         <label for="confirm-password">
-          <input type="password" name="confirm-password" placeholder="Conferma password" required>
+          <input v-model="form.registration.password2" @blur="passwordCheck()" type="password" name="confirm-password" placeholder="Conferma password" required>
         </label>        
         <button class="btn" type="submit" @click="timer()">Invia</button> 
         <baseErrorMessage v-show="response" :error="error" :success="success" :text="text"/>
@@ -100,7 +100,8 @@ export default {
         registration:{
           username: '',
           email: '',
-          password: ''
+          password: '',
+          password2: '',
         },
       },
       forgot:{
@@ -135,6 +136,12 @@ export default {
     },
     scrollToTopAuto: function(){
       window.scrollTo({top: 0, behavior: 'auto'});
+    },
+    passwordCheck: function(){
+      if(this.registration.password != this.registration.password2){
+        this.message.error = "Le password inserite non coincidono";
+        
+      }
     },
     // LOGIN
     async login() {

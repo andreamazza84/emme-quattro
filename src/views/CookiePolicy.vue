@@ -1,5 +1,5 @@
 <template>
- <basePolicy content="cookie-policy"/>    
+ <basePolicy slug="cookie-policy"/>    
 </template>
 <script>
 import basePolicy from '@/components/basePolicy.vue'

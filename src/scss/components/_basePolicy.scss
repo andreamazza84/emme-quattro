@@ -1,16 +1,18 @@
 .info{
-  text-align: justify;
   .content{
+    text-align: justify;
     p{
       line-height: 2;
       margin-bottom: 1rem;
     }
   }
   .title{
-    h3{
-      text-transform: uppercase;
-      padding: 2rem 0 0.5rem;
-    }
+    width: 80%;
+    height: 3rem;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    text-align: left;
+    text-transform: uppercase;
   }
   table{
     width: 100%;
@@ -43,7 +45,7 @@
   }
   .navigation-link{
     position: absolute;
-    top: 2rem;
+    top: -1rem;
     right: 0;
     cursor: pointer;
     i{

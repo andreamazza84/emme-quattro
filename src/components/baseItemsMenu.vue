@@ -8,10 +8,11 @@
           :key="item.slug">
             <div class="link-to-description">
               <h4 class="title my-2-1" v-html="item.title.rendered"></h4>
-              <div class="img shadow" 
-                :style="`background-image: url(${item.acf.image.url})`" 
-                @click="scrollToTop(), storePosition()">
-                <router-link class="innerlink" :to="{name: child, params: {slug: item.slug, position: window.scrollY}}"></router-link>
+              <div class="img shadow" :style="`background-image: url(${item.acf.image.url})`">
+                <router-link class="innerlink"
+                  @click.native="storePosition(), scrollToTop()" 
+                  :to="{name: child, params: {slug: item.slug}}">
+                </router-link>
               </div>
             </div>
           </div>
@@ -32,14 +33,14 @@ export default {
       type: String,
       required: true
     },
-    position: {
-      type: Number,
-    }
+    // position: {
+    //   type: Number,
+    // }
   },
   data(){
     return{
       window:{
-        scrollY: 0,
+        scrollY: null,
       },
     }
   },
@@ -53,10 +54,19 @@ export default {
       window.scrollTo({top: 0, behavior: 'auto'});
     },
     storePosition: function(){
-      this.$store.commit('SET_SCROLL', window.scrollY);
+      //console.log("storePosition ",true);
+      this.window.scrollY = Math.floor(window.scrollY);
+      this.$store.commit('SET_SCROLL', this.window.scrollY);
+      //console.log(window.scrollY);
+      //console.log(this.$store.state.scroll);
+
     },
   },
+  created(){
+    //window.addEventListener('scroll', this.storePosition);
+  },
   mounted(){
+    console.log(this.name);
   },
 }
 </script>
@@ -66,17 +76,16 @@ export default {
   width: 100%;
   height: 100%;
   section.items{
-    position: relative;
     padding-bottom: 2rem;
     .title{
       color: $darkcolor;
-      height: 3rem;
+      height: max-content;
+      min-height: 3rem;
       font-size: $medium;
       font-weight: 700;
       text-transform: uppercase;
     }
     .link-to-description{
-      position: relative;
       width: 100%;
       padding: 0 2rem;
       .title{
@@ -85,9 +94,10 @@ export default {
       align-items: center;
       }
       .img{
+        position: relative;
         margin: auto;
-        //width: 30vh;
-        //max-width: 300px;
+        width: 30vh;
+        max-width: 300px;
         min-width: 200px;
         height: 30vh;
         max-height: 300px;

@@ -1,6 +1,9 @@
 html {
   background-color: $darkcolor;
 }
+body{
+  min-width: 375px;
+}
 
 #app {
   font-family: $fontPrimary;
