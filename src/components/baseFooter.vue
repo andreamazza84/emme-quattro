@@ -54,7 +54,7 @@
     </section>
     <section class="footer-bottom">
       <div class="policies row">
-        <div class="col-lg-4 col-md-4 col-sm-12 policy-link"><router-link @click.native="scrollToTopAuto()" :to="{name: 'Privacy'}" target="_parent">Privacy Policy</router-link></div>
+        <div class="col-lg-4 col-md-4 col-sm-12 policy-link"><router-link @click.native="scrollToTopAuto()" :to="{name: 'Privacy'}" target="_blank,fullscreen=no">Privacy Policy</router-link></div>
         <div class="col-lg-4 col-md-4 col-sm-12 policy-link"><router-link @click.native="scrollToTopAuto()" :to="{name: 'CookiePolicy' }" target="_blank,fullscreen=no">Cookie policy</router-link></div>
         <div class="col-lg-4 col-md-4 col-sm-12 policy-link"><router-link @click.native="scrollToTopAuto()" :to="{name: 'Informativa'}" target="_blank,fullscreen=no">Informativa area contatti</router-link></div>
       </div>

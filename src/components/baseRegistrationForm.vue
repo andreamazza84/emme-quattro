@@ -4,28 +4,28 @@
       <!-- Username -->
       <div class="field name">
           <label for="name">Username</label>
-          <input v-model="form.username" type="text" name="name" id="name" required>
+          <input v-model="form.username" type="text" name="name" required>
       </div>
       <!-- Email -->
       <div class="field email">
           <label for="email">Email</label>
-          <input v-model="form.email" type="email" name="email" id="email" required>
+          <input v-model="form.email" type="email" name="email" required>
       </div>
       <div class="field password">
           <!-- Password -->
           <label for="password">Password</label>        
-          <input v-model="form.password" type="password" name="password" id="password" placeholder="•••••••••••" required>
+          <input v-model="form.password" type="password" name="password" placeholder="password" required>
       </div>
       <div class="field password">
           <!-- Confirm password -->
           <label for="confirm-password">Conferma password</label>        
-          <input type="password" name="password" id="confirm-password" placeholder="•••••••••••" required>
+          <input type="password" name="password" placeholder="conferma password" required>
       </div>
       <div class="field submit">
           <button class="btn" type="submit">Invia</button>
       </div>
 
-      <baseErrorMessage :text="message.error != '' ? message.error : message.success"/>
+      <baseErrorMessage :text="message.error != null ? message.error : message.success"/>
     </form>
   </div>
 </template>

@@ -79,7 +79,8 @@ export default {
     padding-bottom: 2rem;
     .title{
       color: $darkcolor;
-      height: 3rem;
+      height: max-content;
+      min-height: 3rem;
       font-size: $medium;
       font-weight: 700;
       text-transform: uppercase;
