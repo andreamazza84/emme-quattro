@@ -12,9 +12,9 @@ import axios from 'axios'
 import VueAxios from 'vue-axios'
 
 // Font Awesome
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+// import { library } from '@fortawesome/fontawesome-svg-core'
+// import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
+// import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 // Google Maps
 import * as VueGoogleMaps from 'vue2-google-maps'
@@ -33,7 +33,9 @@ Vue.use(VueGoogleMaps, {
 Vue.use(VueAxios, axios);
 
 // *!* Cambiare in fase di deploy 
-Vue.axios.defaults.baseURL = 'http://localhost:8880/wp-json';
+//Vue.axios.defaults.baseURL = 'http://localhost:8880/wp-json';
+Vue.axios.defaults.baseURL = 'https://emmequattro.altervista.org/wordpress/wp-json';
+
 
 //FontAwesome
 //library.add(faUserSecret)
