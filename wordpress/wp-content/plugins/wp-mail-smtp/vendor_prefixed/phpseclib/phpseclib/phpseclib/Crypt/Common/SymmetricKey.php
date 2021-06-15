@@ -2869,7 +2869,7 @@ abstract class SymmetricKey
         switch (\true) {
             case \is_int($x):
             // PHP 5.3, per http://php.net/releases/5_3_0.php, introduced "more consistent float rounding"
-            case (\php_uname('m') & "ßßß") != 'ARM':
+            case (\php_uname('m') & "ï¿½ï¿½ï¿½") != 'ARM':
                 return $x;
         }
         return \fmod($x, 0x80000000) & 0x7fffffff | (\fmod(\floor($x / 0x80000000), 2) & 1) << 31;
@@ -2884,7 +2884,7 @@ abstract class SymmetricKey
     {
         switch (\true) {
             case \defined('PHP_INT_SIZE') && \PHP_INT_SIZE == 8:
-            case (\php_uname('m') & "ßßß") != 'ARM':
+            case (\php_uname('m') & "ï¿½ï¿½ï¿½") != 'ARM':
                 return '%s';
                 break;
             default:
@@ -2998,7 +2998,7 @@ abstract class SymmetricKey
         // strlen($this->poly1305Key) == 32
         $r = \WPMailSMTP\Vendor\phpseclib3\Common\Functions\Strings::shift($s, 16);
         $r = \strrev($r);
-        $r &= "\17ÿÿü\17ÿÿü\17ÿÿü\17ÿÿÿ";
+        $r &= "\17ï¿½ï¿½ï¿½\17ï¿½ï¿½ï¿½\17ï¿½ï¿½ï¿½\17ï¿½ï¿½ï¿½";
         $s = \strrev($s);
         $r = self::$poly1305Field->newInteger(new \WPMailSMTP\Vendor\phpseclib3\Math\BigInteger($r, 256));
         $s = self::$poly1305Field->newInteger(new \WPMailSMTP\Vendor\phpseclib3\Math\BigInteger($s, 256));
@@ -3011,7 +3011,7 @@ abstract class SymmetricKey
             $a = $a->multiply($r);
         }
         $r = $a->toBigInteger()->add($s->toBigInteger());
-        $mask = "ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ";
+        $mask = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
         return \strrev($r->toBytes()) & $mask;
     }
 }

@@ -1,5 +1,6 @@
 <template>
 <div class="home pt-90">
+<v-banner></v-banner>
   <section class="container top">
     <carousel class="carousel big-carousel" 
     :per-page="1"
@@ -94,11 +95,13 @@
 </template>
 
 <script>
-import { Carousel, Slide } from 'vue-carousel';
+import { Carousel, Slide} from 'vue-carousel';
+import Vuetify from 'vuetify/lib';
 export default {
   components: {
     Carousel,
-    Slide
+    Slide,
+    Vuetify
   },
   data(){
     return {

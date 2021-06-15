@@ -323,11 +323,11 @@ abstract class Strings
         for ($i = 4; $i <= \strlen($var); $i += 4) {
             $temp = \substr($var, -$i, 4);
             switch ($temp) {
-                case "ÿÿÿÿ":
+                case "ï¿½ï¿½ï¿½ï¿½":
                     $var = \substr_replace($var, "\0\0\0\0", -$i, 4);
                     break;
-                case "ÿÿÿ":
-                    $var = \substr_replace($var, "€\0\0\0", -$i, 4);
+                case "ï¿½ï¿½ï¿½":
+                    $var = \substr_replace($var, "ï¿½\0\0\0", -$i, 4);
                     return $var;
                 default:
                     $temp = \unpack('Nnum', $temp);

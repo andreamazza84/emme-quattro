@@ -148,7 +148,7 @@ class PublicKey extends \WPMailSMTP\Vendor\phpseclib3\Crypt\RSA implements \WPMa
         if (\WPMailSMTP\Vendor\phpseclib3\Common\Functions\Strings::shift($em, 2) != "\0\1") {
             return \false;
         }
-        $em = \ltrim($em, "ÿ");
+        $em = \ltrim($em, "ï¿½");
         if (\WPMailSMTP\Vendor\phpseclib3\Common\Functions\Strings::shift($em) != "\0") {
             return \false;
         }

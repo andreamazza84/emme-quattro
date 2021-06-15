@@ -19,6 +19,8 @@ import VueAxios from 'vue-axios'
 // Google Maps
 import * as VueGoogleMaps from 'vue2-google-maps'
 
+import vuetify from './plugins/vuetify'
+
 /* ---------------------------------- */
 
 // Google Maps
@@ -46,5 +48,6 @@ Vue.config.productionTip = false
 new Vue({
   router,
   store,
-  render: h => h(App),
+  vuetify,
+  render: h => h(App)
 }).$mount('#app')
