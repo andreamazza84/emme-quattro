@@ -2,7 +2,7 @@
   <div class="form">
     <!-- MESSAGE FORM-->
     <div v-if="typology === 'message'" class="message-wrapper">
-      <form action="submit" method="post">
+      <form action="https://formsubmit.co/a263761003a53d0d3b44000bb483e046" method="POST">
         <label for="name">Nome
           <input type="text" name="name" placeholder="Nome" minlength="3" maxlength="100" required>
         </label>
@@ -18,7 +18,6 @@
         <label for="info">
           <div class="info">
             <div>Accetto <router-link :to="{name:'Informativa'}" target="_blank" @click.native="scrollToTopAuto()">l'informativa sull'utilizzo dei dati</router-link></div>
-            <!-- <div><modal :show="true" content="cookie-policy"/>Accetto l'informativa sull'utilizzo dei dati</div> -->
             <input type="checkbox" name="info" required>
           </div>
         </label>
