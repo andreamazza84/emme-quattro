@@ -34,15 +34,16 @@
 
 
   <section class="container bottom">
-    <div class="row area-riservata">
+    
+    <!-- <div class="row area-riservata">
       <div class="col-lg-6 col-md-6 col-sm-12 left">
-        <!-- <img src="~@/assets/dima-pechurin-JUbjYFvCv00-unsplash_1200x800.jpg" alt="area clienti"> -->
+        <img src="~@/assets/dima-pechurin-JUbjYFvCv00-unsplash_1200x800.jpg" alt="area clienti">
       </div>
       <div class="col-lg-4 col-offset-lg-1 col-md-5 col-offset-md-0 col-sm-11 col-offset-sm-0 right">
         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor officiis, odio consequatur ad ullam quod recusandae repellat facere ex quis asperiores molestiae ipsum hic eum aspernatur, cum alias sint voluptas.</p>
         <router-link class="btn" to="/area-clienti"><span @click="scrollToTopAuto()">Accedi all'area riservata</span></router-link>
       </div>
-    </div>
+    </div> -->
     
     <div class="row contattaci">
       <div class="col-lg-6 col-md-8 col-sm-12 call-out-col">
@@ -56,7 +57,7 @@
       <div class="col-lg-6 col-md-4 col-sm-0"></div>
     </div>
     
-    <div class="row articles clear">
+    <!-- <div class="row articles clear">
       <router-link @click.native="scrollToTopAuto()"  class="tag fl" to="/news">
         <p class="news rotate">news</p>
       </router-link>
@@ -89,7 +90,7 @@
           </router-link> 
         </slide>
       </carousel>
-    </div>
+    </div> -->
   </section>
 </div>
 </template>

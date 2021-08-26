@@ -66,7 +66,7 @@ export default {
     //window.addEventListener('scroll', this.storePosition);
   },
   mounted(){
-    console.log(this.name);
+    // console.log(this.name);
   },
 }
 </script>

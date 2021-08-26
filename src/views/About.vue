@@ -2,14 +2,14 @@
   <div class="about pt-200">
     <div class="container90">
      <div class="row">
-      <div class="col-lg-6 col-md-12 col-sm-12 colonna storia">
+      <div class="col-lg-8 col-md-10 col-sm-12 m-auto colonna storia">
         <h2 class="py-2-2" v-html="story.title.rendered"></h2>
         <div class="content" v-html="story.content.rendered"></div>      
       </div>
-      <div class="col-lg-6 col-md-12 col-sm-12 colonna cosa-facciamo">
+      <!-- <div class="col-lg-6 col-md-12 col-sm-12 colonna cosa-facciamo">
         <h2 class="py-2-2" v-html="whatWeDo.title.rendered"></h2>
         <div class="content" v-html="whatWeDo.content.rendered"></div>
-      </div>
+      </div> -->
      </div>
 
     </div>

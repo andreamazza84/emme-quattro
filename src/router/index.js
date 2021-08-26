@@ -1,3 +1,4 @@
+// Back Office REST API:
 //http://localhost:8880/wp-json/wp/v2/prodotti
 
 import Vue from 'vue'
@@ -9,13 +10,14 @@ import Home from '../views/Home.vue'
 import About from '../views/About.vue'
 import Products from '../views/Products.vue'
 import Services from '../views/Services.vue'
-import News from '../views/News.vue'
+// import News from '../views/News.vue'
 import Contatti from '../views/Contatti.vue'
+import Err404 from '../views/Err404.vue'
 
 
 //Children
-import NewsMenu from '../views/NewsMenu.vue'
-import NewsDescription from '../views/NewsDescription.vue'
+// import NewsMenu from '../views/NewsMenu.vue'
+// import NewsDescription from '../views/NewsDescription.vue'
 import ProductsMenu from '../views/ProductsMenu.vue'
 import ProductsDescription from '../views/ProductsDescription.vue'
 import ServicesMenu from '../views/ServicesMenu.vue'
@@ -48,25 +50,25 @@ const routes = [
   //   }],
   // },
   
-  {
-    path: '/news',
-    props: true,
-    component: News,
-    children: [
-      {
-        path: '/',
-        props: true,
-        name: 'NewsMenu',
-        component: NewsMenu
-      },
-      {
-        path: ":slug",
-        props: true,
-        name: "NewsDescription",
-        component: NewsDescription
-      },
-    ],
-  },
+  // {
+  //   path: '/news',
+  //   props: true,
+  //   component: News,
+  //   children: [
+  //     {
+  //       path: '/',
+  //       props: true,
+  //       name: 'NewsMenu',
+  //       component: NewsMenu
+  //     },
+  //     {
+  //       path: ":slug",
+  //       props: true,
+  //       name: "NewsDescription",
+  //       component: NewsDescription
+  //     },
+  //   ],
+  // },
   {
     path: '/prodotti',
     props: true,
@@ -110,28 +112,28 @@ const routes = [
     name: 'Contatti',
     component: Contatti,
   },
-  {
-    //LAZY LOAD
-    path: '/area-clienti',
-    name: 'AreaClienti',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AreaClienti.vue'),
-  },
-  {
-    path: '/login',
-    name: 'Login',
-    component: () => import(/* webpackChunkName: "login" */ '../views/Login.vue')
-  },
-  {
-    path: '/protected',
-    name: 'Protected',
-    component: () => import(/* webpackChunkName: "protected" */ '../views/Protected.vue'),
-    meta: {
-      requiresAuth: true
-    }
-  },
+  // {
+  //   //LAZY LOAD
+  //   path: '/area-clienti',
+  //   name: 'AreaClienti',
+  //   // route level code-splitting
+  //   // this generates a separate chunk (about.[hash].js) for this route
+  //   // which is lazy-loaded when the route is visited.
+  //   component: () => import(/* webpackChunkName: "about" */ '../views/AreaClienti.vue'),
+  // },
+  // {
+  //   path: '/login',
+  //   name: 'Login',
+  //   component: () => import(/* webpackChunkName: "login" */ '../views/Login.vue')
+  // },
+  // {
+  //   path: '/protected',
+  //   name: 'Protected',
+  //   component: () => import(/* webpackChunkName: "protected" */ '../views/Protected.vue'),
+  //   meta: {
+  //     requiresAuth: true
+  //   }
+  // },
   {
     path: '/privacy-policy',
     name: 'Privacy',
@@ -149,6 +151,10 @@ const routes = [
     name: 'CookiePolicy',
     props: true,
     component: () => import(/* webpackChunkName: "cookie" */ '../views/CookiePolicy.vue')
+  },
+  { path: '/*', 
+    name: 'Err404',
+    component: Err404
   }
 ]
 

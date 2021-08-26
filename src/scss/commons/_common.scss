@@ -88,7 +88,18 @@ input, button{
 .my-2-2{
   margin: 2rem auto;
 }
-
+.flex{
+  display: flex;
+}
+.align-center{
+  align-items: center;
+}
+.justify-center{
+  justify-content: center;
+}
+.m-auto{
+  margin: auto;
+}
 @mixin btn {
   width: max-content;
   height: auto;

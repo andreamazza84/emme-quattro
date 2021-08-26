@@ -15,9 +15,9 @@
             <router-link class="mobile-menu-link" to="/chi-siamo"><span class="link" @click="showHide(); scrollToTop()">Chi Siamo</span></router-link>
             <router-link class="mobile-menu-link" to="/prodotti"><span class="link" @click="showHide(); scrollToTop()">Prodotti</span></router-link>
             <router-link class="mobile-menu-link" to="/servizi"><span class="link" @click="showHide(); scrollToTop()">Servizi</span></router-link>
-            <router-link class="mobile-menu-link" to="/news"><span class="link" @click="showHide(); scrollToTop()">News</span></router-link>
+            <!-- <router-link class="mobile-menu-link" to="/news"><span class="link" @click="showHide(); scrollToTop()">News</span></router-link> -->
             <router-link class="mobile-menu-link" to="/contatti"><span class="link" @click="showHide(); scrollToTop()">Contatti</span></router-link>
-            <router-link class="mobile-menu-link" to="/area-clienti"><span class="link" @click="showHide(); scrollToTop()">Area<br>Clienti</span></router-link>
+            <!-- <router-link class="mobile-menu-link" to="/area-clienti"><span class="link" @click="showHide(); scrollToTop()">Area<br>Clienti</span></router-link> -->
         </div>
       </div>
 
@@ -25,13 +25,14 @@
       <div v-else class="container desktop-menu">
         <router-link class="desktop-menu-link" to="/chi-siamo"><span class="link" @click="scrollToTop()" :style="`font-size: ${link.size}`">Chi Siamo</span></router-link>
         <router-link class="desktop-menu-link" to="/prodotti"><span class="link" @click="scrollToTop()" :style="`font-size: ${link.size}`">Prodotti</span></router-link>
-        <router-link class="desktop-menu-link" to="/servizi"><span class="link" @click="scrollToTop()" :style="`font-size: ${link.size}`">Servizi</span></router-link>
+        <!-- <router-link class="desktop-menu-link" to="/servizi"><span class="link" @click="scrollToTop()" :style="`font-size: ${link.size}`">Servizi</span></router-link> -->
         <router-link class="desktop-menu-link home-page" to="/">
           <div class="logo" :style="logoStyle" @click="scrollToTop()"></div>
         </router-link>
-        <router-link class="desktop-menu-link" to="/news"><span class="link" @click="scrollToTop()" :style="`font-size: ${link.size}`">News</span></router-link>
+        <!-- <router-link class="desktop-menu-link" to="/news"><span class="link" @click="scrollToTop()" :style="`font-size: ${link.size}`">News</span></router-link> -->
+        <router-link class="desktop-menu-link" to="/servizi"><span class="link" @click="scrollToTop()" :style="`font-size: ${link.size}`">Servizi</span></router-link>
         <router-link class="desktop-menu-link" to="/contatti"><span class="link" @click="scrollToTop()" :style="`font-size: ${link.size}`">Contatti</span></router-link>
-        <router-link class="desktop-menu-link" to="/area-clienti"><span class="link" @click="scrollToTop()" :style="`font-size: ${link.size}`">Area<br>Clienti</span></router-link>
+        <!-- <router-link class="desktop-menu-link" to="/area-clienti"><span class="link" @click="scrollToTop()" :style="`font-size: ${link.size}`">Area<br>Clienti</span></router-link> -->
       </div>
     </section>
 
