@@ -88,6 +88,12 @@ input, button{
 .my-2-2{
   margin: 2rem auto;
 }
+.ml-2{
+  margin-left: 2rem;
+}
+.mr-2{
+  margin-right: 2rem;
+}
 .flex{
   display: flex;
 }
@@ -99,6 +105,9 @@ input, button{
 }
 .m-auto{
   margin: auto;
+}
+.text-left{
+  text-align: left;
 }
 @mixin btn {
   width: max-content;

@@ -52,7 +52,7 @@ export default {
     },
     async login() {
       try{
-        const result = await this.$store.dispatch('login', this.form);
+        await this.$store.dispatch('login', this.form);
         const { redirect = false } = this.$route.query;
         const path = redirect ? decodeURI(redirect) : '/protected';
         this.$router.push({ path });
@@ -66,7 +66,7 @@ export default {
     },
     async reset() {
       try{
-        const result = await this.$store.dispatch('reset', this.forgot)
+        await this.$store.dispatch('reset', this.forgot)
         this.message.success = "Una email con ##### è stata inviata alla tua casella di posta"
       }
       catch(error){

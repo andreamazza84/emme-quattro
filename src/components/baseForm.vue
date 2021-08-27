@@ -13,7 +13,7 @@
           <input type="text" name="object" placeholder="Oggetto delle richiesta" minlength="3" maxlength="100" required>
         </label>
         <label for="message">Il tuo messaggio:
-          <textarea name="message" cols="20" rows="8" minlength="3" maxlength="10000" placeholder="Scrivi qui..." required></textarea>
+          <textarea name="message" cols="20" rows="8" minlength="3" maxlength="10000" placeholder="Messaggio..." required></textarea>
         </label>
         <label for="info">
           <div class="info">
@@ -145,7 +145,7 @@ export default {
     // LOGIN
     async login() {
       try{
-        const result = await this.$store.dispatch('login', this.form.login);
+        await this.$store.dispatch('login', this.form.login);
         const { redirect = false } = this.$route.query;
         const path = redirect ? decodeURI(redirect) : '/protected';
         this.$router.push({ path });
@@ -156,13 +156,12 @@ export default {
         console.log(error);
         this.message.error = error.response.data.message;
         this.timer();
-
       }
     },
 
     async reset() {
       try{
-        const result = await this.$store.dispatch('reset', this.forgot)
+        await this.$store.dispatch('reset', this.forgot)
         this.message.success = "Una email con ##### è stata inviata alla tua casella di posta"
         this.timer();
       }
@@ -177,7 +176,7 @@ export default {
     // REGISTRATION
     async register(){
       try{
-          const result = await this.$store.dispatch('register', this.form.registration);
+          await this.$store.dispatch('register', this.form.registration);
           //const { redirect = false } = this.$route.query;
           //const path = redirect ? decodeURI(redirect) : '/login';
           //this.$router.push({ path });

@@ -35,14 +35,14 @@ import baseErrorMessage from '@/components/baseErrorMessage.vue'
 
 export default {
   components:{
-        baseErrorMessage
+    baseErrorMessage
   },
   data(){
     return{
       form: {
-          username: '',
-          email: '',
-          password: '',
+        username: '',
+        email: '',
+        password: '',
       },
       message:{
         error: '',
@@ -53,19 +53,19 @@ export default {
   methods:{
     async register(){
       try{
-          const result = await this.$store.dispatch('register', this.form);
-          //const { redirect = false } = this.$route.query;
-          //const path = redirect ? decodeURI(redirect) : '/login';
-          //this.$router.push({ path });
-          //alert('Registrazione avvenuta con successo');
-          this.message.success = "Registrazione avvenuta con successo";
-          this.messagge.error = '';
+        await this.$store.dispatch('register', this.form);
+        //const { redirect = false } = this.$route.query;
+        //const path = redirect ? decodeURI(redirect) : '/login';
+        //this.$router.push({ path });
+        //alert('Registrazione avvenuta con successo');
+        this.message.success = "Registrazione avvenuta con successo";
+        this.messagge.error = '';
 
       }
       catch(error){
-          console.log("Error ", error);
-          this.message.error = error.response.data.message;
-          this.message.success = '';
+        console.log("Error ", error);
+        this.message.error = error.response.data.message;
+        this.message.success = '';
       }
     }
   }

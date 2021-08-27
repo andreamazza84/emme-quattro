@@ -3,10 +3,8 @@
     <div id="header">
       <baseNavbar/>
     </div>
-    
-    <router-view id="main" class="pb-3"/>
+    <router-view id="main"/>
     <baseFooter/>
-
   </div>
 </template>
 
@@ -29,10 +27,10 @@ export default {
   methods:{
     async retrieveData(item){
       try{
-          const result = await this.$store.dispatch('retrieveData', item);
+        await this.$store.dispatch('retrieveData', item);
       }
       catch(error){
-          console.log("Error", error);
+        console.log("Error", error);
       }
     },
   },

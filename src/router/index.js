@@ -176,7 +176,7 @@ router.beforeEach(async (to, from, next) => {
       // we have a state.user object but
       // we need to check if the token is still valid
       try{
-        const { status } = await store.dispatch('validate')
+        await store.dispatch('validate')
         // user is logged in with a valid token
         next()
       }catch(e){

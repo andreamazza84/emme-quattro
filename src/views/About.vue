@@ -1,9 +1,9 @@
 <template>
   <div class="about pt-200">
     <div class="container90">
-     <div class="row">
-      <div class="col-lg-8 col-md-10 col-sm-12 m-auto colonna storia">
-        <h2 class="py-2-2" v-html="story.title.rendered"></h2>
+     <div class="row flex justify-center">
+      <div class="col-lg-8 col-md-10 col-sm-12 colonna storia">
+        <h2 class="py-2-2">La nostra storia</h2>
         <div class="content" v-html="story.content.rendered"></div>      
       </div>
       <!-- <div class="col-lg-6 col-md-12 col-sm-12 colonna cosa-facciamo">
@@ -17,22 +17,11 @@
 </template>
 <script>
 export default {
-  data(){
-    return {}
-  },
-  computed:{
-    posts: function(){
-      return this.$store.state.posts;
-    },
-    story: function(){
-      return this.$store.state.posts.find(element => 
-        element.slug === "lazienda"
-      );
-    },
-    whatWeDo: function(){
-      return this.$store.state.posts.find(element =>
-      element.slug === "cosa-facciamo"
-      );
+  computed: {
+    story: function () {
+      return this.$store.state.posts.find(element => {
+        return element.slug === "lazienda"
+      });
     }
   },
 }

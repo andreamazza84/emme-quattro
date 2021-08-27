@@ -33,19 +33,7 @@ export default new Vuex.Store({
       state.servizi = servizi.reverse();
     },
     SET_SLIDER(state, carosello){
-      // const carosello_fallback = [
-      //   "./@/assets/carosello/carosello_1.jpg",
-      //   "./@/assets/carosello/carosello_2.jpg",
-      //   "./@/assets/carosello/carosello_3.jpg",
-      //   "./@/assets/carosello/carosello_4.jpg"
-      // ]; 
-
-      // carosello.forEach((image, index) =>{
-      //   image.acf.image.url = undefined ?? carosello_fallback[index] 
-      // });
-            
       state.carosello = carosello.reverse();
-      //console.log(state.carosello);
     },
     SET_PAGES(state, pages){
       state.pages = pages;
@@ -77,9 +65,9 @@ export default new Vuex.Store({
   actions: {
     //Login
     login({ commit }, credentials){
-      return new Promise(async (resolve, reject) => {
+      return new Promise((resolve, reject) => {
         try {
-          const { data } = await axios.post(`/jwt-auth/v1/token`, credentials);
+          const { data } = axios.post(`/jwt-auth/v1/token`, credentials);
           commit('SET_USER', data);
           resolve(data);
         }catch(e){
@@ -102,9 +90,9 @@ export default new Vuex.Store({
     },
     //Registration
     register({ commit }, credentials){
-      return new Promise(async (resolve, reject) =>{
+      return new Promise((resolve, reject) =>{
         try{
-          const { data } = await axios.post(`/wp/v2/users/register`, credentials);
+          const { data } = axios.post(`/wp/v2/users/register`, credentials);
           commit('REGISTER_USER', data);
           resolve(data);
         }
@@ -113,10 +101,10 @@ export default new Vuex.Store({
         }
       });
     },
-    reset({ commit }, credentials){
-      return new Promise(async (resolve, reject) =>{
+    reset(credentials){
+      return new Promise((resolve, reject) =>{
         try{
-          const { data } = await axios.post(`/wp/v2/users/lost-password`, credentials);
+          const { data } = axios.post(`/wp/v2/users/lost-password`, credentials);
           resolve(data); 
         }
         catch(error){
@@ -126,7 +114,7 @@ export default new Vuex.Store({
     },
     // Recupera i prodotti e i servizi
     retrieveData({ commit }, item){
-      return new Promise(async (resolve, reject) =>{
+      new Promise(async (resolve, reject) =>{
         try{
           const { data } = await axios.get(`/wp/v2/${item}`);
           if(item === "prodotti"){ return commit('SET_PRODOTTI', data); }
@@ -145,6 +133,5 @@ export default new Vuex.Store({
     },
 
   },
-
   modules: {}
 })

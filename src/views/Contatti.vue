@@ -2,12 +2,7 @@
   <div class="contact-us pt-200">
     <div class="container90">
       <section class="row form">
-        <div class="col-lg-6 col-md-6 col-sm-12">
-          <h2 class="py-2-1">Contattaci</h2>
-          <baseForm typology="message"/>
-        </div>
-
-        <div class="col-lg-5 col-offset-lg-1 col-md-5 col-sm-12 col-offset-sm-0">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-offset-sm-0">
           <h2 class="py-2-2">Contatti</h2>
           <div class="contatti" v-for="(contatto, index) in contatti" :key="contatto.slug">
             <input type="button" class="btn" :value="(copied === index)?'copiato!': contatto.title" @click="copyToClipboard(contatto.content, index)">
@@ -15,9 +10,13 @@
           </div>
           <div class="fornitori">
             <h2 class="py-2-2">I nostri fornitori</h2>
-            <a href="https://www.bottosso-frighetto.it"><img src="~@/assets/logo-BF.jpg" alt="logo Botosso e Frighetto"></a>
-            <a href="https://www.chimen.it/"><img src="~@/assets/logo-chimen.png" alt="logo CHIMEN"></a>
+            <a href="https://www.bottosso-frighetto.it" target=”_blank”><img src="~@/assets/logo-BF.jpg" alt="logo Botosso e Frighetto"></a>
+            <a href="https://www.chimen.it/" target=”_blank”><img src="~@/assets/logo-chimen.png" alt="logo CHIMEN"></a>
           </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12">
+          <h2 class="py-2-1">Contattaci</h2>
+          <baseForm typology="message"/>
         </div>
       </section>
 
@@ -43,12 +42,13 @@ export default {
   data(){
     return {
       copied: null,
+      contatti: this.$store.state.contatti.slice(0,4),
     }
   },
   computed:{
-    contatti: function(){
-      return this.$store.state.contatti.slice(0,4);
-    },
+    // contatti: function(){
+    //   return this.$store.state.contatti.slice(0,4);
+    // },
     pages: function(){
       return this.$store.state.pages
     },
@@ -78,6 +78,10 @@ export default {
       }, 5000);
     },
   },
-  mounted(){}
+  mounted () {
+    async () => {
+      this.contatti = await this.$store.state.contatti.slice(0,4);
+    } 
+  }
 }
 </script>

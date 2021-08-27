@@ -1,6 +1,6 @@
 <template>
 <div class="home pt-90">
-<v-banner></v-banner>
+  <v-banner></v-banner>
   <section class="container top">
     <carousel class="carousel big-carousel" 
     :per-page="1"
@@ -33,9 +33,9 @@
   </section>
 
 
-  <section class="container bottom">
+  <!-- <section class="container bottom">
     
-    <!-- <div class="row area-riservata">
+    <div class="row area-riservata">
       <div class="col-lg-6 col-md-6 col-sm-12 left">
         <img src="~@/assets/dima-pechurin-JUbjYFvCv00-unsplash_1200x800.jpg" alt="area clienti">
       </div>
@@ -43,7 +43,7 @@
         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor officiis, odio consequatur ad ullam quod recusandae repellat facere ex quis asperiores molestiae ipsum hic eum aspernatur, cum alias sint voluptas.</p>
         <router-link class="btn" to="/area-clienti"><span @click="scrollToTopAuto()">Accedi all'area riservata</span></router-link>
       </div>
-    </div> -->
+    </div>
     
     <div class="row contattaci">
       <div class="col-lg-6 col-md-8 col-sm-12 call-out-col">
@@ -57,7 +57,7 @@
       <div class="col-lg-6 col-md-4 col-sm-0"></div>
     </div>
     
-    <!-- <div class="row articles clear">
+    <div class="row articles clear">
       <router-link @click.native="scrollToTopAuto()"  class="tag fl" to="/news">
         <p class="news rotate">news</p>
       </router-link>
@@ -90,19 +90,19 @@
           </router-link> 
         </slide>
       </carousel>
-    </div> -->
-  </section>
+    </div>
+  </section> -->
 </div>
 </template>
 
 <script>
 import { Carousel, Slide} from 'vue-carousel';
-import Vuetify from 'vuetify/lib';
+// import Vuetify from 'vuetify/lib';
 export default {
   components: {
     Carousel,
     Slide,
-    Vuetify
+    // Vuetify
   },
   data(){
     return {

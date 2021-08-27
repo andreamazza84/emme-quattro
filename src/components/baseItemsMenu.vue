@@ -45,28 +45,18 @@ export default {
     }
   },
   computed:{
-    items: function(){
+    items: function () {
       return this.$store.state[this.name];
     }
   },
   methods:{
-    scrollToTop: function(){
+    scrollToTop: function () {
       window.scrollTo({top: 0, behavior: 'auto'});
     },
-    storePosition: function(){
-      //console.log("storePosition ",true);
+    storePosition: function () {
       this.window.scrollY = Math.floor(window.scrollY);
       this.$store.commit('SET_SCROLL', this.window.scrollY);
-      //console.log(window.scrollY);
-      //console.log(this.$store.state.scroll);
-
     },
-  },
-  created(){
-    //window.addEventListener('scroll', this.storePosition);
-  },
-  mounted(){
-    // console.log(this.name);
   },
 }
 </script>

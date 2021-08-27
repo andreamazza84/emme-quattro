@@ -20,11 +20,11 @@ export default {
       required: true,
     },
   },
-  data(){
-    return{
-      show: false,
-    }
-  },
+  // data(){
+  //   return{
+  //     show: false,
+  //   }
+  // },
   computed:{
     policy: function(){
       return this.retrieveContent(this.content);

@@ -21,12 +21,15 @@
         </ul>
 
         <ul class="social">
-          <li><a class="facebook" href="https://www.facebook.com"><i class="fab fa-facebook-square"></i></a></li>
-          <li><a class="linkedin" href="https://www.linkedin.com"><i class="fab fa-linkedin"></i></a></li>
-          <li><a class="instagram" href="https://www.instagram.com"><i class="fab fa-instagram-square"></i></a></li>
+          <li><a class="facebook" href="https://www.facebook.com/EmmeQuattroSrl/" target="_blank"><i class="fab fa-facebook-square"></i></a></li>
+          <!-- <li><a class="linkedin" href="https://www.linkedin.com"><i class="fab fa-linkedin"></i></a></li> -->
+          <!-- <li><a class="instagram" href="https://www.instagram.com"><i class="fab fa-instagram-square"></i></a></li> -->
         </ul>
         
         <ul class="menu">
+          <li>
+            <router-link @click.native="scrollToTopAuto()" class="footer-menu-links" to="/">home</router-link>
+          </li>
           <li>
             <router-link @click.native="scrollToTopAuto()" class="footer-menu-links" to="/chi-siamo">chi siamo</router-link>
           </li>
@@ -36,15 +39,15 @@
           <li>
             <router-link @click.native="scrollToTopAuto()" class="footer-menu-links" to="/servizi">servizi</router-link>
           </li>
-          <li>
+          <!-- <li>
             <router-link @click.native="scrollToTopAuto()" class="footer-menu-links" to="/news">news</router-link>
-          </li>
+          </li> -->
           <li>
             <router-link @click.native="scrollToTopAuto()" class="footer-menu-links" to="/contatti">contatti</router-link>
           </li>
-          <li>
+          <!-- <li>
             <router-link @click.native="scrollToTopAuto()" class="footer-menu-links" to="/area-clienti">area clienti</router-link>
-          </li>
+          </li> -->
         </ul>
         
       </div>

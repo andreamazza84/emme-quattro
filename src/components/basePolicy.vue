@@ -30,7 +30,7 @@ export default {
       });
     },
     retrieveData: function(){
-      return new Promise(async (resolve, reject) =>{
+      return new Promise(async(resolve, reject) =>{
         try{
           const { data } = await axios.get(`/wp/v2/pages`);
           resolve(data);
@@ -39,6 +39,7 @@ export default {
         }
         catch(error){
           console.log(error);
+          console.log(reject);
         }
       });
     },
