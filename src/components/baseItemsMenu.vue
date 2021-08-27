@@ -77,7 +77,7 @@ export default {
     }
     .link-to-description{
       width: 100%;
-      padding: 0 2rem;
+      padding: 0 2rem 3rem 2rem;
       .title{
       display: flex;
       flex-direction: column;

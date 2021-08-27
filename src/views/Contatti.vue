@@ -87,3 +87,43 @@ export default {
   }
 }
 </script>
+<style lang="scss" scoped>
+  .contact-us {
+    color: $darkcolor;
+    .contatti{
+      display: flex;
+      width: 100%;
+      text-align: left;
+      margin-bottom: 1rem;
+      input.btn{
+        min-width: 110px;
+        height: max-content;
+        font-size: $small;
+        margin-right: 1rem;
+        text-transform: capitalize;
+      }
+    }
+    .fornitori{
+      a{
+        display: block;
+        margin-bottom: 1rem;
+        img{
+          width: 50%;
+          max-width: 200px; 
+          border-bottom: 1px solid transparent;
+          transition: border 300ms;
+        &:hover{
+          border-bottom: 1px solid $borderlightcolor;
+        }
+      }
+      }
+    }
+  }
+
+  #maps{
+    margin-bottom: 2rem;
+  }
+  .btn{
+    @include btn;
+  }
+</style>

@@ -26,3 +26,18 @@ export default {
   },
 }
 </script>
+<style lang="scss">
+  .about{
+    .colonna{
+      padding: 0 1rem 1rem 1rem;
+
+      .content{
+        text-align: justify;
+        p{
+          line-height: 2;
+          margin-bottom: 1rem;
+        }
+      }
+    }
+  }
+</style>
