@@ -37,7 +37,7 @@
       <!-- Navigation buttons -->
       <div class="navigation">
         <a @click="$router.back(), scrollToLastPosition()" class="navigation-link"><i class="fas fa-arrow-circle-left back"></i></a>
-        <router-link :to="`/${parent}`" class="navigation-link"><i class="fas fa-times-circle close"></i></router-link>
+        <!-- <router-link :to="`/${parent}`" class="navigation-link"><i class="fas fa-times-circle close"></i></router-link> -->
       </div>
 
     </div>
@@ -204,7 +204,8 @@ export default {
     .navigation{
       position: absolute;
       top: 1rem;
-      right: 1rem;
+      left: 1rem;
+      cursor: pointer;
       .navigation-link{
         i{
           font-size: $xlarge;

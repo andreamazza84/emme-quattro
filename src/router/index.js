@@ -10,9 +10,9 @@ import Home from '../views/Home.vue'
 import About from '../views/About.vue'
 import Products from '../views/Products.vue'
 import Services from '../views/Services.vue'
-// import News from '../views/News.vue'
 import Contatti from '../views/Contatti.vue'
-import Err404 from '../views/Err404.vue'
+// import News from '../views/News.vue'
+// import Err404 from '../views/Err404.vue'
 
 
 //Children
@@ -110,7 +110,7 @@ const routes = [
   {
     path: '/contatti',
     name: 'Contatti',
-    component: Contatti,
+    component: Contatti
   },
   // {
   //   //LAZY LOAD
@@ -154,7 +154,7 @@ const routes = [
   },
   { path: '/*', 
     name: 'Err404',
-    component: Err404
+    component: () => import(/* webpackChunkName: "Err404" */ '../views/Err404.vue')
   }
 ]
 

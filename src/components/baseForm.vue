@@ -18,11 +18,11 @@
         <label for="info">
           <div class="info">
             <div>Accetto <router-link :to="{name:'Informativa'}" target="_blank" @click.native="scrollToTopAuto()">l'informativa sull'utilizzo dei dati</router-link></div>
-            <input type="checkbox" name="info" required>
+            <input type="checkbox" name="info" v-model="checked" required>
           </div>
         </label>
         <hr>
-        <button type="submit" class="btn">Invia</button>
+        <button type="submit" class="btn" :style="checked ? 'cursor: pointer' : 'cursor: not-allowed'">Invia</button>
       </form>
     </div>
     
@@ -112,6 +112,7 @@ export default {
       },
       active: false,
       response: false,
+      checked: false,
     }
   },
   computed:{
@@ -248,7 +249,7 @@ form{
     }
   }
   .forgot{
-    cursor: pointer;
+    // cursor: pointer;
     transition: color 300ms;
     &:hover,
     &:focus{

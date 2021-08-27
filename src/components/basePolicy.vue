@@ -4,7 +4,7 @@
       <h2 class="title py-2-2" v-html="policy.title.rendered"></h2>
       <div class="content" v-html="policy.content.rendered"></div>
       <!-- Navigation buttons -->
-      <a @click="$router.back()" class="navigation-link"><i class="fas fa-times-circle close"></i></a>
+      <a @click="closeTab()" class="navigation-link"><i class="fas fa-times-circle close"></i></a>
     </div>
   </div>
 </template>
@@ -24,6 +24,9 @@ export default {
     }
   },
   methods: {
+    closeTab: function () {
+      window.close();
+    },
     retrieveContent: function(slug){
       return this.content.find((element) => {
         return element.slug === slug;
@@ -44,7 +47,7 @@ export default {
       });
     },
   },
-  created(){
+  mounted () {
     this.retrieveData();
   }
 }
