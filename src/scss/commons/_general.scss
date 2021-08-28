@@ -1,9 +1,6 @@
 html {
   background-color: $darkcolor;
 }
-body{
-  min-width: 375px;
-}
 
 #app {
   font-family: $fontPrimary;
@@ -13,7 +10,6 @@ body{
   background-color: $lightcolor;
 
 }
-
 #main{
   min-height: 100vh;
   transition: padding 300ms;
