@@ -15,7 +15,7 @@ import vuetify from './plugins/vuetify'
 // Google Maps
 Vue.use(VueGoogleMaps, {
   load: {
-    key: 'AIzaSyD2OJw8sN-KSp5G9d4e_5kswxA8hAVmxSM',
+    key: '',
     libraries: 'places',
   }
 });
