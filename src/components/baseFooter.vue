@@ -13,15 +13,16 @@
         <ul class="contatti">
           <li>EMME QUATTRO SRL</li>
           <li>Rappresentanze vernici legno</li>
-          <li>Via Pantanelli 115/117</li>
+          <li>Via Pantanelli, 115/117</li>
           <li>61025 Montelabbate (PU)</li>
           <li><hr></li>
-          <li>Tel. 0721 498949 | Fax. 0721 498395</li>
+          <li>Tel. 0721 498 949</li>
+          <li>Fax. 0721 498 395</li>
           <li>P.IVA 01198290411</li>  
         </ul>
 
         <ul class="social">
-          <li><a class="facebook" href="https://www.facebook.com/EmmeQuattroSrl/" target="_blank"><i class="fab fa-facebook-square"></i></a></li>
+          <li><a class="facebook" href="https://www.facebook.com/EmmeQuattroSrl/" target="_blank"><i class="fab fa-facebook-square fa-3x"></i></a></li>
           <!-- <li><a class="linkedin" href="https://www.linkedin.com"><i class="fab fa-linkedin"></i></a></li> -->
           <!-- <li><a class="instagram" href="https://www.instagram.com"><i class="fab fa-instagram-square"></i></a></li> -->
         </ul>
@@ -126,16 +127,20 @@ export default {
       .contatti{
         flex-basis: calc(100% / 12 * 3);
         text-align: right;
-        & hr{
-          display: inline-block;
-          width: 80%;
-          max-width: 40vw;          
-          margin-top: 1rem;
-          margin-bottom: 1rem;
-          color: $lightcolor;
-          border-top: 1px;
-          border-left: 0;
-          border-right: 0;
+        letter-spacing: 1px;
+        hr{
+        display: inline-block;
+        width: 80%;
+        max-width: 40vw;          
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        color: $lightcolor;
+        border-top: 1px;
+        border-left: 0;
+        border-right: 0;
+        }
+        li{
+          line-height: 2rem;
         }
       }
       .social{
@@ -143,7 +148,6 @@ export default {
         display: flex;
         justify-content: center;
         i{
-          font-size: $xlarge;
           margin: 0 1rem;
           transition: color 300ms;
           &:hover{
@@ -155,6 +159,7 @@ export default {
       .menu{
         flex-basis: calc(100% / 12 * 4);
         text-transform: capitalize;
+        letter-spacing: 1px;
         li{
           height: 2rem;
           .footer-menu-links{
@@ -177,17 +182,15 @@ export default {
       color: $secondary;
       font-size: $small;
       .policy-link{
-        //border: 1px solid white;
         margin: 1rem 0;
         a{
           display: block;
           height: 1.5rem;
           border-bottom: 1px solid transparent;
-          div{
-            transition: letter-spacing 300ms;
-          }
-          div:hover{
-            letter-spacing: 1px;
+          letter-spacing: 1px;
+          transition: letter-spacing 300ms;
+          &:hover{
+            letter-spacing: 2px;
           }
         }
         .router-link-active{

@@ -1,30 +1,30 @@
 <template>
   <div class="contact-us pt-200">
-    <div class="container90">
+    <div class="container80">
       <section class="row form">
-        <div class="col-lg-5 col-md-6 col-sm-12 col-offset-lg-1">
+        <div class="col-lg-5 col-md-8 col-sm-12 col-offset-lg-1 col-offset-md-2 col-offset-sm-0 py-2-2">
           <h2 class="py-2-2">Contatti</h2>
           <div class="contatti" v-for="(contatto, index) in contatti" :key="contatto.slug">
             <input type="button" class="btn" :value="(copied === index)?'copiato!': contatto.title" @click="copyToClipboard(contatto.content, index)">
             <span>{{contatto.content}}</span>
           </div>
         </div>
-        <div class=" col-lg-5 col-md-6 col-sm-12 fornitori">
+        <div class=" col-lg-5 col-md-12 col-sm-12 fornitori py-2-2">
           <h2 class="py-2-2">I nostri fornitori</h2>
           <a href="https://www.bottosso-frighetto.it" target=”_blank”><img src="~@/assets/logo-BF.jpg" alt="logo Botosso e Frighetto"></a>
           <a href="https://www.chimen.it/" target=”_blank”><img src="~@/assets/logo-chimen.png" alt="logo CHIMEN"></a>
         </div>
       </section>
-      <section class="row form">
-        <div class="col-lg-10 col-md-12 col-sm-12 col-offset-lg-1">
-          <h2 class="py-2-1">Contattaci</h2>
-          <baseForm typology="message"/>
+      <section class="row form py-2-2">
+        <div class="col-lg-10 col-md-12 col-sm-12 col-offset-lg-1 col-offset-md-0 col-offset-sm-0">
+          <h2 class="py-2-2">Contattaci</h2>
+          <baseForm typology="message" />
         </div>
       </section>
 
-      <section class="row maps">
-        <div class="col-lg-10 col-md-12 col-sm-12 col-offset-lg-1">
-          <h2 class="py-2-1">Dove siamo</h2>
+      <section class="row maps py-2-2">
+        <div class="col-lg-10 col-md-12 col-sm-12 col-offset-lg-1 col-offset-md-0 col-offset-sm-0">
+          <h2 class="py-2-2">Dove siamo</h2>
           <GoogleMap/>
         </div>
       </section>
@@ -119,7 +119,6 @@ export default {
       }
     }
   }
-
   #maps{
     margin-bottom: 2rem;
   }
