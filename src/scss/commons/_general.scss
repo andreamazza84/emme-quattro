@@ -1,5 +1,7 @@
-html {
+html, body {
   background-color: $darkcolor;
+  overflow-x: hidden;
+  width: auto;
 }
 
 #app {
