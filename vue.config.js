@@ -20,5 +20,5 @@ module.exports = {
 
   outputDir: 'docs',
 
-  publicPath: process.env.NODE_ENV === 'production' ? '/emme-quattro' : '/emme-quattro/docs'
+  publicPath: process.env.NODE_ENV === 'production' ? '/' : '/docs'
 }
