@@ -3,6 +3,18 @@
     class="cookie"
     :class="$store.state.cookie ? 'visible' : 'hidden'"
   >
+    <v-btn
+      class="close"
+      outlined
+      fab
+      color="#fff"
+    >
+      <v-icon
+        @click="$store.dispatch('cookie')"
+      >
+        fas fa-times
+      </v-icon>
+    </v-btn>
     <div class="cookie-content">
       <div
         class="disclaimer"
@@ -69,6 +81,11 @@
           color: $lightcolor;
         }
       }
+    }
+    .close{
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
     }
     .disclaimer{
       line-height: 2rem;
