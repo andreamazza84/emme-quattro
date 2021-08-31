@@ -10,7 +10,7 @@ import vuetify from './plugins/vuetify'
 // Google Maps
 Vue.use(VueGoogleMaps, {
   load: {
-    key: '',
+    key: 'AIzaSyD2OJw8sN-KSp5G9d4e_5kswxA8hAVmxSM',
     libraries: 'places',
   }
 });
@@ -19,9 +19,9 @@ Vue.use(VueGoogleMaps, {
 Vue.use(VueAxios, axios);
 
 // *!* Cambiare in fase di deploy 
-//Vue.axios.defaults.baseURL = 'http://localhost:8880/wp-json';
-Vue.axios.defaults.baseURL = 'https://emmequattro.altervista.org/wordpress/wp-json';
-// Vue.axios.defaults.baseURL = 'https://www.m4srl.it/wordpress/wp-json';
+// Vue.axios.defaults.baseURL = 'http://localhost:8880/wp-json';
+// Vue.axios.defaults.baseURL = 'https://emmequattro.altervista.org/wordpress/wp-json';
+Vue.axios.defaults.baseURL = 'https://www.m4srl.it/office/wp-json';
 
 Vue.config.productionTip = false
 

@@ -54,6 +54,8 @@ export default {
 </script>
 <style lang="scss">
   .info{
+    padding-left: 2rem;
+    padding-right: 2rem;
     .content{
       text-align: justify;
       p{

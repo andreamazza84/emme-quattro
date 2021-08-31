@@ -46,6 +46,7 @@ export default {
       this.retrieveData('contatti');
       this.retrieveData('posts');
       this.retrieveData('pages');
+      this.$store.dispatch('getCookie', 'cookie-policy');
   },
 }
 </script>

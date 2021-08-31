@@ -16,6 +16,7 @@ export default new Vuex.Store({
     pages: null,
     scroll: null,
     cookie: false,
+    cookies: null,
   },
   mutations: {
     SET_USER(state, user) {
@@ -28,13 +29,13 @@ export default new Vuex.Store({
       state.register = register;
     },
     SET_PRODOTTI(state, prodotti){
-      state.prodotti = prodotti.reverse();
+      state.prodotti = prodotti;
     },
     SET_SERVIZI(state, servizi){
-      state.servizi = servizi.reverse();
+      state.servizi = servizi;
     },
     SET_SLIDER(state, carosello){
-      state.carosello = carosello.reverse();
+      state.carosello = carosello;
     },
     SET_PAGES(state, pages){
       state.pages = pages;
@@ -62,8 +63,11 @@ export default new Vuex.Store({
     SET_SCROLL(state, scroll){
       state.scroll = scroll;
     },
+    GET_COOKIE(state, cookie) {
+      state.cookie = cookie;
+    },
     SET_COOKIE(state) {
-      state.cookie = !state.cookie;
+      state.cookie = true;
     },
   },
   actions: {
@@ -138,6 +142,41 @@ export default new Vuex.Store({
     cookie({ commit }) {
       // console.log(this.state.cookie);
       return commit('SET_COOKIE');
-    }
+    },
+    getCookie({ commit }, cname) {
+      let name = cname + "=";
+      let ca = document.cookie.split(';');
+      for(let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) == ' ') {
+          c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+          const cookies = c.substring(name.length, c.length);
+          return commit('GET_COOKIE', cookies);
+        }
+      }
+      return "";
+    },
+    setCookie({ commit }, cname) {
+      const cvalue = true;
+      const exdays = 7;
+      const d = new Date();
+      d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+      let expires = "expires="+d.toUTCString();
+      document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+      return commit('SET_COOKIE');
+    },
+    checkCookie() {
+      let user = getCookie("username");
+      if (user != "") {
+        alert("Welcome again " + user);
+      } else {
+        user = prompt("Please enter your name:", "");
+        if (user != "" && user != null) {
+          setCookie("username", user, 365);
+        }
+      }
+    } 
   },
 })

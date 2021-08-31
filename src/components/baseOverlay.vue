@@ -1,7 +1,7 @@
 <template>
   <div
     class="cookie"
-    :class="$store.state.cookie ? 'visible' : 'hidden'"
+    :class="cookie ? 'hidden' : 'visible'"
   >
     <v-btn
       class="close"
@@ -10,7 +10,7 @@
       color="#fff"
     >
       <v-icon
-        @click="$store.dispatch('cookie')"
+        @click="$store.dispatch('setCookie', 'cookie-policy')"
       >
         fas fa-times
       </v-icon>
@@ -29,7 +29,7 @@
           outlined
           color="#fff"
           class="policy white--text mr-2"
-          @click="$router.push('cookie-policy'), $store.dispatch('cookie'), scrollToTop()"
+          @click="$router.push('/cookie-policy').catch(()=>{}), $store.dispatch('setCookie', 'cookie-policy'), scrollToTop()"
         >
           <span>Cookie Policy</span>
         </v-btn>
@@ -37,7 +37,7 @@
           elevation="2"
           rounded
           class="accept white--text"
-          @click="$store.dispatch('cookie')"
+          @click="$store.dispatch('cookie'), $store.dispatch('setCookie', 'cookie-policy')"
         >
           <span>Accetta tutti i cookie</span>
         </v-btn>
@@ -47,13 +47,19 @@
 </template>
 <script>
   export default {
+    computed: {
+      cookie: function () {
+        return this.$store.state.cookie;
+      } 
+    },
     mounted () {
-      setTimeout(2000, this.$store.dispatch('cookie'));
+      this.$store.dispatch('getCookie', 'cookie-policy');
     },
     methods: {
       scrollToTop: function(){
         window.scrollTo(0,0);
-      }
+      },
+      
     }
   }
 </script>

@@ -9,6 +9,11 @@ RewriteRule ^.*$ - [NC,L]
 RewriteRule ^(.*) /index.html [NC,L]
 
 # Redirect to HTTPS
- RewriteCond %{HTTPS} off
- RewriteCond %{HTTP:X-Forwarded-Proto} !https
- RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
+
+#RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+RewriteRule "^(.*)"              "https://www.m4srl.com/index.html" [R=301,L,QSA]
+RewriteRule "^(.*)\.ht$"         "index.php?nav=$1 [NC,L,QSA,CO=RewriteRule;01;https://www.m4srl.com;30/;SameSite=None;Secure]
+RewriteRule "^(.*)\.htm$"        "index.php?nav=$1 [NC,L,QSA,CO=RewriteRule;02;https://www.m4srl.com;30/;SameSite=None;Secure]
+RewriteRule "^(.*)\.html$"       "index.php?nav=$1 [NC,L,QSA,CO=RewriteRule;03;https://www.m4srl.com;30/;SameSite=None;Secure]
