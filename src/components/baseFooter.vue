@@ -1,6 +1,5 @@
 <template>
   <div id="footer">
-
     <section class="footer-top">
       <div class="container footer-container">
       

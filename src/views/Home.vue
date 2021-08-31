@@ -21,7 +21,6 @@
       </slide>
     </carousel>
 
-
     <div class="overlay row">
       <div class="col-lg-4 col-offset-lg-7 col-md-6 col-offset-md-5 col-sm-10 col-offset-sm-1 call-out shadow">
         <div class="search-for">
@@ -96,13 +95,14 @@
 </template>
 
 <script>
-import { Carousel, Slide} from 'vue-carousel';
-// import Vuetify from 'vuetify/lib';
+import { Carousel, Slide } from 'vue-carousel';
+import baseOverlay from '@/components/baseOverlay'
+
 export default {
   components: {
     Carousel,
     Slide,
-    // Vuetify
+    baseOverlay
   },
   data(){
     return {

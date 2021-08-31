@@ -1,20 +1,24 @@
 <template>
   <div id="app">
     <div id="header">
-      <baseNavbar/>
+      <baseNavbar />
     </div>
-    <router-view id="main"/>
-    <baseFooter/>
+    <router-view id="main" />
+    <baseFooter />
+    <baseOverlay />
   </div>
 </template>
 
 <script>
 import baseNavbar from '@/components/baseNavbar'
 import baseFooter from '@/components/baseFooter'
+import baseOverlay from '@/components/baseOverlay'
+
 export default {
   components:{
     baseNavbar,
     baseFooter,
+    baseOverlay
   },
   data(){
     return {
@@ -47,5 +51,6 @@ export default {
 </script>
 
 <style lang="scss">
+
   @import "~@/scss/app.scss";
 </style>

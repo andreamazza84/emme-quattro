@@ -15,6 +15,7 @@ export default new Vuex.Store({
     contatti: null,
     pages: null,
     scroll: null,
+    cookie: false,
   },
   mutations: {
     SET_USER(state, user) {
@@ -60,6 +61,9 @@ export default new Vuex.Store({
     },
     SET_SCROLL(state, scroll){
       state.scroll = scroll;
+    },
+    SET_COOKIE(state) {
+      state.cookie = !state.cookie;
     },
   },
   actions: {
@@ -131,7 +135,9 @@ export default new Vuex.Store({
         }
       });
     },
-
+    cookie({ commit }) {
+      // console.log(this.state.cookie);
+      return commit('SET_COOKIE');
+    }
   },
-  modules: {}
 })

@@ -1,15 +1,14 @@
-# BEGIN WordPress
-# Le direttive (linee) tra `BEGIN WordPress` e `END WordPress` sono
-# generate dinamicamente, e dovrebbero essere modificate solo tramite i filtri di WordPress.
-# Ogni modifica alle direttive tra questi marcatori verrÃ  sovrascritta.
-<IfModule mod_rewrite.c>
-RewriteEngine On
-RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
-RewriteBase /wordpress/
-RewriteRule ^index\.php$ - [L]
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . /wordpress/index.php [L]
-</IfModule>
+RewriteEngine on
+RewriteBase /
 
-# END WordPress
+#per il refresh della pagina su url interno
+RewriteCond %{REQUEST_FILENAME} -s [OR]
+RewriteCond %{REQUEST_FILENAME} -l [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^.*$ - [NC,L]
+RewriteRule ^(.*) /index.html [NC,L]
+
+# Redirect to HTTPS
+ RewriteCond %{HTTPS} off
+ RewriteCond %{HTTP:X-Forwarded-Proto} !https
+ RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]

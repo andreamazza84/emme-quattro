@@ -1,15 +1,10 @@
 import Vue from 'vue'
 import App from './App.vue'
-// Vue-Router
 import router from './router'
-// Vuex
 import store from '@/store'
-// Axios
 import axios from 'axios'
 import VueAxios from 'vue-axios'
-// Google Maps
 import * as VueGoogleMaps from 'vue2-google-maps'
-// Vuetify
 import vuetify from './plugins/vuetify'
 
 // Google Maps
